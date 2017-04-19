@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "540450712461",
+    "firebase_url": "https://sleepapp-d9df7.firebaseio.com",
+    "project_id": "sleepapp-d9df7",
+    "storage_bucket": "sleepapp-d9df7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540450712461:android:e75abf7dc07464fc",
+        "android_client_info": {
+          "package_name": "com.example.trent.sleepapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540450712461-u4prvkgkej54eggvgu96b0se8eqm558k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.trent.sleepapp",
+            "certificate_hash": "7ead105ab81516e7572bc2c6753823c5a7993dd0"
+          }
+        },
+        {
+          "client_id": "540450712461-mmnset1tqb6ec1jl4fvs2kekub4i834q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVDtWNqXoU3uWkvjQ66lt4B_SmHkq6644"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540450712461-mmnset1tqb6ec1jl4fvs2kekub4i834q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

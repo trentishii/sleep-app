@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical"
+>
+	<include layout="@layout/progessbar"
+		android:id="@+id/progbar"/>
+
+    <TextView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center"
+	android:layout_margin="20dip"
+	android:gravity="center"
+	android:textSize="20sp"
+	android:text="Psychomotor Vigilance Test" />
+
+	<View
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_gravity="center"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:background="@android:color/white" 
+	/>
+	<TextView
+	android:id="@+id/instructions"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center"
+	android:layout_margin="20dip"
+	android:gravity="center"
+	android:textSize="16sp"
+	android:text="@string/instructions" />
+<!--
+	<LinearLayout
+	android:id="@+id/name_entry_form"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:visibility="visible"
+	android:layout_margin="20dip"
+	android:orientation="vertical" >
+		<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:layout_margin="5dip"
+		android:textSize="9pt"
+		android:text="Please enter your name:" />
+		<EditText
+		android:id="@+id/name_field"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="5dip"
+		android:singleLine="true"
+		android:inputType="textCapWords"
+		android:text="" />
+		<Button
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="50dip"
+		android:layout_marginRight="50dip"
+		android:onClick="setName"
+		android:text="OK" />
+	</LinearLayout>
+-->
+	<RelativeLayout
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" >
+		<Button
+		android:id="@+id/ready_button"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="80dip"
+		android:layout_marginRight="80dip"
+		android:layout_marginBottom="40dip"
+		android:layout_alignParentBottom="true"
+		android:onClick="begin"
+		android:text="Begin" />	
+	</RelativeLayout>	
+</LinearLayout>

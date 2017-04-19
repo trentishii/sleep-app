@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+	<include layout="@layout/progessbar"
+		android:id="@+id/progbar"/>
+
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:layout_margin="20dip"
+		android:gravity="center"
+		android:textSize="20sp"
+		android:text="Psychomotor Vigilance Test" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:background="@android:color/white"
+        />
+	
+	<Button
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="5dip"
+        android:layout_marginTop="5dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+	    android:onClick="takeTest"
+	    android:layout_gravity="left"
+	    android:gravity="center"
+	    android:text="Start Test" />
+		
+                
+    <View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dip"
+	    android:layout_marginLeft="10dip"
+	    android:layout_marginRight="10dip"
+	    android:background="@android:color/white"
+	    />
+
+	<ScrollView
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:scrollbars="vertical" >
+
+		<TableLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:padding="20dip"
+		    android:shrinkColumns="1"
+		    android:stretchColumns="2" >
+
+
+		    <TableRow
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" 
+		        >
+		           
+		           <TextView
+		               android:layout_width="wrap_content"
+		               android:layout_height="wrap_content"
+		               android:layout_gravity="center_vertical"
+		               android:layout_marginRight="10dip"
+		               android:text="Test tag:"
+		               />
+		
+		           <EditText
+		               android:id="@+id/testTagInput"
+		               android:layout_width="0dp"
+		               android:layout_height="wrap_content"
+		               android:layout_gravity="left|center_vertical"
+		               android:inputType="text"
+		               android:layout_weight="1"
+		               />
+		
+		    </TableRow>
+		    
+		    <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:baselineAligned="true" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="Participant #:" 
+                    />
+
+                <EditText
+                      android:id="@+id/subjectIdInput"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="left|center_vertical"
+                      android:width="150sp"
+                      android:inputType="number"
+                      />
+            </TableRow>
+		    		    
+		    
+		    
+		    <TableRow
+		        android:layout_width="wrap_content"
+		        android:layout_height="fill_parent"
+		        android:baselineAligned="true" >
+
+		        <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="center_vertical"
+		            android:layout_marginRight="10dip"
+		            android:text="Test duration:" 
+		            
+		            />
+
+              <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+  
+                  <EditText
+                        android:id="@+id/durationInput"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:layout_gravity="left|center_vertical"
+                        android:width="45sp"
+                        />
+
+    		        <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4sp"
+		            android:text="minutes"
+                    />
+                </LinearLayout>
+		    </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:baselineAligned="true" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="Foreperiod:"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                
+                <EditText
+                        android:id="@+id/minForeperiodInput"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number" 
+                        android:width="45sp"
+                        />
+                    
+
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="4sp"
+                    android:layout_marginLeft="4sp"
+                    android:text="to"
+                    />
+
+                    <EditText
+                        android:id="@+id/maxForeperiodInput"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:inputType="number"
+                        android:width="45sp"
+                        />
+
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4sp"
+                    android:text="seconds"
+                    />
+	            </LinearLayout>
+                
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:baselineAligned="true" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="Reminder at:" 
+                    
+                    />
+
+              <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+  
+                  <EditText
+                        android:id="@+id/reminderInput"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:layout_gravity="left|center_vertical"
+                        android:width="65sp"
+                        />
+
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4sp"
+                    android:text="seconds"
+                    />
+                </LinearLayout>
+            </TableRow>
+            
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:baselineAligned="true" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="Deadline:" 
+                    
+                    />
+
+              <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+  
+                  <EditText
+                        android:id="@+id/deadlineInput"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:layout_gravity="left|center_vertical"
+                        android:width="65sp"
+                        />
+
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4sp"
+                    android:text="seconds"
+                    />
+                </LinearLayout>
+            </TableRow>
+            
+            
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dip"
+                    android:text="RT feedback:"
+                    />
+
+                <ToggleButton
+                    android:id="@+id/feedbackInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:layout_gravity="left|center_vertical"
+                    />
+            
+            </TableRow>
+            <TableRow
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content" >
+
+                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_gravity="center_vertical"
+	                    android:layout_marginRight="10dip"
+	                    android:text="Input type:"
+	                    />
+	
+	            <Spinner
+	                android:id="@+id/inputTechniqueInput"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content" 
+	                />
+
+		    </TableRow>
+		</TableLayout>
+
+	</ScrollView>
+
+</LinearLayout>

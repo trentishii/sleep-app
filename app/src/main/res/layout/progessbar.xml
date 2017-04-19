@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:max="7"
+        android:progress="0"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:minHeight="20dip"
+        android:maxHeight="20dip"
+        android:id="@+id/progressBar" />
+
+    <TextView
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_alignLeft="@id/progressBar"
+        android:layout_alignRight="@id/progressBar"
+        android:layout_alignTop="@id/progressBar"
+        android:layout_alignBottom="@id/progressBar"
+        android:text="You have completed 0 of 7 tasks"
+        android:id="@+id/tvProgress"/>
+
+</RelativeLayout>

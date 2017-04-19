@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<pvtconfig name="Debug Study" >
+    <test type="spot" enabled="true" >
+        <testparams>
+            <param name="test_duration" value="180000" />               <!-- duration of the test (3 min = 180000ms) -->
+            <param name="min_delay" value="1000" />                     <!-- minimum foreperiod duration (1000ms in [Basner, M., & Rubinstein, J. (2011)]) -->
+            <param name="max_delay" value="4000" />                    <!-- maximum foreperiod duration (4000ms in [Basner, M., & Rubinstein, J. (2011)]) -->
+<!--             <param name="test_duration" value="180000" />               duration of the test (3 min = 180000ms in [Basner & Rubinstein 2011]) -->
+<!--             <param name="min_delay" value="1000" />                     minimum foreperiod duration (1000ms in [Basner & Rubinstein 2011]) -->
+<!--             <param name="max_delay" value="4000" />                     maximum foreperiod duration (4000ms in [Basner & Rubinstein 2011]) -->
+            <param name="restart_delay" value="1000" />                 <!-- restart delay: time after a response that feedback is shown until next foreperiod (1sec in [Loh et al. 2004]) -->
+            <param name="countdown_delay" value="2000" />               <!-- brief delay before the countdown to the beginning of the test starts -->
+            <param name="minor_lapse_delay" value="500" />              <!-- RT > than this is classified as a minor lapse [Loh et al. 2004]-->
+            <param name="reminder_delay" value="9999000" />            <!-- after this timeout, activates a reminder (visual and/or auditory) and classifies RT as "reminder" -->
+            <param name="deadline" value="9999000" />                  <!-- after this timeout, goes to next stimulus and classifies RT as "deadline") -->
+            <param name="visible_response_time_enabled" value="false" /><!-- should the user's response time (e.g. "250ms") be displayed after each trial? -->
+            <param name="trial_counter_enabled" value="false" />        <!-- should the current trial number (e.g. "Trial 9") be displayed? -->
+            <param name="count_up_timer_enabled" value="false" />       <!-- should the user's RT be displayed counting as the stimulus waits for a response? -->
+            
+            <!-- Touchscreen-based responses. Enabling more than one of these simultaneously has
+                 undefined behaviour (in most cases it will just cause only one to be active). -->
+                 
+
+            <!-- 1. respond on touch down -->
+            <param name="touch_down_enabled" value="true" />       
+
+            <!-- 2. respond on finger lift -->
+<!--             <param name="touch_up_enabled" value="true" />          -->
+
+            <!-- 3. respond when the size of the touch area passes a threshold (finger tilt) -->
+<!--             <param name="pressure_sensor_enabled" value="true" />   -->
+
+            <!-- 4. respond when the finger crosses a goal line (goal crossing) -->
+<!--             <param name="goal_crossing_enabled" value="true" />     -->
+
+            <!-- 5. Physical button response (volume, menu key, etc). This can be enabled simultaneously with any of the above. -->
+<!--             <param name="physical_button_enabled" value="true" /> -->
+
+        </testparams>
+    </test>
+</pvtconfig>

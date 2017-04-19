@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:id="@+id/container">
+
+    <TextView
+        android:id="@+id/pam_instructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select the photo that best captures how you feel right now:"
+        android:padding="30dip"/>
+
+    <include
+        android:id="@+id/rlProg"
+        layout="@layout/progessbar"/>
+
+    <GridView
+        android:id="@+id/pam_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:listSelector="@null"
+        android:numColumns="4" >
+    </GridView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true" >
+
+
+        <Button
+            android:id="@+id/reload_images"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Reload Images" />
+    </LinearLayout>
+
+    <!-- This initially-hidden ImageView will hold the expanded/zoomed version of
+         the images above. Without transformations applied, it takes up the entire
+         screen. To achieve the "zoom" animation, this view's bounds are animated
+         from the bounds of the thumbnail button above, to its final laid-out
+         bounds.
+         -->
+    <ImageView
+        android:id="@+id/expanded_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:padding="50dip"
+        android:background="#CC000000"/>
+</RelativeLayout>
