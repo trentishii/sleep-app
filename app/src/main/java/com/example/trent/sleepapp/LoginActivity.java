@@ -24,6 +24,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mStatusTextView;
     private TextView mDetailTextView;
@@ -195,7 +198,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // [END create_user_with_email]
     }
 
-    private void signIn(String email, String password) {
+    private void signIn(final String email, String password) {
         Log.d(TAG, "signIn:" + email);
         if (!validateForm()) {
             return;
@@ -223,6 +226,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (!task.isSuccessful()) {
                             mStatusTextView.setText(R.string.auth_failed);
                         } else {
+                            SharedPreferences.Editor editor = sharedPrefs.edit();
+                            editor.putString("email", email.trim());
+                            Set<String> journals = new HashSet<String>();
+                            journals.add("Tobacco");
+                            journals.add("Coffee");
+                            journals.add("Food");
+                            journals.add("Exercise");
+                            journals.add("Alcohol");
+                            journals.add("Medicine");
+                            editor.putStringSet("journals", journals);
+                            editor.commit();
                             Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);
                             LoginActivity.this.startActivity(registerIntent);
                         }

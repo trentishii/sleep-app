@@ -1,9 +1,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.vinisha.mysleepquality.MainActivity" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    tools:context=".UserActivity">
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/action_journal"
+        android:icon="@drawable/ic_action_book"
+        android:title="sleep journal"
+        android:orderInCategory="200"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="settings"
+        android:orderInCategory="300"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_action_home"
+        android:title="home"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom"/>
 </menu>

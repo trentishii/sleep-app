@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_user"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.trent.sleepapp.UserActivity">
 
-    <Button
-        android:text="Take Tests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:id="@+id/bTests"
-        android:layout_alignRight="@+id/bSleep"
-        android:layout_alignEnd="@+id/bSleep"
-        android:layout_alignLeft="@+id/bSleep"
-        android:layout_alignStart="@+id/bSleep" />
+    <!--<include-->
+        <!--android:id="@+id/toolbar"-->
+        <!--layout="@layout/toolbar"></include>-->
 
-    <Button
-        android:text="Sleep Journal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:id="@+id/bSleep"
-        android:layout_below="@+id/bTests"
-        android:layout_centerHorizontal="true" />
+    <!--<Button-->
+        <!--android:text="Sleep Journal"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/bSleep"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="60dp"/>-->
 
-    <Button
-        android:text="Alarm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:id="@+id/bAlarm"
-        android:layout_below="@+id/bSleep"
-        android:layout_alignRight="@+id/bSleep"
-        android:layout_alignEnd="@+id/bSleep"
-        android:layout_alignLeft="@+id/bSleep"
-        android:layout_alignStart="@+id/bSleep" />
+    <!--<Button-->
+        <!--android:text="Take Tests"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/bTests"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_below="@+id/bSleep"/>-->
+
+    <!--<Button-->
+        <!--android:text="Alarm"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/bAlarm"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_below="@+id/bTests"/>-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </FrameLayout>
+
 </RelativeLayout>
