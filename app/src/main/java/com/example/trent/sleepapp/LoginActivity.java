@@ -66,6 +66,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    Toast.makeText(LoginActivity.this, "User Signed In", Toast.LENGTH_LONG).show();
+                    Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);
+                    LoginActivity.this.startActivity(registerIntent);
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");

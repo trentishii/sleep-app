@@ -1,15 +1,24 @@
 package com.example.trent.sleepapp;
 
+import android.app.ActionBar;
+import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 import static com.example.trent.sleepapp.LoginActivity.PREFNAME;
@@ -32,12 +41,12 @@ public class JournalFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    SharedPreferences sharedPrefs;
     private Set<String> journals;
     private GridView gridview;
-
     private OnFragmentInteractionListener mListener;
-
+    private SharedPreferences sharedPrefs;
+    public static final String PREFNAME = "userPrefs";
+    private Context cont;
     public JournalFragment() {
         // Required empty public constructor
     }
@@ -67,8 +76,9 @@ public class JournalFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
+        sharedPrefs = JournalFragment.this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
         journals = sharedPrefs.getStringSet("journals", null);
+        cont = this.getActivity();
     }
 
     @Override
@@ -76,7 +86,140 @@ public class JournalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_journal, container, false);
-        gridview = (GridView) v.findViewById(R.id.journal_grid);
+
+        LinearLayout linear1 = (LinearLayout) v.findViewById(R.id.linear1);
+        LinearLayout linear2 = (LinearLayout) v.findViewById(R.id.linear2);
+        LinearLayout linear3 = (LinearLayout) v.findViewById(R.id.linear3);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        int count = 0;
+        sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
+        for (String act : journals) {
+            Log.d("JournalFragment", act + " " + count);
+            if (act.equals("Tobacco")) {
+                ImageButton ib = new ImageButton(this.getActivity());
+                ib.setImageResource(R.drawable.tobacco);
+                ib.setLayoutParams(params);
+                if (count == 0 || count == 1) {
+                    linear1.addView(ib);
+                } else if (count == 2 || count == 3) {
+                    linear2.addView(ib);
+                } else if (count == 4 || count == 5) {
+                    linear3.addView(ib);
+                }
+                ib.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("JournalFragment", "tobacco Clicked");
+                        JournalFragment.this.setPreferences(sharedPrefs, 0);
+                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        startActivity(intent);
+                    }
+
+
+                });
+            }
+            if (act.equals("Medicine")) {
+                ImageButton ib = new ImageButton(this.getActivity());
+                ib.setImageResource(R.drawable.pill);
+                ib.setLayoutParams(params);
+                if (count == 0 || count == 1) {
+                    linear1.addView(ib);
+                } else if (count == 2 || count == 3) {
+                    linear2.addView(ib);
+                } else if (count == 4 || count == 5) {
+                    linear3.addView(ib);
+                }                ib.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("JournalFragment", "pill Clicked");
+                        setPreferences(sharedPrefs, 5);
+                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+            if (act.equals("Food")) {
+                ImageButton ib = new ImageButton(this.getActivity());
+                ib.setImageResource(R.drawable.meal);
+                ib.setLayoutParams(params);
+                if (count == 0 || count == 1) {
+                    linear1.addView(ib);
+                } else if (count == 2 || count == 3) {
+                    linear2.addView(ib);
+                } else if (count == 4 || count == 5) {
+                    linear3.addView(ib);
+                }                ib.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("JournalFragment", "meal Clicked");
+                        setPreferences(sharedPrefs, 3);
+                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+            if (act.equals("Alcohol")) {
+                ImageButton ib = new ImageButton(this.getActivity());
+                ib.setImageResource(R.drawable.alcohol);
+                ib.setLayoutParams(params);
+                if (count == 0 || count == 1) {
+                    linear1.addView(ib);
+                } else if (count == 2 || count == 3) {
+                    linear2.addView(ib);
+                } else if (count == 4 || count == 5) {
+                    linear3.addView(ib);
+                }                ib.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("JournalFragment", "alcohol Clicked");
+                        setPreferences(sharedPrefs, 4);
+                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+            if (act.equals("Exercise")) {
+                ImageButton ib = new ImageButton(this.getActivity());
+                ib.setImageResource(R.drawable.exercise);
+                ib.setLayoutParams(params);
+                if (count == 0 || count == 1) {
+                    linear1.addView(ib);
+                } else if (count == 2 || count == 3) {
+                    linear2.addView(ib);
+                } else if (count == 4 || count == 5) {
+                    linear3.addView(ib);
+                }                ib.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("JournalFragment", "exercise Clicked");
+                        setPreferences(sharedPrefs, 2);
+                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+            if (act.equals("Coffee")) {
+                ImageButton ib = new ImageButton(this.getActivity());
+                ib.setImageResource(R.drawable.coffee);
+                ib.setLayoutParams(params);
+                if (count == 0 || count == 1) {
+                    linear1.addView(ib);
+                } else if (count == 2 || count == 3) {
+                    linear2.addView(ib);
+                } else if (count == 4 || count == 5) {
+                    linear3.addView(ib);
+                }                ib.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("JournalFragment", "coffee Clicked");
+                        setPreferences(sharedPrefs, 1);
+                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+            count++;
+        }
         return v;
     }
 
@@ -96,6 +239,12 @@ public class JournalFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    public void setPreferences(SharedPreferences sp, int value) {
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("EventType", value);
+        editor.commit();
     }
 
     @Override

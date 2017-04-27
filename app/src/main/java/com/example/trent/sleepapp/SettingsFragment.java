@@ -138,7 +138,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                     journals.remove("Alcohol");
                 }
                 if (alcohol.isChecked() && !journals.contains("Alcohol")) {
-                    journals.remove("Alcohol");
+                    journals.add("Alcohol");
                 }
 
 

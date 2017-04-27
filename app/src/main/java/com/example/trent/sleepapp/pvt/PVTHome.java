@@ -29,6 +29,15 @@ import com.example.trent.sleepapp.R;
  *
  * @author Jonathan Schooler
  */
+
+// Test tag: test
+// Participant #: 1
+// Test duration: 1 minute
+// Foreperiod 1 to 2 seconds
+// reminder at 9999 sec
+// deadline 9999 sec
+// rt feedback: off
+// input type: touch down
 public class PVTHome extends Activity {
   public final String TAG = getClass().getSimpleName();
 
@@ -140,6 +149,15 @@ public class PVTHome extends Activity {
 		    }
 			}
 		});
+	  try {
+		  configGetter.saveConfigFile();
+	  } catch (IOException e) {
+		  e.printStackTrace();
+	  }
+
+	  //start test
+	  Intent i = new Intent(this, PVT.class);
+	  startActivity(i);
   }
 
   private void setupNumericInput(final EditText input, PVTIntParam param, int multiplier) {
