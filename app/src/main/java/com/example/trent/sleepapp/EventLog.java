@@ -53,7 +53,7 @@ public class EventLog extends AppCompatActivity {
                 Date d = c.getTime();
                 String[] dateString = d.toString().split(" ");
                 int year = c.get(Calendar.YEAR);
-                int month = c.get(Calendar.MONTH);
+                int month = c.get(Calendar.MONTH) + 1;
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 JournalEvent jv = new JournalEvent(EVENT_NAMES[eventIndex], hour, min);

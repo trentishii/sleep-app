@@ -10,6 +10,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.icu.util.Calendar;
+import android.icu.util.TimeZone;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,9 +32,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.trent.sleepapp.database.FileManipulation;
 import com.example.trent.sleepapp.pvt.PVTHome;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Random;
 
 //import org.openmhealth.utils.reminders.ReminderListActivity;
@@ -187,8 +192,18 @@ public class PAMActivity extends AppCompatActivity {
     private void onSubmit() {
         try {
             int idx = Integer.valueOf(pam_photo_id.split("_")[0]);
-            FileManipulation.createDateFolder(this);
-            FileManipulation.pamJSON(this, idx);
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("PAM");
+            TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
+            Calendar c = Calendar.getInstance(tz);
+            Date d = c.getTime();
+            String[] dateString = d.toString().split(" ");
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH) + 1;
+            int date = c.get(Calendar.DATE);
+            String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
+            PAMEvent pamE = new PAMEvent(idx);
+            myRef.child(currentDate).setValue(pamE);
 
 //            PamSchema pamSchema = new PamSchema(idx, dt);
 //

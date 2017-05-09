@@ -26,7 +26,8 @@
             android:id="@+id/seekBar2"
             android:layout_below="@+id/textView8"
             android:layout_alignLeft="@+id/seekBar3"
-            android:layout_alignStart="@+id/seekBar3" />
+            android:layout_alignStart="@+id/seekBar3"
+            android:max="10"/>
 
         <TextView
             android:text="Easier than usual"
@@ -46,7 +47,8 @@
             android:layout_below="@+id/textView9"
             android:layout_marginTop="19dp"
             android:layout_alignLeft="@+id/textView23"
-            android:layout_alignStart="@+id/textView23" />
+            android:layout_alignStart="@+id/textView23"
+            android:max="10"/>
 
         <TextView
             android:text="More sleepy than usual"
@@ -95,7 +97,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignLeft="@+id/seekBar3"
-            android:layout_alignStart="@+id/seekBar3" />
+            android:layout_alignStart="@+id/seekBar3"
+            android:max="10"/>
 
         <TextView
             android:text="I feel less sleepy than usual"
@@ -126,7 +129,8 @@
             android:layout_alignEnd="@+id/textView13"
             android:layout_marginTop="21dp"
             android:layout_alignLeft="@+id/seekBar5"
-            android:layout_alignStart="@+id/seekBar5" />
+            android:layout_alignStart="@+id/seekBar5"
+            android:max="10"/>
 
         <TextView
             android:text="More restless than usual"
@@ -156,7 +160,8 @@
             style="@style/Widget.AppCompat.SeekBar"
             android:max="10"
             android:layout_alignLeft="@+id/seekBar"
-            android:layout_alignStart="@+id/seekBar" />
+            android:layout_alignStart="@+id/seekBar"
+            />
 
         <TextView
             android:text="How would you describe the quality of your sleep compared to normal sleep? "
