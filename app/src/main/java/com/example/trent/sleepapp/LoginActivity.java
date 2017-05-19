@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     Toast.makeText(LoginActivity.this, "User Signed In", Toast.LENGTH_LONG).show();
+                    Log.d(TAG, "TOKEN: " + FirebaseInstanceId.getInstance().getToken());
                     Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);
                     LoginActivity.this.startActivity(registerIntent);
                 } else {

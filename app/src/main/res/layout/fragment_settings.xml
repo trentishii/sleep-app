@@ -5,6 +5,11 @@
     tools:context="com.example.trent.sleepapp.SettingsFragment"
     >
 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,12 +78,11 @@
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
             android:id="@+id/tvWake" />
 
-        <EditText
+        <TimePicker
+            android:id="@+id/timePicker1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="time"
-            android:ems="10"
-            android:id="@+id/etWake" />
+            android:timePickerMode="spinner"/>
 
         <TextView
             android:text="Sleep Time"
@@ -87,12 +91,11 @@
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
             android:id="@+id/tvSleep" />
 
-        <EditText
+        <TimePicker
+            android:id="@+id/timePicker2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="time"
-            android:ems="10"
-            android:id="@+id/etSleep" />
+            android:timePickerMode="spinner"/>
 
         <Button
             android:layout_height="wrap_content"
@@ -103,7 +106,7 @@
 
     </LinearLayout>
 
-
+    </ScrollView>
 
 
 </FrameLayout>

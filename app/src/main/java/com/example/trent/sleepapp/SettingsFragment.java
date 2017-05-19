@@ -1,9 +1,13 @@
 package com.example.trent.sleepapp;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,8 +15,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.sql.Time;
+import java.util.Calendar;
 import java.util.Set;
 
 import static com.example.trent.sleepapp.LoginActivity.PREFNAME;
@@ -42,6 +54,13 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     private CheckBox medicine;
     private CheckBox coffee;
     private Set<String> journals;
+    private TimePicker wakeup;
+    private TimePicker sleep;
+    private FirebaseUser user;
+
+    AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+    private PendingIntent pendingLight;
 
     private OnFragmentInteractionListener mListener;
     SharedPreferences sharedPrefs;
@@ -77,6 +96,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         }
         sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
         journals = sharedPrefs.getStringSet("journals", null);
+        user = FirebaseAuth.getInstance().getCurrentUser();
         Log.d("Settings", journals.toString());
     }
 
@@ -96,6 +116,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         food = (CheckBox) v.findViewById(R.id.cbFood);
         medicine = (CheckBox) v.findViewById(R.id.cbMedicine);
         coffee = (CheckBox) v.findViewById(R.id.cbCoffee);
+        wakeup = (TimePicker) v.findViewById(R.id.timePicker1);
+        sleep = (TimePicker) v.findViewById(R.id.timePicker2);
         for (String type: journals) {
             if (type.equals("Tobacco")) {
                 Log.d("Settings", "Here");
@@ -119,6 +141,60 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.bSettings:
+                // Store Time Settings
+                String name = user.getEmail();
+                int wakeHour = wakeup.getHour();
+                int wakeMin = wakeup.getMinute();
+                int sleepHour = sleep.getHour();
+                int sleepMin = sleep.getMinute();
+                UserSchedule entry = new UserSchedule(wakeHour, wakeMin, sleepHour, sleepMin);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Setttings");
+                String[] newName = name.split("@");
+                myRef.child(newName[0]).setValue(entry);
+
+                // Calculate dates
+                Calendar calNow = Calendar.getInstance();
+                Calendar calSet = (Calendar) calNow.clone();
+
+                calSet.set(Calendar.HOUR_OF_DAY, sleepHour);
+                calSet.set(Calendar.MINUTE, sleepMin);
+                calSet.set(Calendar.SECOND, 0);
+                calSet.set(Calendar.MILLISECOND, 0);
+                if(calSet.compareTo(calNow) <= 0){
+                    //Today Set time passed, count to tomorrow
+                    calSet.add(Calendar.DATE, 1);
+                }
+
+                Calendar calStop = (Calendar) calNow.clone();
+                calStop.set(Calendar.HOUR_OF_DAY, sleepHour);
+                calStop.set(Calendar.MINUTE, sleepMin);
+                calStop.set(Calendar.SECOND, 0);
+                calStop.set(Calendar.MILLISECOND, 0);
+                if(calStop.compareTo(calNow) <= 0){
+                    //Today Set time passed, count to tomorrow
+                    calStop.add(Calendar.DATE, 1);
+                }
+
+                Log.d("TEST", "" + SystemClock.elapsedRealtime());
+                Log.d("Calendar Date", "" + calSet.getTimeInMillis());
+                // Start data logging services
+                alarmManager = (AlarmManager) getActivity().getSystemService(getActivity().ALARM_SERVICE);
+                Intent intent = new Intent(getActivity().getApplicationContext(), AccLogService.class);
+                pendingIntent = PendingIntent.getService(getActivity().getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                Intent lightInt = new Intent(getActivity().getApplicationContext(), LightLogService.class);
+                pendingLight = PendingIntent.getService(getActivity().getApplicationContext(), 0, lightInt, PendingIntent.FLAG_UPDATE_CURRENT);
+                //
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), AlarmManager.INTERVAL_HALF_HOUR, pendingIntent);
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), AlarmManager.INTERVAL_HALF_HOUR, pendingLight);
+
+                Intent cancellationIntent = new Intent(getActivity().getApplicationContext(), CancelAlarmService.class);
+                cancellationIntent.putExtra("key", pendingIntent);
+                cancellationIntent.putExtra("light", pendingLight);
+                PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getActivity().getApplicationContext(), 0, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calStop.getTimeInMillis(), cancellationPendingIntent);
+
+
                 if (!tobacco.isChecked() && journals.contains("Tobacco")) {
                     journals.remove("Tobacco");
                 }
