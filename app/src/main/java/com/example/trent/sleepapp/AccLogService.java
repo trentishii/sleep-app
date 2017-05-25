@@ -95,7 +95,7 @@ public class AccLogService extends Service implements SensorEventListener{
     private final int HR_SAMPLING_INTERVAL = 1000*30*9;
     private final int HR_SAMPLING_DURATION = 1000*30;
     //private final int ACC_SAMPLING_INTERVAL = 10000; //Default 100Hz
-    private final int ACC_SAMPLING_INTERVAL = 20000; //50Hz
+    private final int ACC_SAMPLING_INTERVAL = 1000000; //1 Hz
     private final int OTHER_SAMPLING_INTERVAL = 10000; //Default 100Hz
     //private final int OTHER_SAMPLING_INTERVAL = 20000; //50Hz
 
@@ -406,7 +406,7 @@ public class AccLogService extends Service implements SensorEventListener{
                     Log.e(TAG, ""+e.getMessage());
                 }
             }
-            stopSelf();
+            //stopSelf();
             //if(count_0%2000 == 0) tg.startTone(ToneGenerator.TONE_PROP_BEEP);
         }
 

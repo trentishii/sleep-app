@@ -14,11 +14,8 @@ import android.util.Log;
 public class CancelAlarmService extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        PendingIntent pendingIntent = intent.getParcelableExtra("key");
-        PendingIntent other = intent.getParcelableExtra("light");
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        am.cancel(pendingIntent);
-        am.cancel(other);
+        Log.d("Service Cancel", "Alarm Cancelled");
+        context.stopService(new Intent(context, AccLogService.class));
         Log.d("Service Cancel", "Alarm manager services cancelled");
     }
 }
