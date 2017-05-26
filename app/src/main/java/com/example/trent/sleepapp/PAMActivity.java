@@ -230,7 +230,7 @@ public class PAMActivity extends AppCompatActivity {
 //            datapoint.save();
 //
             Toast.makeText(PAMActivity.this, "Submitted. IDX: " + idx, Toast.LENGTH_LONG).show();
-            Intent timeSubmitted = new Intent(PAMActivity.this, LeedsActivity.class);
+            Intent timeSubmitted = new Intent(PAMActivity.this, PVTHome.class);
             PAMActivity.this.startActivity(timeSubmitted);
 //            // clear selection
 //            pam_photo_id = null;

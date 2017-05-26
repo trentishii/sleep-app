@@ -39,7 +39,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EventLog" />
         <activity android:name=".AlarmActivity" />
-
+        <receiver android:name=".CancelAlarmService"/>
         <service android:name=".AlarmReceiver" />
         <service android:name=".AccLogService" />
         <service android:name=".LightLogService" />

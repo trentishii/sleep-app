@@ -186,14 +186,20 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 Intent lightInt = new Intent(getActivity().getApplicationContext(), LightLogService.class);
                 pendingLight = PendingIntent.getService(getActivity().getApplicationContext(), 0, lightInt, PendingIntent.FLAG_UPDATE_CURRENT);
                 //
-                alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pendingIntent);
+
+                //alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pendingLight);
                 //alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), AlarmManager.INTERVAL_HALF_HOUR, pendingLight);
 
                 Intent cancellationIntent = new Intent(getActivity().getApplicationContext(), CancelAlarmService.class);
-                cancellationIntent.putExtra("key", pendingIntent);
-                //cancellationIntent.putExtra("light", pendingLight);
+                //cancellationIntent.putExtra("key", pendingIntent);
+                cancellationIntent.putExtra("light", pendingLight);
                 cancellationPendingIntent = PendingIntent.getBroadcast(getActivity().getApplicationContext(), 0, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000 * 10, cancellationPendingIntent);
+                alarmManager.cancel(pendingIntent);
+                alarmManager.cancel(pendingLight);
+                alarmManager.cancel(cancellationPendingIntent);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), pendingIntent);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), pendingLight);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calStop.getTimeInMillis(), cancellationPendingIntent);
 
 
                 if (!tobacco.isChecked() && journals.contains("Tobacco")) {

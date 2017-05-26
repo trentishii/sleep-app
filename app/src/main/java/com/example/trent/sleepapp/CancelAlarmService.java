@@ -16,6 +16,7 @@ public class CancelAlarmService extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d("Service Cancel", "Alarm Cancelled");
         context.stopService(new Intent(context, AccLogService.class));
+        context.stopService(new Intent(context, LightLogService.class));
         Log.d("Service Cancel", "Alarm manager services cancelled");
     }
 }
