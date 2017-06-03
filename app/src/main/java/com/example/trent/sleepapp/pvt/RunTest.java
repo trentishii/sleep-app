@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.trent.sleepapp.PAMActivity;
 import com.example.trent.sleepapp.R;
+import com.example.trent.sleepapp.UserActivity;
 import com.example.trent.sleepapp.pvt.PVTConfig;
 import com.example.trent.sleepapp.pvt.PVTConfig.PVTConfigTest;
 import com.example.trent.sleepapp.pvt.PVTConfigGetter;
@@ -464,8 +465,6 @@ public class RunTest extends Activity implements Observer {
 				i.putExtra(TEST, (Serializable) test);
 				setResult(RESULT_OK, i);
 				finish();
-				Intent timeSubmitted = new Intent(RunTest.this, PAMActivity.class);
-				RunTest.this.startActivity(timeSubmitted);
 				break;
 			case CANCEL:
 			case DONE:

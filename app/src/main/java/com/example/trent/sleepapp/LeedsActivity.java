@@ -40,11 +40,11 @@ public class LeedsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leeds);
-        pbView = (RelativeLayout) findViewById(R.id.leedsProg);
-        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
-        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
-        pb.setProgress(2);
-        pbText.setText("You have completed 2 of 7 tests");
+//        pbView = (RelativeLayout) findViewById(R.id.leedsProg);
+//        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
+//        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
+//        pb.setProgress(2);
+//        pbText.setText("You have completed 2 of 7 tests");
         sb1 = (SeekBar) findViewById(R.id.seekBar2);
         sb2 = (SeekBar) findViewById(R.id.seekBar3);
         sb3 = (SeekBar) findViewById(R.id.seekBar5);
@@ -72,7 +72,7 @@ public class LeedsActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 LeedsEvent event = new LeedsEvent(sb1.getProgress(), sb2.getProgress(), sb3.getProgress(), sb4.getProgress(), sb5.getProgress(), sb6.getProgress(), sb7.getProgress(), sb8.getProgress(), sb9.getProgress(), sb10.getProgress());
                 myRef.child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), SSSActivity.class);
+                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(intent);
             }
         });

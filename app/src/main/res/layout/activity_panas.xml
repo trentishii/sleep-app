@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.trent.sleepapp.PanasActivity">
 
-    <include layout="@layout/progessbar"
-        android:id="@+id/panasProg"/>
+    <!--<include layout="@layout/progessbar"-->
+        <!--android:id="@+id/panasProg"/>-->
 
 </RelativeLayout>

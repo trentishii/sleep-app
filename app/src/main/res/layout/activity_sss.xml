@@ -80,9 +80,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <include layout="@layout/progessbar"
-        android:id="@+id/sssProg"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <!--<include layout="@layout/progessbar"-->
+        <!--android:id="@+id/sssProg"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
 </RelativeLayout>

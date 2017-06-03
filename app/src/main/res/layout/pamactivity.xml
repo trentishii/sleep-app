@@ -11,9 +11,9 @@
         android:text="Select the photo that best captures how you feel right now:"
         android:padding="30dip"/>
 
-    <include
-        android:id="@+id/rlProg"
-        layout="@layout/progessbar"/>
+    <!--<include-->
+        <!--android:id="@+id/rlProg"-->
+        <!--layout="@layout/progessbar"/>-->
 
     <GridView
         android:id="@+id/pam_grid"

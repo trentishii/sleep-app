@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,8 +69,20 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.bTests:
+                Log.e("Start", "View Clicked");
                 Intent intent = new Intent(getActivity(), PAMActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.bLEEDS:
+                Log.e("Start", "Leeds Clicked");
+                Intent intent1 = new Intent(getActivity(), LeedsActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.bPANAS:
+                Log.e("Start", "Panas Clicked");
+                Intent intent2 = new Intent(getActivity(), PanasActivity.class);
+                startActivity(intent2);
+                break;
         }
     }
 
@@ -80,6 +93,10 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_start, container, false);
         Button b = (Button) v.findViewById(R.id.bTests);
         b.setOnClickListener(this);
+        Button b1 = (Button) v.findViewById(R.id.bLEEDS);
+        b1.setOnClickListener(this);
+        Button b2 = (Button) v.findViewById(R.id.bPANAS);
+        b2.setOnClickListener(this);
         return v;
     }
 
