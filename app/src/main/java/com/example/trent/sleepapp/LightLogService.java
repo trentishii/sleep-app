@@ -10,12 +10,14 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings.Secure;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
@@ -29,6 +31,12 @@ import android.widget.Toast;
 //import com.google.android.gms.wearable.NodeApi;
 //import com.google.android.gms.wearable.Wearable;
 //import com.google.android.gms.wearable.WearableListenerService;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -95,7 +103,7 @@ public class LightLogService extends Service implements SensorEventListener{
     private final int HR_SAMPLING_INTERVAL = 1000*30*9;
     private final int HR_SAMPLING_DURATION = 1000*30;
     //private final int ACC_SAMPLING_INTERVAL = 10000; //Default 100Hz
-    private final int ACC_SAMPLING_INTERVAL = 20000; //50Hz
+    private final int ACC_SAMPLING_INTERVAL = 1000000; //50Hz
     private final int OTHER_SAMPLING_INTERVAL = 10000; //Default 100Hz
     //private final int OTHER_SAMPLING_INTERVAL = 20000; //50Hz
 
@@ -123,7 +131,7 @@ public class LightLogService extends Service implements SensorEventListener{
     private boolean firstSample = false;
     private long sensorTimeReference = 0;
     private long myTimeReference = 0;
-
+    private StorageReference mStorageRef;
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -330,6 +338,26 @@ public class LightLogService extends Service implements SensorEventListener{
         //timer.cancel();
         sensorManager.unregisterListener(this);
         try{
+            mStorageRef = FirebaseStorage.getInstance().getReference();
+            Uri nFile = Uri.fromFile(file);
+            StorageReference riversRef = mStorageRef.child("light" + file.getName());
+
+            riversRef.putFile(nFile)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // Get a URL to the uploaded content
+                            Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle unsuccessful uploads
+                            // ...
+                        }
+                    });
+            file.delete();
             out.flush();
             out.close();
         }catch(IOException e){
@@ -519,7 +547,6 @@ public class LightLogService extends Service implements SensorEventListener{
                     Log.e(TAG, ""+e.getMessage());
                 }
             }
-            stopSelf();
         }else if (event.sensor.getType() == Sensor.TYPE_PROXIMITY){
             float cm = event.values[0];
             if(out == null){

@@ -16,10 +16,10 @@ public class PanasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panas);
 
-        pbView = (RelativeLayout) findViewById(R.id.panasProg);
-        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
-        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
-        pb.setProgress(4);
-        pbText.setText("You have completed 4 of 7 tests");
+//        pbView = (RelativeLayout) findViewById(R.id.panasProg);
+//        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
+//        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
+//        pb.setProgress(4);
+//        pbText.setText("You have completed 4 of 7 tests");
     }
 }

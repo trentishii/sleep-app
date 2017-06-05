@@ -11,6 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.trent.sleepapp.pvt.PVT;
+import com.example.trent.sleepapp.pvt.PVTHome;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,11 +27,11 @@ public class SSSActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sss);
-        pbView = (RelativeLayout) findViewById(R.id.sssProg);
-        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
-        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
-        pb.setProgress(3);
-        pbText.setText("You have completed 3 of 7 tests");
+//        pbView = (RelativeLayout) findViewById(R.id.sssProg);
+//        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
+//        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
+//        pb.setProgress(3);
+//        pbText.setText("You have completed 3 of 7 tests");
         Button btn1 = (Button)findViewById(R.id.scale_1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +48,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(1);
                 myRef.child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PanasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +69,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(2);
                 myRef.child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PanasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
         });
@@ -88,7 +90,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(3);
                 myRef.child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PanasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
         });
@@ -109,7 +111,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(4);
                 myRef.child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PanasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
         });
@@ -130,7 +132,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(5);
                 myRef.child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PanasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
         });
@@ -151,7 +153,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(6);
                 myRef.child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PanasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
         });
@@ -172,7 +174,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(7);
                 myRef.child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PanasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
         });

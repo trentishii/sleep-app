@@ -94,11 +94,11 @@ public class PAMActivity extends AppCompatActivity {
         setTitle("Select a Photo");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pamactivity);
-        pbView = (RelativeLayout) findViewById(R.id.rlProg);
-        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
-        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
-        pb.setProgress(1);
-        pbText.setText("You have completed 1 of 7 tests");
+//        pbView = (RelativeLayout) findViewById(R.id.rlProg);
+//        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
+//        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
+//        pb.setProgress(1);
+//        pbText.setText("You have completed 1 of 7 tests");
 
 //        mDSUClient =
 //                new DSUClient(
@@ -230,7 +230,7 @@ public class PAMActivity extends AppCompatActivity {
 //            datapoint.save();
 //
             Toast.makeText(PAMActivity.this, "Submitted. IDX: " + idx, Toast.LENGTH_LONG).show();
-            Intent timeSubmitted = new Intent(PAMActivity.this, LeedsActivity.class);
+            Intent timeSubmitted = new Intent(PAMActivity.this, SSSActivity.class);
             PAMActivity.this.startActivity(timeSubmitted);
 //            // clear selection
 //            pam_photo_id = null;

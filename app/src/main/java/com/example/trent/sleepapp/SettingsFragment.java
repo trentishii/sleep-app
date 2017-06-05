@@ -61,6 +61,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
     private PendingIntent pendingLight;
+    private PendingIntent cancellationPendingIntent;
 
     private OnFragmentInteractionListener mListener;
     SharedPreferences sharedPrefs;
@@ -185,13 +186,19 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 Intent lightInt = new Intent(getActivity().getApplicationContext(), LightLogService.class);
                 pendingLight = PendingIntent.getService(getActivity().getApplicationContext(), 0, lightInt, PendingIntent.FLAG_UPDATE_CURRENT);
                 //
-                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), AlarmManager.INTERVAL_HALF_HOUR, pendingIntent);
-                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), AlarmManager.INTERVAL_HALF_HOUR, pendingLight);
+
+                //alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pendingLight);
+                //alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), AlarmManager.INTERVAL_HALF_HOUR, pendingLight);
 
                 Intent cancellationIntent = new Intent(getActivity().getApplicationContext(), CancelAlarmService.class);
-                cancellationIntent.putExtra("key", pendingIntent);
+                //cancellationIntent.putExtra("key", pendingIntent);
                 cancellationIntent.putExtra("light", pendingLight);
-                PendingIntent cancellationPendingIntent = PendingIntent.getBroadcast(getActivity().getApplicationContext(), 0, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                cancellationPendingIntent = PendingIntent.getBroadcast(getActivity().getApplicationContext(), 0, cancellationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                alarmManager.cancel(pendingIntent);
+                alarmManager.cancel(pendingLight);
+                alarmManager.cancel(cancellationPendingIntent);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), pendingIntent);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), pendingLight);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calStop.getTimeInMillis(), cancellationPendingIntent);
 
 

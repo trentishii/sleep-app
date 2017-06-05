@@ -10,8 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.trent.sleepapp.PanasActivity">
 
-    <include layout="@layout/progessbar"
-        android:id="@+id/panasProg"/>
+    <!--<include layout="@layout/progessbar"-->
+        <!--android:id="@+id/panasProg"/>-->
 
     <TextView
         android:text="Indicate to what extent you feel this way right now, that is, at the present moment "

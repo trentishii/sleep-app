@@ -16,8 +16,8 @@
     tools:context="com.example.trent.sleepapp.LeedsActivity"
     android:layout_height="wrap_content">
 
-    <include layout="@layout/progessbar"
-        android:id="@+id/leedsProg"/>
+    <!--<include layout="@layout/progessbar"-->
+        <!--android:id="@+id/leedsProg"/>-->
 
         <SeekBar
             android:layout_width="match_parent"

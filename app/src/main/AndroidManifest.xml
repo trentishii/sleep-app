@@ -26,20 +26,38 @@
         <activity android:name=".pvt.PVTHome" />
         <activity android:name=".pvt.PVT" />
         <activity android:name=".pvt.RunTest" />
-        <activity android:name=".PAMActivity" />
+        <activity android:name=".PAMActivity">
+            <intent-filter>
+                <action android:name="OPEN_PAM" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".JournalActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EventLog" />
         <activity android:name=".AlarmActivity" />
-
+        <receiver android:name=".CancelAlarmService"/>
         <service android:name=".AlarmReceiver" />
         <service android:name=".AccLogService" />
         <service android:name=".LightLogService" />
 
-        <activity android:name=".LeedsActivity" />
-        <activity android:name=".PanasActivity" />
+        <activity android:name=".LeedsActivity" >
+            <intent-filter>
+                <action android:name="OPEN_LEEDS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PanasActivity" >
+            <intent-filter>
+                <action android:name="OPEN_PANAS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".SSSActivity" />
 
         <service
