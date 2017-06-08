@@ -12,12 +12,15 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
 
+import com.example.trent.sleepapp.LoginActivity;
+import com.example.trent.sleepapp.UserActivity;
 import com.example.trent.sleepapp.pvt.PVTConfig.PVTConfigTest;
 
 import java.io.IOException;
@@ -51,15 +54,12 @@ public class PVTHome extends Activity {
 	private Spinner inputTechniqueInput;
 	private EditText minForeperiodInput;
 	private EditText maxForeperiodInput;
-
 	private PVTConfigParamsMap params;
 
 	private PVTConfig config;
 
 	private PVTConfigGetter configGetter;
 
-
-  
   @Override
   public void onCreate(Bundle b) {
     super.onCreate(b);
@@ -76,7 +76,7 @@ public class PVTHome extends Activity {
     deadlineInput = (EditText) findViewById(R.id.deadlineInput);
     feedbackInput = (ToggleButton) findViewById(R.id.feedbackInput);
     inputTechniqueInput = (Spinner) findViewById(R.id.inputTechniqueInput);
-    
+
     //set up input techniques spinner
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
         this, R.array.input_techniques, android.R.layout.simple_spinner_item);
@@ -182,7 +182,11 @@ public class PVTHome extends Activity {
     Intent i = new Intent(this, PVT.class);
     startActivity(i);
   }
-  
+
+  public void returnHome(View v) throws IOException {
+	  Intent i = new Intent(this, UserActivity.class);
+	  startActivity(i);
+  }
   
   private class NumericInputWatcher implements TextWatcher {
   	
