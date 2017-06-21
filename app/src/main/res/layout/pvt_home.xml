@@ -7,6 +7,17 @@
 
 	<!--<include layout="@layout/progessbar"-->
 		<!--android:id="@+id/progbar"/>-->
+	<Button
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="5dip"
+		android:layout_marginTop="5dip"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_gravity="left"
+		android:gravity="center"
+		android:onClick="returnHome"
+		android:text="Test Complete! Click to Return Home" />
 
 	<TextView
 		android:layout_width="fill_parent"

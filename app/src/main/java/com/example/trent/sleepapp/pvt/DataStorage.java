@@ -1,7 +1,15 @@
 package com.example.trent.sleepapp.pvt;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Environment;
+import android.support.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,6 +46,7 @@ public class DataStorage {
 	private String summaryFileHeader = SummaryStat.headerCSV();
 	private File baseDirectory;	//base storage directory (current on external device)
 	private File studyDirectory;		//directory used to store data files for the study
+	private StorageReference mStorageRef;
 
 	/** Convenience class to return two values from openFile(). */
 	private static class OpenFileResponse {
@@ -70,6 +79,26 @@ public class DataStorage {
 			for (int i = 0; i < lines.size(); i++) {
 				out.println(lines.get(i));
 			}
+			File file = new File(studyDirectory, fileName + CSV);
+			mStorageRef = FirebaseStorage.getInstance().getReference();
+			Uri nFile = Uri.fromFile(file);
+			StorageReference riversRef = mStorageRef.child(file.getName());
+
+			riversRef.putFile(nFile)
+					.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+						@Override
+						public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+							// Get a URL to the uploaded content
+							Uri downloadUrl = taskSnapshot.getDownloadUrl();
+						}
+					})
+					.addOnFailureListener(new OnFailureListener() {
+						@Override
+						public void onFailure(@NonNull Exception exception) {
+							// Handle unsuccessful uploads
+							// ...
+						}
+					});
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
