@@ -14,237 +14,81 @@
         <!--android:id="@+id/panasProg"/>-->
 
     <TextView
-        android:text="Indicate to what extent you feel this way right now, that is, at the present moment "
+        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/panasProg"
-        android:layout_marginTop="41dp"
-        android:id="@+id/textView44"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/textView46"
+        android:layout_alignLeft="@+id/textView46"
+        android:layout_alignStart="@+id/textView46"
+        android:layout_marginTop="28dp"
+        android:id="@+id/textView47"
+        tools:text="3.Excited" />
 
     <TextView
-        android:text="12. Alert"
+        android:text="5.Strong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView46"
-        android:layout_alignRight="@+id/textView55"
-        android:layout_alignEnd="@+id/textView55"
-        android:id="@+id/textView56"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="13. Ashamed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView47"
-        android:layout_alignLeft="@+id/textView55"
-        android:layout_alignStart="@+id/textView55"
-        android:id="@+id/textView57"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="14. Inspired"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView48"
-        android:layout_alignLeft="@+id/textView57"
-        android:layout_alignStart="@+id/textView57"
-        android:id="@+id/textView58"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="15. Nervous"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView49"
-        android:layout_alignLeft="@+id/textView58"
-        android:layout_alignStart="@+id/textView58"
-        android:id="@+id/textView59"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="16. Determined"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView51"
-        android:layout_alignLeft="@+id/textView59"
-        android:layout_alignStart="@+id/textView59"
-        android:id="@+id/textView60"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="17. Attentive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView51"
-        android:layout_alignLeft="@+id/textView60"
-        android:layout_alignStart="@+id/textView60"
-        android:id="@+id/textView61"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="18. Jittery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView53"
-        android:layout_alignLeft="@+id/textView61"
-        android:layout_alignStart="@+id/textView61"
-        android:id="@+id/textView62"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="19. Active"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView53"
-        android:layout_alignLeft="@+id/textView62"
-        android:layout_alignStart="@+id/textView62"
-        android:id="@+id/textView63"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="20. Afraid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView54"
-        android:layout_alignRight="@+id/textView63"
-        android:layout_alignEnd="@+id/textView63"
-        android:id="@+id/textView64"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <TextView
-        android:text="4. Upset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView48"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/textView47"
-        android:layout_alignStart="@+id/textView47" />
-
-    <TextView
-        android:text="5. Strong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView49"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:layout_below="@+id/textView48"
         android:layout_alignLeft="@+id/textView48"
         android:layout_alignStart="@+id/textView48"
-        android:layout_marginTop="23dp" />
+        android:layout_marginTop="26dp"
+        android:id="@+id/textView49" />
 
     <TextView
-        android:text="6. Guilty"
+        android:text="8.Hostile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView50"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_below="@+id/textView49"
-        android:layout_alignLeft="@+id/textView52"
-        android:layout_alignStart="@+id/textView52"
-        android:layout_marginTop="18dp" />
-
-    <TextView
-        android:text="7. Scared"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView51"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_below="@+id/textView50"
-        android:layout_alignRight="@+id/textView47"
-        android:layout_alignEnd="@+id/textView47"
-        android:layout_marginTop="19dp" />
-
-    <TextView
-        android:text="8. Hostile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView52"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:layout_below="@+id/textView51"
-        android:layout_alignRight="@+id/textView54"
-        android:layout_alignEnd="@+id/textView54"
-        android:layout_marginTop="17dp" />
+        android:layout_alignRight="@+id/textView51"
+        android:layout_alignEnd="@+id/textView51"
+        android:layout_marginTop="25dp"
+        android:id="@+id/textView52" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:layout_below="@+id/textView44"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="19dp"
+        android:id="@+id/editText"
+        android:layout_toLeftOf="@+id/textView46"
+        android:layout_toStartOf="@+id/textView46"
+        android:layout_width="match_parent" />
 
     <TextView
-        android:text="9. Enthusiastic"
+        android:text="2.Distressed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView53"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_below="@+id/textView52"
-        android:layout_alignLeft="@+id/textView49"
-        android:layout_alignStart="@+id/textView49"
-        android:layout_marginTop="14dp" />
-
-    <TextView
-        android:text="10. Proud"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView54"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_below="@+id/textView53"
-        android:layout_alignLeft="@+id/textView51"
-        android:layout_alignStart="@+id/textView51"
-        android:layout_marginTop="18dp" />
-
-    <TextView
-        android:text="3. Excited"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView47"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_marginBottom="18dp"
-        android:layout_above="@+id/textView48"
-        android:layout_alignLeft="@+id/textView46"
-        android:layout_alignStart="@+id/textView46" />
+        android:layout_marginTop="13dp"
+        android:id="@+id/textView46"
+        android:layout_below="@+id/editText"
+        android:layout_alignLeft="@+id/textView45"
+        android:layout_alignStart="@+id/textView45" />
 
     <TextView
         android:text="1. Interested"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginStart="70dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginStart="54dp"
         android:id="@+id/textView45"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_marginBottom="25dp"
-        android:layout_above="@+id/textView46"
+        android:layout_alignBaseline="@+id/editText"
+        android:layout_alignBottom="@+id/editText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:text="11. Irritable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView55"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_alignBaseline="@+id/textView45"
-        android:layout_alignBottom="@+id/textView45"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="19dp"
-        android:layout_marginEnd="19dp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_above="@+id/textView46"
-        android:layout_marginBottom="10dp"
         android:id="@+id/editText3"
-        android:layout_toLeftOf="@+id/textView50"
-        android:layout_toStartOf="@+id/textView50" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_above="@+id/textView57"
-        android:id="@+id/editText5"
+        android:layout_alignBaseline="@+id/textView46"
+        android:layout_alignBottom="@+id/textView46"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/textView46"
         android:layout_toStartOf="@+id/textView46" />
 
@@ -253,53 +97,57 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_above="@+id/textView48"
-        android:id="@+id/editText6"
-        android:layout_toLeftOf="@+id/textView48"
-        android:layout_toStartOf="@+id/textView48" />
+        android:layout_below="@+id/editText3"
+        android:id="@+id/editText4"
+        android:layout_toLeftOf="@+id/textView47"
+        android:layout_toStartOf="@+id/textView47" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_below="@+id/textView48"
-        android:id="@+id/editText7"
+        android:id="@+id/editText5"
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/textView48"
         android:layout_toStartOf="@+id/textView48" />
 
     <TextView
-        android:text="2. Distresses"
+        android:text="4.Upset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView46"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:id="@+id/textView48"
         android:layout_alignBaseline="@+id/editText5"
         android:layout_alignBottom="@+id/editText5"
-        android:layout_alignRight="@+id/textView45"
-        android:layout_alignEnd="@+id/textView45" />
+        android:layout_toRightOf="@+id/editText4"
+        android:layout_toEndOf="@+id/editText4" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_alignTop="@+id/textView49"
-        android:layout_toStartOf="@+id/textView46"
-        android:id="@+id/editText8"
-        android:layout_toLeftOf="@+id/textView46" />
+        android:layout_below="@+id/editText5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/editText6"
+        android:layout_toLeftOf="@+id/textView49"
+        android:layout_toStartOf="@+id/textView49" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_above="@+id/textView62"
+        android:layout_below="@+id/editText7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/editText9"
-        android:layout_toLeftOf="@+id/textView52"
-        android:layout_toStartOf="@+id/textView52" />
+        android:layout_toStartOf="@+id/textView51"
+        android:layout_alignRight="@+id/editText7"
+        android:layout_alignEnd="@+id/editText7" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -310,75 +158,85 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/editText10"
-        android:layout_toLeftOf="@+id/textView52"
-        android:layout_toStartOf="@+id/textView52" />
+        android:layout_toStartOf="@+id/textView52"
+        android:layout_alignRight="@+id/editText7"
+        android:layout_alignEnd="@+id/editText7" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_below="@+id/textView53"
+        android:layout_below="@+id/editText10"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/editText11"
+        android:layout_toLeftOf="@+id/textView53"
+        android:layout_toStartOf="@+id/textView53" />
+
+    <TextView
+        android:text="9.Enthusiastic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView53"
+        android:layout_alignBaseline="@+id/editText11"
+        android:layout_alignBottom="@+id/editText11"
+        android:layout_toRightOf="@+id/editText10"
+        android:layout_toEndOf="@+id/editText10" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editText11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/editText12"
         android:layout_toLeftOf="@+id/textView54"
         android:layout_toStartOf="@+id/textView54" />
 
-    <EditText
+    <TextView
+        android:text="10.Proud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_above="@+id/textView62"
-        android:layout_alignRight="@+id/editText13"
-        android:layout_alignEnd="@+id/editText13"
-        android:id="@+id/editText16"
-        android:layout_below="@+id/editText15" />
+        android:id="@+id/textView54"
+        android:layout_alignBaseline="@+id/editText12"
+        android:layout_alignBottom="@+id/editText12"
+        android:layout_toRightOf="@+id/editText11"
+        android:layout_toEndOf="@+id/editText11" />
+
+    <TextView
+        android:text="6.Guilty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView50"
+        android:layout_alignBaseline="@+id/editText7"
+        android:layout_alignBottom="@+id/editText7"
+        android:layout_toRightOf="@+id/editText6"
+        android:layout_toEndOf="@+id/editText6" />
+
+    <TextView
+        android:text="7.Scared"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView51"
+        android:layout_alignBaseline="@+id/editText9"
+        android:layout_alignBottom="@+id/editText9"
+        android:layout_toRightOf="@+id/editText7"
+        android:layout_toEndOf="@+id/editText7" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText12"
-        android:layout_alignBaseline="@+id/editText3"
-        android:layout_alignBottom="@+id/editText3"
-        android:layout_toLeftOf="@+id/textView55"
-        android:layout_toStartOf="@+id/textView55" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText13"
-        android:layout_alignTop="@+id/textView56"
-        android:layout_toLeftOf="@+id/textView57"
-        android:layout_toStartOf="@+id/textView57" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText14"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/textView58"
-        android:layout_toStartOf="@+id/textView58"
-        android:layout_marginRight="11dp"
-        android:layout_marginEnd="11dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText15"
-        android:layout_alignBaseline="@+id/textView59"
-        android:layout_alignBottom="@+id/textView59"
-        android:layout_alignLeft="@+id/editText14"
-        android:layout_alignStart="@+id/editText14" />
+        android:id="@+id/editText7"
+        android:layout_below="@+id/editText6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/textView50"
+        android:layout_toStartOf="@+id/textView50" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -386,18 +244,216 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText17"
-        android:layout_alignBaseline="@+id/textView63"
-        android:layout_alignBottom="@+id/textView63"
-        android:layout_toLeftOf="@+id/textView64"
-        android:layout_toStartOf="@+id/textView64" />
+        android:layout_below="@+id/editText16"
+        android:layout_alignLeft="@+id/editText16"
+        android:layout_alignStart="@+id/editText16" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText18"
         android:layout_below="@+id/editText17"
+        android:layout_alignLeft="@+id/editText17"
+        android:layout_alignStart="@+id/editText17"
+        android:id="@+id/editText18" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editText18"
+        android:layout_alignLeft="@+id/editText18"
+        android:layout_alignStart="@+id/editText18"
+        android:id="@+id/editText19" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText16"
+        android:layout_below="@+id/editText15"
+        android:layout_alignLeft="@+id/editText15"
+        android:layout_alignStart="@+id/editText15" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText15"
+        android:layout_width="wrap_content"
+        android:layout_above="@+id/textView46"
+        android:layout_toRightOf="@+id/textView53"
+        android:layout_toEndOf="@+id/textView53"
+        android:layout_marginLeft="132dp"
+        android:layout_marginStart="132dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editText19"
+        android:layout_alignLeft="@+id/editText19"
+        android:layout_alignStart="@+id/editText19"
+        android:id="@+id/editText20" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editText20"
+        android:layout_alignLeft="@+id/editText20"
+        android:layout_alignStart="@+id/editText20"
+        android:id="@+id/editText21" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editText9"
+        android:layout_alignLeft="@+id/editText21"
+        android:layout_alignStart="@+id/editText21"
+        android:id="@+id/editText22" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_above="@+id/editText12"
+        android:layout_alignLeft="@+id/editText22"
+        android:layout_alignStart="@+id/editText22"
+        android:id="@+id/editText23" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/editText23"
+        android:layout_alignLeft="@+id/editText23"
+        android:layout_alignStart="@+id/editText23"
+        android:id="@+id/editText24" />
+
+    <TextView
+        android:text="11. Irritable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView55"
+        android:layout_alignBaseline="@+id/editText15"
+        android:layout_alignBottom="@+id/editText15"
+        android:layout_toLeftOf="@+id/editText16"
+        android:layout_toStartOf="@+id/editText16" />
+
+    <TextView
+        android:text="13. Ashamed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView57"
+        android:layout_alignBaseline="@+id/editText4"
+        android:layout_alignBottom="@+id/editText4"
+        android:layout_toLeftOf="@+id/editText17"
+        android:layout_toStartOf="@+id/editText17" />
+
+    <TextView
+        android:text="14. Inspired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView58"
+        android:layout_alignBaseline="@+id/editText18"
+        android:layout_alignBottom="@+id/editText18"
+        android:layout_toLeftOf="@+id/editText18"
+        android:layout_toStartOf="@+id/editText18" />
+
+    <TextView
+        android:text="15. Nervous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView49"
+        android:layout_toLeftOf="@+id/editText19"
+        android:id="@+id/textView59" />
+
+    <TextView
+        android:text="16. Determined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView60"
+        android:layout_alignBaseline="@+id/textView50"
+        android:layout_alignBottom="@+id/textView50"
+        android:layout_toLeftOf="@+id/editText20"
+        android:layout_toStartOf="@+id/editText20" />
+
+    <TextView
+        android:text="Indicate to what extent you feel this way right now, that is, at the present moment "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView44"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="19. Active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView63"
+        android:layout_alignBaseline="@+id/editText23"
+        android:layout_alignBottom="@+id/editText23"
+        android:layout_toLeftOf="@+id/editText23"
+        android:layout_toStartOf="@+id/editText23" />
+
+    <TextView
+        android:text="20. Afraid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView64"
+        android:layout_alignBaseline="@+id/editText24"
+        android:layout_alignBottom="@+id/editText24"
+        android:layout_toLeftOf="@+id/editText24"
+        android:layout_toStartOf="@+id/editText24" />
+
+    <TextView
+        android:text="12. Alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView56"
+        android:layout_alignBaseline="@+id/textView46"
+        android:layout_alignBottom="@+id/textView46"
+        android:layout_toLeftOf="@+id/editText16"
+        android:layout_toStartOf="@+id/editText16" />
+
+    <TextView
+        android:text="18. Jittery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView62"
+        android:layout_alignBaseline="@+id/editText22"
+        android:layout_alignBottom="@+id/editText22"
+        android:layout_toLeftOf="@+id/editText22"
+        android:layout_toStartOf="@+id/editText22" />
+
+    <TextView
+        android:text="17. Attentive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView61"
+        android:layout_alignBaseline="@+id/textView51"
+        android:layout_alignBottom="@+id/textView51"
+        android:layout_toLeftOf="@+id/editText21"
+        android:layout_toStartOf="@+id/editText21" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:layout_below="@+id/textView64"
         android:layout_toLeftOf="@+id/textView63"
         android:layout_toStartOf="@+id/textView63" />
 

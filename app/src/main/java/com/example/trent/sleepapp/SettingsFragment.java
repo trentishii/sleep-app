@@ -168,8 +168,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 }
 
                 Calendar calStop = (Calendar) calNow.clone();
-                calStop.set(Calendar.HOUR_OF_DAY, sleepHour);
-                calStop.set(Calendar.MINUTE, sleepMin);
+                calStop.set(Calendar.HOUR_OF_DAY, wakeHour);
+                calStop.set(Calendar.MINUTE, wakeMin);
                 calStop.set(Calendar.SECOND, 0);
                 calStop.set(Calendar.MILLISECOND, 0);
                 if(calStop.compareTo(calNow) <= 0){
