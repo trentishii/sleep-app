@@ -65,6 +65,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
     SharedPreferences sharedPrefs;
+//    public DatabaseReference myRef;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -98,6 +99,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
         journals = sharedPrefs.getStringSet("journals", null);
         user = FirebaseAuth.getInstance().getCurrentUser();
+
         Log.d("Settings", journals.toString());
     }
 
@@ -150,7 +152,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 int sleepMin = sleep.getMinute();
                 UserSchedule entry = new UserSchedule(wakeHour, wakeMin, sleepHour, sleepMin);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("Setttings");
+                DatabaseReference myRef = database.getReference("Settings");
+//                myRef = database.getReference("Setttings");
                 String[] newName = name.split("@");
                 myRef.child(newName[0]).setValue(entry);
 
@@ -291,4 +294,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+//    public String getName() {
+//
+//    }
 }

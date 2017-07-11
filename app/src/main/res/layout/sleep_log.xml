@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.trent.sleepapp.SleepLogActivity">
+    android:orientation="vertical" >
+
+    <TextView
+        android:text="Sleep Log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView65"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/sleep"
+        android:id="@+id/imageButtonSleep"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/textView65"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Around what time did you fall asleep last night?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView65"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="33dp"
+        android:id="@+id/textView66"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <TextView
+        android:text="Around what time did you wake up this morning?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageButtonSleep"
+        android:layout_alignLeft="@+id/textView66"
+        android:layout_alignStart="@+id/textView66"
+        android:layout_marginLeft="9dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="56dp"
+        android:id="@+id/textView67"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/wake"
+        android:layout_marginTop="32dp"
+        android:id="@+id/imageButtonWake"
+        android:layout_below="@+id/textView67"
+        android:layout_alignLeft="@+id/imageButtonSleep"
+        android:layout_alignStart="@+id/imageButtonSleep" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/imageButtonWake"
+        android:layout_alignEnd="@+id/imageButtonWake" />
+</RelativeLayout>

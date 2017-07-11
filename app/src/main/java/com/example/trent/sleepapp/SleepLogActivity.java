@@ -1,5 +1,23 @@
 package com.example.trent.sleepapp;
 
+/**
+ * Created by vinisha on 7/10/2017.
+ */
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+//package com.example.trent.sleepapp;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,83 +37,42 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Date;
 
-public class JournalActivity extends AppCompatActivity {
+public class SleepLogActivity extends AppCompatActivity {
     SharedPreferences sharedPrefs;
     public static final String PREFNAME = "userPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_journal);
+        setContentView(R.layout.sleep_log);
         sharedPrefs = getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
 
 
-
-        ImageButton goToTobaccoLog = (ImageButton)findViewById(R.id.imageButtonTobacco);
-        goToTobaccoLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 0);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToCoffeeLog = (ImageButton)findViewById(R.id.imageButtonCoffee);
-        goToCoffeeLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 1);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToMealLog = (ImageButton)findViewById(R.id.imageButtonMeal);
-        goToMealLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 2);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToExerciseLog = (ImageButton)findViewById(R.id.imageButtonExercise);
-        goToExerciseLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 3);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToAlcoholLog = (ImageButton)findViewById(R.id.imageButtonAlcohol);
-        goToAlcoholLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 4);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToPillLog = (ImageButton)findViewById(R.id.imageButtonPill);
-        goToPillLog.setOnClickListener(new View.OnClickListener(){
+        ImageButton goToSleepLog = (ImageButton)findViewById(R.id.imageButtonSleep);
+        goToSleepLog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 setPreferences(sharedPrefs, 5);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
+                Intent intent = new Intent (SleepLogActivity.this, SleepEventLog.class);
                 startActivity(intent);
             }
         });
 
-        Button btn3 = (Button)findViewById(R.id.button);
-        btn3.setOnClickListener(new View.OnClickListener() {
+        ImageButton goToWakeLog = (ImageButton)findViewById(R.id.imageButtonWake);
+        goToWakeLog.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                setPreferences(sharedPrefs, 5);
+                Intent intent = new Intent (SleepLogActivity.this, SleepEventLog.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn4 = (Button)findViewById(R.id.button3);
+        btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PAMActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LeedsActivity.class);
                 startActivity(intent);
             }
         });
@@ -153,3 +130,4 @@ public class JournalActivity extends AppCompatActivity {
 //
 //    }
 }
+
