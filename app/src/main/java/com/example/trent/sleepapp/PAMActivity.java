@@ -32,6 +32,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.trent.sleepapp.database.FileManipulation;
 import com.example.trent.sleepapp.pvt.PVTHome;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -65,6 +67,7 @@ public class PAMActivity extends AppCompatActivity {
     private ProgressBar pb;
     private TextView pbText;
     private RelativeLayout pbView;
+    private FirebaseUser user;
 
     //    private DSUClient mDSUClient;
     public static final String[] IMAGE_FOLDERS = new String[]{
@@ -94,6 +97,7 @@ public class PAMActivity extends AppCompatActivity {
         setTitle("Select a Photo");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pamactivity);
+        user = FirebaseAuth.getInstance().getCurrentUser();
 //        pbView = (RelativeLayout) findViewById(R.id.rlProg);
 //        pb = (ProgressBar) pbView.findViewById(R.id.progressBar);
 //        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
@@ -193,7 +197,10 @@ public class PAMActivity extends AppCompatActivity {
         try {
             int idx = Integer.valueOf(pam_photo_id.split("_")[0]);
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("PAM");
+
+            String name = user.getEmail();
+            String[] newName = name.split("@");
+            DatabaseReference myRef = database.getReference(newName[0]);
             TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
             Calendar c = Calendar.getInstance(tz);
             Date d = c.getTime();
@@ -203,7 +210,8 @@ public class PAMActivity extends AppCompatActivity {
             int date = c.get(Calendar.DATE);
             String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
             PAMEvent pamE = new PAMEvent(idx);
-            myRef.child(currentDate).setValue(pamE);
+
+            myRef.child("PAM").child(currentDate).setValue(pamE);
 
 //            PamSchema pamSchema = new PamSchema(idx, dt);
 //
