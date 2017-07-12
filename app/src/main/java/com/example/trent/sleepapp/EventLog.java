@@ -67,7 +67,7 @@ public class EventLog extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPrefs.edit();
                 editor.remove("EventType");
                 editor.commit();
-                Intent timeSubmitted = new Intent(EventLog.this, UserActivity.class);
+                Intent timeSubmitted = new Intent(EventLog.this, JournalActivity.class);
                 EventLog.this.startActivity(timeSubmitted);
             }
         });

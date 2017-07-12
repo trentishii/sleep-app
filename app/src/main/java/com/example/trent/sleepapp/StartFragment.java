@@ -75,7 +75,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bLEEDS:
                 Log.e("Start", "Leeds Clicked");
-                Intent intent1 = new Intent(getActivity(), LeedsActivity.class);
+                Intent intent1 = new Intent(getActivity(), SleepLogActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.bPANAS:
