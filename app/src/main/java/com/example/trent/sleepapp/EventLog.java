@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.example.trent.sleepapp.database.FileManipulation;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,6 +30,7 @@ public class EventLog extends AppCompatActivity {
     private final static String[] EVENT_PHRASES = {"smoke?", "have coffee?", "exercise?", "eat?", "have an alcoholic beverage?", "have medicine?"};
     SharedPreferences sharedPrefs;
     public static final String PREFNAME = "userPrefs";
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class EventLog extends AppCompatActivity {
         sharedPrefs = getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
         final int eventIndex = sharedPrefs.getInt("EventType", -1);
         question.append(EVENT_PHRASES[eventIndex]);
+        user = FirebaseAuth.getInstance().getCurrentUser();
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +51,9 @@ public class EventLog extends AppCompatActivity {
                 int min = timePicker.getMinute();
                 FileManipulation.createDateFolder(t);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("Journal");
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
                 TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
                 Calendar c = Calendar.getInstance(tz);
                 Date d = c.getTime();
@@ -57,7 +63,7 @@ public class EventLog extends AppCompatActivity {
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 JournalEvent jv = new JournalEvent(EVENT_NAMES[eventIndex], hour, min);
-                myRef.child(currentDate).setValue(jv);
+                myRef.child("Journal").child(currentDate).setValue(jv);
                 SharedPreferences.Editor editor = sharedPrefs.edit();
                 editor.remove("EventType");
                 editor.commit();

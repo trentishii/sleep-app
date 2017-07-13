@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.trent.sleepapp.pvt.PVT;
 import com.example.trent.sleepapp.pvt.PVTHome;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,6 +24,7 @@ public class SSSActivity extends AppCompatActivity {
     private ProgressBar pb;
     private TextView pbText;
     private RelativeLayout pbView;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +36,15 @@ public class SSSActivity extends AppCompatActivity {
 //        pb.setProgress(3);
 //        pbText.setText("You have completed 3 of 7 tests");
         Button btn1 = (Button)findViewById(R.id.scale_1);
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("SSS");
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
                 TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
                 Calendar c = Calendar.getInstance(tz);
                 Date d = c.getTime();
@@ -47,7 +54,7 @@ public class SSSActivity extends AppCompatActivity {
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(1);
-                myRef.child(currentDate).setValue(event);
+                myRef.child("SSS").child(currentDate).setValue(event);
                 Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
@@ -58,7 +65,9 @@ public class SSSActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("SSS");
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
                 TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
                 Calendar c = Calendar.getInstance(tz);
                 Date d = c.getTime();
@@ -68,7 +77,7 @@ public class SSSActivity extends AppCompatActivity {
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(2);
-                myRef.child(currentDate).setValue(event);
+                myRef.child("SSS").child(currentDate).setValue(event);
                 Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
@@ -79,7 +88,9 @@ public class SSSActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("SSS");
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
                 TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
                 Calendar c = Calendar.getInstance(tz);
                 Date d = c.getTime();
@@ -89,7 +100,7 @@ public class SSSActivity extends AppCompatActivity {
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(3);
-                myRef.child(currentDate).setValue(event);
+                myRef.child("SSS").child(currentDate).setValue(event);
                 Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
@@ -100,7 +111,9 @@ public class SSSActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("SSS");
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
                 TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
                 Calendar c = Calendar.getInstance(tz);
                 Date d = c.getTime();
@@ -110,7 +123,7 @@ public class SSSActivity extends AppCompatActivity {
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(4);
-                myRef.child(currentDate).setValue(event);
+                myRef.child("SSS").child(currentDate).setValue(event);
                 Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
@@ -121,7 +134,9 @@ public class SSSActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("SSS");
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
                 TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
                 Calendar c = Calendar.getInstance(tz);
                 Date d = c.getTime();
@@ -131,7 +146,7 @@ public class SSSActivity extends AppCompatActivity {
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(5);
-                myRef.child(currentDate).setValue(event);
+                myRef.child("SSS").child(currentDate).setValue(event);
                 Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
@@ -142,7 +157,9 @@ public class SSSActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("SSS");
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
                 TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
                 Calendar c = Calendar.getInstance(tz);
                 Date d = c.getTime();
@@ -152,7 +169,7 @@ public class SSSActivity extends AppCompatActivity {
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(6);
-                myRef.child(currentDate).setValue(event);
+                myRef.child("SSS").child(currentDate).setValue(event);
                 Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
@@ -163,7 +180,9 @@ public class SSSActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("SSS");
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
                 TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
                 Calendar c = Calendar.getInstance(tz);
                 Date d = c.getTime();
@@ -173,7 +192,7 @@ public class SSSActivity extends AppCompatActivity {
                 int date = c.get(Calendar.DATE);
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(7);
-                myRef.child(currentDate).setValue(event);
+                myRef.child("SSS").child(currentDate).setValue(event);
                 Intent intent = new Intent(getApplicationContext(), PVTHome.class);
                 startActivity(intent);
             }
