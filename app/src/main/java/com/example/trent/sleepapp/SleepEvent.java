@@ -1,15 +1,10 @@
 package com.example.trent.sleepapp;
 
-import android.icu.util.Calendar;
-import android.icu.util.TimeZone;
-
-import java.util.Date;
-
 /**
- * Created by Trent on 4/26/2017.
+ * Created by vinisha on 7/14/2017.
  */
 
-public class JournalEvent {
+public class SleepEvent {
     public String type;
     public String date;
     public String time;
@@ -17,7 +12,8 @@ public class JournalEvent {
     public int minute;
 
 
-    public JournalEvent(String type, int hour, int minute) {
+
+    public SleepEvent(String type, int hour, int minute) {
         this.type = type;
         this.hour = hour;
         this.minute = minute;

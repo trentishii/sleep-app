@@ -38,21 +38,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Date;
 
 public class SleepLogActivity extends AppCompatActivity {
-    SharedPreferences sharedPrefs;
+    SharedPreferences sleepsharedPrefs;
     public static final String PREFNAME = "userPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sleep_log);
-        sharedPrefs = getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
+        sleepsharedPrefs = getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
 
 
         ImageButton goToSleepLog = (ImageButton)findViewById(R.id.imageButtonSleep);
         goToSleepLog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                setPreferences(sharedPrefs, 5);
+                setPreferences(sleepsharedPrefs, 1);
                 Intent intent = new Intent (SleepLogActivity.this, SleepEventLog.class);
                 startActivity(intent);
             }
@@ -62,7 +62,7 @@ public class SleepLogActivity extends AppCompatActivity {
         goToWakeLog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                setPreferences(sharedPrefs, 5);
+                setPreferences(sleepsharedPrefs, 1);
                 Intent intent = new Intent (SleepLogActivity.this, SleepEventLog.class);
                 startActivity(intent);
             }
