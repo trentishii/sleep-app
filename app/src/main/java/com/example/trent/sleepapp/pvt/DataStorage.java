@@ -7,6 +7,10 @@ import android.support.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -70,7 +74,10 @@ public class DataStorage {
 	public boolean writeToCSVs(List<String> lines, String fileName) {
 		PrintStream out = null;
 		try {
-			OpenFileResponse ofResponse = openFile(fileName + CSV);
+			FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+			String name = user.getEmail();
+			String[] newName = name.split("@");
+			OpenFileResponse ofResponse = openFile(newName[0] + "-" + fileName + CSV);
 			out = ofResponse.printStream;
 			if (ofResponse.firstLine == null) {
 				out.println(rawFileHeader);
@@ -79,7 +86,7 @@ public class DataStorage {
 			for (int i = 0; i < lines.size(); i++) {
 				out.println(lines.get(i));
 			}
-			File file = new File(studyDirectory, fileName + CSV);
+			File file = new File(studyDirectory, newName[0] + "-" + fileName + CSV);
 			mStorageRef = FirebaseStorage.getInstance().getReference();
 			Uri nFile = Uri.fromFile(file);
 			StorageReference riversRef = mStorageRef.child(file.getName());

@@ -66,6 +66,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
+                    if (!user.isEmailVerified()) {
+                        sendEmailVerification();
+                    }
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     Toast.makeText(LoginActivity.this, "User Signed In", Toast.LENGTH_LONG).show();
                     Log.d(TAG, "TOKEN: " + FirebaseInstanceId.getInstance().getToken());
