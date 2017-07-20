@@ -52,7 +52,7 @@ public class SleepEventLog extends AppCompatActivity {
     private TextView question;
     SharedPreferences sleepsharedPrefs;
     private final static String[] EVENT_NAMES = {"sleep", "wake"};
-    private final static String[] EVENT_PHRASES = {"sleep?", "wake up?"};
+    private final static String[] EVENT_PHRASES = {" sleep?", " wake up?"};
     public static final String PREFNAME = "userPrefs";
     private FirebaseUser user;
 

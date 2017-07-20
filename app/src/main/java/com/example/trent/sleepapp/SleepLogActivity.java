@@ -52,7 +52,7 @@ public class SleepLogActivity extends AppCompatActivity {
         goToSleepLog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                setPreferences(sleepsharedPrefs, 1);
+                setPreferences(sleepsharedPrefs, 0);
                 Intent intent = new Intent (SleepLogActivity.this, SleepEventLog.class);
                 startActivity(intent);
             }

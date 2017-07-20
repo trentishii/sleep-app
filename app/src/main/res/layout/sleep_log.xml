@@ -19,13 +19,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/sleep"
         android:id="@+id/imageButtonSleep"
-        android:layout_marginTop="73dp"
-        android:layout_below="@+id/textView65"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/textView66"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/sleep" />
 
     <TextView
         android:text="Around what time did you fall asleep last night?"
@@ -44,31 +44,29 @@
         android:text="Around what time did you wake up this morning?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageButtonSleep"
-        android:layout_alignLeft="@+id/textView66"
-        android:layout_alignStart="@+id/textView66"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:id="@+id/textView67"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_below="@+id/imageButtonSleep"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/wake"
-        android:layout_marginTop="32dp"
         android:id="@+id/imageButtonWake"
-        android:layout_below="@+id/textView67"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/wake"
+        android:layout_above="@+id/button3"
         android:layout_alignLeft="@+id/imageButtonSleep"
-        android:layout_alignStart="@+id/imageButtonSleep" />
+        android:layout_alignStart="@+id/imageButtonSleep"
+        android:layout_marginBottom="37dp" />
 
     <Button
         android:text="Submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
         android:id="@+id/button3"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
