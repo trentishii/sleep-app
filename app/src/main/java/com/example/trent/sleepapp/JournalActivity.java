@@ -51,8 +51,8 @@ public class JournalActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton goToMealLog = (ImageButton)findViewById(R.id.imageButtonMeal);
-        goToMealLog.setOnClickListener(new View.OnClickListener(){
+        ImageButton goToExerciseLog = (ImageButton)findViewById(R.id.imageButtonExercise);
+        goToExerciseLog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 setPreferences(sharedPrefs, 2);
@@ -61,8 +61,8 @@ public class JournalActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton goToExerciseLog = (ImageButton)findViewById(R.id.imageButtonExercise);
-        goToExerciseLog.setOnClickListener(new View.OnClickListener(){
+        ImageButton goToMealLog = (ImageButton)findViewById(R.id.imageButtonMeal);
+        goToMealLog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 setPreferences(sharedPrefs, 3);

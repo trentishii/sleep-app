@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.sql.Time;
 import java.util.Calendar;
@@ -63,6 +64,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     private PendingIntent pendingLight;
     private PendingIntent cancellationPendingIntent;
 
+
     private OnFragmentInteractionListener mListener;
     SharedPreferences sharedPrefs;
 //    public DatabaseReference myRef;
@@ -99,8 +101,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
         journals = sharedPrefs.getStringSet("journals", null);
         user = FirebaseAuth.getInstance().getCurrentUser();
-
-        Log.d("Settings", journals.toString());
     }
 
     @Override
@@ -122,6 +122,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         wakeup = (TimePicker) v.findViewById(R.id.timePicker1);
         sleep = (TimePicker) v.findViewById(R.id.timePicker2);
         for (String type: journals) {
+            Log.d("Settings", journals.toString());
             if (type.equals("Tobacco")) {
                 Log.d("Settings", "Here");
                 tobacco.setChecked(true);
@@ -146,16 +147,22 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.bSettings:
                 // Store Time Settings
                 String name = user.getEmail();
+                String[] newName = name.split("@");
+
                 int wakeHour = wakeup.getHour();
                 int wakeMin = wakeup.getMinute();
                 int sleepHour = sleep.getHour();
                 int sleepMin = sleep.getMinute();
+
                 UserSchedule entry = new UserSchedule(wakeHour, wakeMin, sleepHour, sleepMin);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("Settings");
-//                myRef = database.getReference("Setttings");
-                String[] newName = name.split("@");
-                myRef.child(newName[0]).setValue(entry);
+                DatabaseReference myRef = database.getReference(newName[0]);
+
+                myRef.child("Schedule").setValue(entry);
+
+                String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+                FirebaseToken entry_token = new FirebaseToken(refreshedToken);
+                myRef.child("Firebase Token").setValue(entry_token);
 
                 // Calculate dates
                 Calendar calNow = Calendar.getInstance();

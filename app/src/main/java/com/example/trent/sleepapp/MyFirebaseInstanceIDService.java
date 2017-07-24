@@ -5,12 +5,18 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     private static final String TAG = "MyFirebaseIIDService";
+    private FirebaseUser user;
+
 
     /**
      * Called if InstanceID token is updated. This may occur if the security of
@@ -41,5 +47,13 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
      */
     private void sendRegistrationToServer(String token) {
         // TODO: Implement this method to send token to your app server.
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseToken entry = new FirebaseToken(token);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Settings");
+        String name = user.getEmail();
+        String[] newName = name.split("@");
+        myRef.child(newName[0]).child("Firebase Token").setValue(entry);
+
     }
 }
