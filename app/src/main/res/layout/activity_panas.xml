@@ -567,7 +567,7 @@
         android:layout_alignLeft="@+id/textView58"
         android:layout_alignStart="@+id/textView58"
         android:layout_alignTop="@+id/textView75"
-        android:text="11. Iritable" />
+        android:text="11. Irritable" />
 
     <TextView
         android:id="@+id/textView77"
