@@ -44,11 +44,10 @@
         <service android:name=".AlarmReceiver" />
         <service android:name=".AccLogService" />
         <service android:name=".LightLogService" />
-
         <activity android:name=".LeedsActivity" />
         <activity android:name=".SleepLogActivity" >
             <intent-filter>
-                <action android:name="OPEN_LEEDS" />
+                <action android:name="OPEN_SLEEPLOG" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

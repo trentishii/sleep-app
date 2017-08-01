@@ -17,14 +17,14 @@
     tools:context="com.example.trent.sleepapp.PanasActivity">
 
     <TextView
-        android:text="Indicate to what extent you feel this way right now, that is, at the present moment"
+        android:id="@+id/textView44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView44"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Indicate to what extent you felt this way throughout the day"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <!--<include layout="@layout/progessbar"-->
         <!--android:id="@+id/panasProg"/>-->
@@ -54,6 +54,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextgui"
         android:layout_alignLeft="@+id/editTextstr"
         android:layout_alignStart="@+id/editTextstr" />
@@ -73,6 +75,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextsca"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -93,6 +97,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTexthos"
         android:layout_alignLeft="@+id/editTexthos"
         android:layout_alignStart="@+id/editTexthos" />
@@ -113,6 +119,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_marginTop="17dp"
         android:layout_below="@+id/textView73"
         android:layout_alignParentLeft="true"
@@ -134,6 +142,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextint"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -154,6 +164,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/editTextdis" />
@@ -173,6 +185,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextexc"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -192,6 +206,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextups"
         android:layout_alignLeft="@+id/editTextups"
         android:layout_alignStart="@+id/editTextups" />
@@ -211,6 +227,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextstr"
         android:layout_alignLeft="@+id/editTextsca"
         android:layout_alignStart="@+id/editTextsca" />
@@ -230,6 +248,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -270,6 +290,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_alignBaseline="@+id/textView56"
         android:layout_alignBottom="@+id/textView56"
         android:layout_toLeftOf="@+id/textView76"
@@ -290,6 +312,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextale"
         android:layout_alignLeft="@+id/editTextins"
         android:layout_alignStart="@+id/editTextins" />
@@ -309,6 +333,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextash"
         android:layout_alignLeft="@+id/editTextner"
         android:layout_alignStart="@+id/editTextner" />
@@ -328,6 +354,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextins"
         android:layout_alignLeft="@+id/editTextdet"
         android:layout_alignStart="@+id/editTextdet" />
@@ -350,7 +378,10 @@
         android:layout_toLeftOf="@+id/textView60"
         android:layout_toStartOf="@+id/textView60"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"/>
+
 
     <TextView
         android:id="@+id/textView61"
@@ -369,6 +400,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextdet"
         android:layout_alignLeft="@+id/editTextjit"
         android:layout_alignStart="@+id/editTextjit" />
@@ -388,6 +421,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextatt"
         android:layout_alignLeft="@+id/editTextact"
         android:layout_alignStart="@+id/editTextact" />
@@ -407,6 +442,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextjit"
         android:layout_alignLeft="@+id/editTextafr"
         android:layout_alignStart="@+id/editTextafr" />
@@ -427,6 +464,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_below="@+id/editTextact"
         android:layout_toLeftOf="@+id/textView64"
         android:layout_toStartOf="@+id/textView64" />
@@ -449,6 +488,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:digits="12345"
+        android:maxLength="1"
         android:layout_alignLeft="@+id/editTextale"
         android:layout_alignStart="@+id/editTextale"
         android:layout_alignRight="@+id/editTextale"

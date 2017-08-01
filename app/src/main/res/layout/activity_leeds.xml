@@ -19,47 +19,43 @@
     <!--<include layout="@layout/progessbar"-->
         <!--android:id="@+id/leedsProg"/>-->
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:id="@+id/seekBar2"
-            android:layout_below="@+id/textView8"
-            android:layout_alignLeft="@+id/seekBar3"
-            android:layout_alignStart="@+id/seekBar3"
-            android:max="10"/>
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/seekBar3"
+        android:layout_alignStart="@+id/seekBar3"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="14dp"
+        android:max="10" />
 
         <TextView
             android:text="Easier than usual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView9"
+            android:id="@+id/textView10"
+            android:layout_below="@+id/seekBar2"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="53dp"
-            android:layout_marginEnd="53dp"
-            android:id="@+id/textView10" />
+            android:layout_alignParentEnd="true" />
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar3"
-            android:layout_below="@+id/textView9"
-            android:layout_marginTop="19dp"
-            android:layout_alignLeft="@+id/textView23"
-            android:layout_alignStart="@+id/textView23"
-            android:max="10"/>
+    <SeekBar
+        android:id="@+id/seekBar3"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView23"
+        android:layout_alignStart="@+id/textView23"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="19dp"
+        android:max="10" />
 
         <TextView
             android:text="More sleepy than usual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView14"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="17dp"
-            android:layout_marginEnd="17dp"
-            android:id="@+id/textView15" />
+            android:id="@+id/textView15"
+            android:layout_below="@+id/seekBar5"
+            android:layout_alignLeft="@+id/textView13"
+            android:layout_alignStart="@+id/textView13" />
 
         <TextView
             android:text="More difficult than usual"
@@ -88,17 +84,17 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <SeekBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar5"
-            android:layout_below="@+id/textView13"
-            android:layout_marginTop="19dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignLeft="@+id/seekBar3"
-            android:layout_alignStart="@+id/seekBar3"
-            android:max="10"/>
+    <SeekBar
+        android:id="@+id/seekBar5"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/seekBar3"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/seekBar3"
+        android:layout_below="@+id/textView13"
+        android:layout_marginTop="19dp"
+        android:max="10" />
 
         <TextView
             android:text="I feel less sleepy than usual"
@@ -107,7 +103,9 @@
             android:id="@+id/textView14"
             android:layout_below="@+id/seekBar5"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/textView18"
+            android:layout_alignEnd="@+id/textView18" />
 
     <TextView
             android:text="How would you describe the way you currently fall asleep in comparison to usual? "
@@ -120,17 +118,17 @@
             android:layout_alignParentStart="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
-            android:layout_below="@+id/textView11"
-            android:layout_alignRight="@+id/textView13"
-            android:layout_alignEnd="@+id/textView13"
-            android:layout_marginTop="21dp"
-            android:layout_alignLeft="@+id/seekBar5"
-            android:layout_alignStart="@+id/seekBar5"
-            android:max="10"/>
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView13"
+        android:layout_alignLeft="@+id/seekBar5"
+        android:layout_alignRight="@+id/textView13"
+        android:layout_alignStart="@+id/seekBar5"
+        android:layout_below="@+id/textView11"
+        android:layout_marginTop="21dp"
+        android:max="10" />
 
         <TextView
             android:text="More restless than usual"
@@ -151,17 +149,16 @@
             android:layout_alignParentEnd="true"
             android:id="@+id/textView17" />
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar4"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="20dp"
-            style="@style/Widget.AppCompat.SeekBar"
-            android:max="10"
-            android:layout_alignLeft="@+id/seekBar"
-            android:layout_alignStart="@+id/seekBar"
-            />
+    <SeekBar
+        android:id="@+id/seekBar4"
+        style="@style/Widget.AppCompat.SeekBar"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/seekBar"
+        android:layout_alignStart="@+id/seekBar"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="20dp"
+        android:max="10" />
 
         <TextView
             android:text="How would you describe the quality of your sleep compared to normal sleep? "
@@ -210,19 +207,17 @@
             android:layout_alignParentStart="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-        <SeekBar
-            style="@style/Widget.AppCompat.SeekBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:max="10"
-            android:progress="3"
-            android:layout_below="@+id/textView20"
-            android:layout_marginTop="11dp"
-            android:id="@+id/seekBar6"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+    <SeekBar
+        android:id="@+id/seekBar6"
+        style="@style/Widget.AppCompat.SeekBar"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:max="10"
+        android:progress="3"
+        android:layout_below="@+id/textView20"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
         <TextView
             android:text="Easier than usual"
@@ -234,30 +229,30 @@
             android:id="@+id/textView22" />
 
 
-        <TextView
-            android:text="More difficult thsn usual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView21"
-            android:layout_below="@+id/seekBar6"
-            android:layout_alignRight="@+id/textView2"
-            android:layout_alignEnd="@+id/textView2"
-            android:layout_marginTop="15dp" />
-
-    <SeekBar
-        style="@style/Widget.AppCompat.SeekBar"
+    <TextView
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:max="10"
-        android:progress="3"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_below="@+id/seekBar6"
+        android:layout_marginTop="15dp"
+        android:text="More difficult than usual" />
+
+    <SeekBar
+        android:id="@+id/seekBar7"
+        style="@style/Widget.AppCompat.SeekBar"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView21"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/textView21"
         android:layout_below="@+id/textView21"
         android:layout_marginTop="23dp"
-        android:id="@+id/seekBar7"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/textView12"
-        android:layout_alignLeft="@+id/textView21"
-        android:layout_alignStart="@+id/textView21" />
+        android:max="10"
+        android:progress="3" />
 
     <TextView
         android:text="Requires a period of time longer than usual"
@@ -268,16 +263,19 @@
         android:layout_alignLeft="@+id/seekBar7"
         android:layout_alignStart="@+id/seekBar7"
         android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp" />
+        android:layout_marginStart="13dp"
+        android:layout_toStartOf="@+id/textView22"
+        android:layout_alignRight="@+id/textView21"
+        android:layout_alignEnd="@+id/textView21" />
 
     <TextView
         android:text="Shorter than usual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView23"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/textView24" />
+        android:id="@+id/textView24"
+        android:layout_below="@+id/seekBar7"
+        android:layout_alignLeft="@+id/textView22"
+        android:layout_alignStart="@+id/textView22" />
 
     <TextView
         android:text="How do you feel when you wake up?"
@@ -317,12 +315,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/seekBar5"
-        android:layout_alignRight="@+id/textView12"
-        android:layout_alignEnd="@+id/textView12"
-        android:layout_marginRight="88dp"
-        android:layout_marginEnd="88dp"
         android:id="@+id/textView28"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_alignLeft="@+id/textView30"
+        android:layout_alignStart="@+id/textView30"
+        android:layout_toLeftOf="@+id/textView36"
+        android:layout_toStartOf="@+id/textView36" />
 
     <TextView
         android:text="4."
@@ -362,33 +360,32 @@
         android:text="7."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/seekBar7"
         android:id="@+id/textView32"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:layout_alignLeft="@+id/textView25"
-        android:layout_alignStart="@+id/textView25" />
+        android:layout_alignBottom="@+id/seekBar7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="8."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView25"
-        android:layout_alignLeft="@+id/textView25"
-        android:layout_alignStart="@+id/textView25"
         android:layout_marginTop="9dp"
         android:id="@+id/textView33"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView33"
-        android:layout_toRightOf="@+id/textView33"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
         android:id="@+id/seekBar8"
-        android:layout_alignRight="@+id/textView15"
-        android:layout_alignEnd="@+id/textView15" />
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView38"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/textView38"
+        android:layout_alignTop="@+id/textView33" />
 
     <TextView
         android:text="Tired"
@@ -432,13 +429,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView37"
-        android:layout_toRightOf="@+id/textView33"
         android:id="@+id/seekBar9"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView35"
         android:layout_alignRight="@+id/textView35"
-        android:layout_alignEnd="@+id/textView35" />
+        android:layout_alignTop="@+id/textView37"
+        android:layout_toRightOf="@+id/textView33" />
 
     <TextView
         android:text="Tired"
@@ -486,14 +483,14 @@
         android:layout_alignEnd="@+id/textView31" />
 
     <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView41"
-        android:layout_alignLeft="@+id/textView34"
-        android:layout_alignStart="@+id/textView34"
         android:id="@+id/seekBar10"
+        android:layout_width="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView39"
+        android:layout_alignLeft="@+id/textView34"
         android:layout_alignRight="@+id/textView39"
-        android:layout_alignEnd="@+id/textView39" />
+        android:layout_alignStart="@+id/textView34"
+        android:layout_alignTop="@+id/textView41" />
 
     <Button
         android:text="Submit"
