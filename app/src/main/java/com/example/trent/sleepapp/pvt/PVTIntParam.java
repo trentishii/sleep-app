@@ -9,7 +9,8 @@ package com.example.trent.sleepapp.pvt;
 public enum PVTIntParam implements PVTParam {
 
   /** Overall PVT duration, in ms. E.g. 1000 * 60 * 5 for 5 minutes. */
-  test_duration(1000 * 60 * 5),
+  test_duration(1000 * 60 * 3),
+//  test_duration(1000 * 60 * 1),
   /** Minimum delay between stimuli, in ms. */
   min_delay(2000),
   /** Maximum delay between stimuli, in ms. */
