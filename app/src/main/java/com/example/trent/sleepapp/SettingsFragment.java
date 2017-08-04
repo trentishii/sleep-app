@@ -121,23 +121,23 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         coffee = (CheckBox) v.findViewById(R.id.cbCoffee);
         wakeup = (TimePicker) v.findViewById(R.id.timePicker1);
         sleep = (TimePicker) v.findViewById(R.id.timePicker2);
-        for (String type: journals) {
-            Log.d("Settings", journals.toString());
-            if (type.equals("Tobacco")) {
-                Log.d("Settings", "Here");
-                tobacco.setChecked(true);
-            } else if (type.equals("Exercise")) {
-                exercise.setChecked(true);
-            } else if (type.equals("Alcohol")) {
-                alcohol.setChecked(true);
-            } else if (type.equals("Food")) {
-                food.setChecked(true);
-            } else if (type.equals("Medicine")) {
-                medicine.setChecked(true);
-            } else if (type.equals("Coffee")) {
-                coffee.setChecked(true);
-            }
-        }
+//        for (String type: journals) {
+//            Log.d("Settings", journals.toString());
+//            if (type.equals("Tobacco")) {
+//                Log.d("Settings", "Here");
+//                tobacco.setChecked(true);
+//            } else if (type.equals("Exercise")) {
+//                exercise.setChecked(true);
+//            } else if (type.equals("Alcohol")) {
+//                alcohol.setChecked(true);
+//            } else if (type.equals("Food")) {
+//                food.setChecked(true);
+//            } else if (type.equals("Medicine")) {
+//                medicine.setChecked(true);
+//            } else if (type.equals("Coffee")) {
+//                coffee.setChecked(true);
+//            }
+//        }
         return v;
     }
 
