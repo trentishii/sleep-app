@@ -1,8 +1,8 @@
 package com.example.trent.sleepapp;
 
 import android.content.Intent;
-import android.icu.util.Calendar;
-import android.icu.util.TimeZone;
+//import android.icu.util.Calendar;
+//import android.icu.util.TimeZone;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +18,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+
+import static java.util.TimeZone.*;
 
 public class SSSActivity extends AppCompatActivity {
     private ProgressBar pb;

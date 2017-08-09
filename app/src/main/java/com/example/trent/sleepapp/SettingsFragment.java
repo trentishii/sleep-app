@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
@@ -149,11 +150,18 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 String name = user.getEmail();
                 String[] newName = name.split("@");
 
-                int wakeHour = wakeup.getHour();
-                int wakeMin = wakeup.getMinute();
-                int sleepHour = sleep.getHour();
-                int sleepMin = sleep.getMinute();
-
+                int wakeHour,wakeMin, sleepHour, sleepMin;
+                if (Build.VERSION.SDK_INT >= 23 ) {
+                    wakeHour = wakeup.getHour();
+                    wakeMin = wakeup.getMinute();
+                    sleepHour = sleep.getHour();
+                    sleepMin = sleep.getMinute();
+                }else {
+                    wakeHour = wakeup.getCurrentHour();
+                    wakeMin = wakeup.getCurrentMinute();
+                    sleepHour = sleep.getCurrentHour();
+                    sleepMin = sleep.getCurrentMinute();
+                }
                 UserSchedule entry = new UserSchedule(wakeHour, wakeMin, sleepHour, sleepMin);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference(newName[0]);

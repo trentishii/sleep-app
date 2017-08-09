@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_panas"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.trent.sleepapp.PanasActivity">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView44"
@@ -23,488 +10,22 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:paddingLeft="10dp"
         android:text="Indicate to what extent you felt this way throughout the day"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-    <!--<include layout="@layout/progessbar"-->
-        <!--android:id="@+id/panasProg"/>-->
-    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:tools="http://schemas.android.com/tools"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical"-->
-        <!--android:id="@+id/relativeLayout"-->
-        <!--android:layout_below="@+id/textView44"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:weightSum="1">-->
-
-    <TextView
-        android:id="@+id/textView45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="106dp"
-        android:text="2. Distressed"
-        android:layout_below="@+id/textView55"
-        android:layout_toRightOf="@+id/editTextups"
-        android:layout_toEndOf="@+id/editTextups" />
-    <EditText
-        android:id="@+id/editTextsca"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextgui"
-        android:layout_alignLeft="@+id/editTextstr"
-        android:layout_alignStart="@+id/editTextstr" />
-
-    <TextView
-        android:id="@+id/textView46"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView45"
-        android:layout_alignTop="@+id/textView55"
-        android:layout_toEndOf="@+id/editTextint"
-        android:layout_toRightOf="@+id/editTextint"
-        android:text="." />
-    <EditText
-        android:id="@+id/editTexthos"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextsca"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/textView47"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3.Excited"
-        android:layout_alignBaseline="@+id/editTextexc"
-        android:layout_alignBottom="@+id/editTextexc"
-        android:layout_toRightOf="@+id/editTextexc"
-        android:layout_toEndOf="@+id/editTextexc" />
-
-    <EditText
-        android:id="@+id/editTextent"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTexthos"
-        android:layout_alignLeft="@+id/editTexthos"
-        android:layout_alignStart="@+id/editTexthos" />
-
-    <TextView
-        android:text="4.Upset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView48"
-        android:layout_alignBaseline="@+id/editTextups"
-        android:layout_alignBottom="@+id/editTextups"
-        android:layout_toRightOf="@+id/editTextups"
-        android:layout_toEndOf="@+id/editTextups" />
-
-    <EditText
-        android:id="@+id/editTextint"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/textView73"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/textView49"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editTextgui"
-        android:layout_alignBottom="@+id/editTextgui"
-        android:layout_alignLeft="@+id/textView51"
-        android:layout_alignStart="@+id/textView51"
-        android:text="6.Guilty" />
-
-    <EditText
-        android:id="@+id/editTextdis"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextint"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-
-    <TextView
-        android:id="@+id/textView50"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView51"
-        android:layout_alignStart="@+id/textView51"
-        android:layout_below="@+id/editTextups"
-        android:text="." />
-
-    <EditText
-        android:id="@+id/editTextexc"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editTextdis" />
-
-    <TextView
-        android:text="7.Scared"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView51"
-        android:layout_alignBaseline="@+id/editTextsca"
-        android:layout_alignBottom="@+id/editTextsca"
-        android:layout_alignRight="@+id/textView47"
-        android:layout_alignEnd="@+id/textView47" />
-    <EditText
-        android:id="@+id/editTextups"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextexc"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="8.Hostile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView52"
-        android:layout_alignBaseline="@+id/editTexthos"
-        android:layout_alignBottom="@+id/editTexthos"
-        android:layout_toLeftOf="@+id/button2"
-        android:layout_toStartOf="@+id/button2" />
-    <EditText
-        android:id="@+id/editTextstr"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextups"
-        android:layout_alignLeft="@+id/editTextups"
-        android:layout_alignStart="@+id/editTextups" />
-
-    <TextView
-        android:text="9.Enthusiastic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView53"
-        android:layout_alignBaseline="@+id/editTextent"
-        android:layout_alignBottom="@+id/editTextent"
-        android:layout_toRightOf="@+id/editTextent"
-        android:layout_toEndOf="@+id/editTextent" />
-    <EditText
-        android:id="@+id/editTextgui"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextstr"
-        android:layout_alignLeft="@+id/editTextsca"
-        android:layout_alignStart="@+id/editTextsca" />
-
-    <TextView
-        android:id="@+id/textView54"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10.Proud"
-        android:layout_alignBaseline="@+id/editTextpro"
-        android:layout_alignBottom="@+id/editTextpro"
-        android:layout_toRightOf="@+id/editTextpro"
-        android:layout_toEndOf="@+id/editTextpro" />
-    <EditText
-        android:id="@+id/editTextpro"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-
-    <!--</RelativeLayout>-->
-
-    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:tools="http://schemas.android.com/tools"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical"-->
-        <!--android:id="@+id/relativeLayout2"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_alignParentBottom="true">-->
-
-    <TextView
-        android:id="@+id/textView55"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView44"
-        android:layout_marginTop="46dp"
-        android:layout_toEndOf="@+id/editTextale"
-        android:layout_toRightOf="@+id/editTextale"
-        android:text="." />
-
-    <TextView
-        android:id="@+id/textView56"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView55"
-        android:layout_alignTop="@+id/textView45"
-        android:text="." />
-    <EditText
-        android:id="@+id/editTextale"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_alignBaseline="@+id/textView56"
-        android:layout_alignBottom="@+id/textView56"
-        android:layout_toLeftOf="@+id/textView76"
-        android:layout_toStartOf="@+id/textView76" />
-
-
-    <TextView
-        android:id="@+id/textView57"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="13. Ashamed"
-        android:layout_alignBottom="@+id/textView47"
-        android:layout_toRightOf="@+id/editTextash"
-        android:layout_toEndOf="@+id/editTextash" />
-    <EditText
-        android:id="@+id/editTextash"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextale"
-        android:layout_alignLeft="@+id/editTextins"
-        android:layout_alignStart="@+id/editTextins" />
-
-    <TextView
-        android:id="@+id/textView58"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="14. Inspired"
-        android:layout_alignBaseline="@+id/editTextins"
-        android:layout_alignBottom="@+id/editTextins"
-        android:layout_alignLeft="@+id/textView61"
-        android:layout_alignStart="@+id/textView61" />
-    <EditText
-        android:id="@+id/editTextins"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextash"
-        android:layout_alignLeft="@+id/editTextner"
-        android:layout_alignStart="@+id/editTextner" />
-
-    <TextView
-        android:id="@+id/textView59"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editTextner"
-        android:layout_alignBottom="@+id/editTextner"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="." />
-    <EditText
-        android:id="@+id/editTextner"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextins"
-        android:layout_alignLeft="@+id/editTextdet"
-        android:layout_alignStart="@+id/editTextdet" />
-
-
-    <TextView
-        android:id="@+id/textView60"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="16. Determined"
-        android:layout_alignBaseline="@+id/editTextdet"
-        android:layout_alignBottom="@+id/editTextdet"
-        android:layout_alignRight="@+id/textView59"
-        android:layout_alignEnd="@+id/textView59" />
-    <EditText
-        android:id="@+id/editTextdet"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextner"
-        android:layout_toLeftOf="@+id/textView60"
-        android:layout_toStartOf="@+id/textView60"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"/>
-
-
-    <TextView
-        android:id="@+id/textView61"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="17. Attentive"
-        android:layout_alignBaseline="@+id/editTextatt"
-        android:layout_alignBottom="@+id/editTextatt"
-        android:layout_alignLeft="@+id/textView63"
-        android:layout_alignStart="@+id/textView63"
-        android:layout_alignRight="@+id/textView60"
-        android:layout_alignEnd="@+id/textView60" />
-    <EditText
-        android:id="@+id/editTextatt"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextdet"
-        android:layout_alignLeft="@+id/editTextjit"
-        android:layout_alignStart="@+id/editTextjit" />
-
-    <TextView
-        android:id="@+id/textView62"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="18. Jittery"
-        android:layout_alignBaseline="@+id/editTextjit"
-        android:layout_alignBottom="@+id/editTextjit"
-        android:layout_toRightOf="@+id/editTextatt"
-        android:layout_toEndOf="@+id/editTextatt" />
-    <EditText
-        android:id="@+id/editTextjit"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextatt"
-        android:layout_alignLeft="@+id/editTextact"
-        android:layout_alignStart="@+id/editTextact" />
-
-    <TextView
-        android:id="@+id/textView63"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="19. Active"
-        android:layout_alignBaseline="@+id/editTextact"
-        android:layout_alignBottom="@+id/editTextact"
-        android:layout_alignRight="@+id/textView62"
-        android:layout_alignEnd="@+id/textView62" />
-    <EditText
-        android:id="@+id/editTextact"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextjit"
-        android:layout_alignLeft="@+id/editTextafr"
-        android:layout_alignStart="@+id/editTextafr" />
-
-    <TextView
-        android:id="@+id/textView64"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="20. Afraid"
-        android:layout_alignBaseline="@+id/editTextafr"
-        android:layout_alignBottom="@+id/editTextafr"
-        android:layout_toRightOf="@+id/editTextash"
-        android:layout_alignRight="@+id/textView60"
-        android:layout_alignEnd="@+id/textView60" />
-    <EditText
-        android:id="@+id/editTextafr"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_below="@+id/editTextact"
-        android:layout_toLeftOf="@+id/textView64"
-        android:layout_toStartOf="@+id/textView64" />
-
-    <!--</RelativeLayout>-->
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:layout_marginTop="7dp"
-        android:layout_below="@+id/editTextpro"
-        android:layout_toRightOf="@+id/textView54"
-        android:layout_toEndOf="@+id/textView54" />
-
-    <EditText
-        android:id="@+id/editTextirr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:digits="12345"
-        android:maxLength="1"
-        android:layout_alignLeft="@+id/editTextale"
-        android:layout_alignStart="@+id/editTextale"
-        android:layout_alignRight="@+id/editTextale"
-        android:layout_alignEnd="@+id/editTextale"
-        android:layout_alignTop="@+id/editTextint" />
 
     <TextView
         android:id="@+id/textView70"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:text="\t\t\t 1 \n Very Slightly"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_above="@+id/textView46"
-        android:layout_alignLeft="@+id/editTextups"
-        android:layout_alignStart="@+id/editTextups" />
+        android:layout_below="@+id/textView44"
+        android:paddingLeft="10dp"
+        android:paddingTop="40dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <TextView
         android:id="@+id/textView71"
@@ -512,10 +33,12 @@
         android:layout_height="wrap_content"
         android:text="\t\t 2 \n A Little"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_below="@+id/textView44"
+        android:layout_toRightOf= "@+id/textView70"
+        android:paddingLeft="50dp"
+        android:paddingTop="40dp"
         android:layout_alignBaseline="@+id/textView70"
-        android:layout_alignBottom="@+id/textView70"
-        android:layout_toRightOf="@+id/textView75"
-        android:layout_toEndOf="@+id/textView75" />
+        android:layout_alignBottom="@+id/textView70"/>
 
     <TextView
         android:id="@+id/textView72"
@@ -523,88 +46,564 @@
         android:layout_height="wrap_content"
         android:text="\t\t\t 3 \n Moderately"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_alignBaseline="@+id/textView71"
-        android:layout_alignBottom="@+id/textView71"
-        android:layout_alignRight="@+id/textView62"
-        android:layout_alignEnd="@+id/textView62"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_below="@+id/textView44"
+        android:layout_toRightOf= "@+id/textView70"
+        android:paddingLeft="140dp"
+        android:paddingTop="40dp"
+        android:layout_alignBaseline="@+id/textView70"
+        android:layout_alignBottom="@+id/textView70" />
 
     <TextView
         android:id="@+id/textView73"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView70"
-        android:layout_alignStart="@+id/textView70"
-        android:layout_below="@+id/textView46"
         android:text="\t\t\t 4 \n Quite a Bit"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:paddingLeft="10dp"
+        android:paddingTop="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView74"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView73"
-        android:layout_toLeftOf="@+id/textView55"
-        android:layout_toStartOf="@+id/textView55"
         android:text="\t\t 5 \n Extremely"
+        android:layout_alignBaseline="@+id/textView73"
+        android:layout_alignBottom="@+id/textView73"
+        android:paddingLeft="140dp"
+        android:paddingTop="80dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-    <TextView
-        android:id="@+id/textView75"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editTextdis"
-        android:layout_alignLeft="@+id/textView52"
-        android:layout_alignStart="@+id/textView52"
-        android:layout_marginBottom="12dp"
-        android:text="1. Interested" />
 
-    <TextView
-        android:id="@+id/textView76"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView58"
-        android:layout_alignStart="@+id/textView58"
-        android:layout_alignTop="@+id/textView75"
-        android:text="11. Irritable" />
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView77"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView56"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="253dp"
-        android:layout_marginStart="253dp"
-        android:text="." />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_panas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.trent.sleepapp.PanasActivity">
 
-    <TextView
-        android:id="@+id/textView78"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView50"
-        android:layout_alignStart="@+id/textView50"
-        android:layout_below="@+id/textView50"
-        android:text="5. Strong" />
 
-    <TextView
-        android:id="@+id/textView79"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView56"
-        android:layout_toEndOf="@+id/editTextash"
-        android:layout_toRightOf="@+id/editTextash"
-        android:text="12. Alert" />
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="97dp"
+            android:text="2. Distressed"
+            android:layout_below="@+id/textView55"
+            android:layout_alignRight="@+id/textView75"
+            android:layout_alignEnd="@+id/textView75" />
+        <EditText
+            android:id="@+id/editTextsca"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextgui"
+            android:layout_alignLeft="@+id/editTextstr"
+            android:layout_alignStart="@+id/editTextstr" />
 
-    <TextView
-        android:id="@+id/textView80"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView59"
-        android:layout_toEndOf="@+id/editTextner"
-        android:layout_toRightOf="@+id/editTextner"
-        android:text="15. Nervous" />
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView45"
+            android:layout_alignTop="@+id/textView55"
+            android:layout_toEndOf="@+id/editTextint"
+            android:layout_toRightOf="@+id/editTextint"
+            android:text="." />
+        <EditText
+            android:id="@+id/editTexthos"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextsca"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3.Excited"
+            android:layout_alignBaseline="@+id/editTextexc"
+            android:layout_alignBottom="@+id/editTextexc"
+            android:layout_toRightOf="@+id/editTextexc"
+            android:layout_toEndOf="@+id/editTextexc" />
+
+        <EditText
+            android:id="@+id/editTextent"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTexthos"
+            android:layout_alignLeft="@+id/editTexthos"
+            android:layout_alignStart="@+id/editTexthos" />
+
+        <TextView
+            android:text="4.Upset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView48"
+            android:layout_alignBaseline="@+id/editTextups"
+            android:layout_alignBottom="@+id/editTextups"
+            android:layout_toRightOf="@+id/editTextups"
+            android:layout_toEndOf="@+id/editTextups" />
+
+        <EditText
+            android:id="@+id/editTextint"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_above="@+id/editTextale"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/editTextgui"
+            android:layout_alignBottom="@+id/editTextgui"
+            android:layout_alignLeft="@+id/textView51"
+            android:layout_alignStart="@+id/textView51"
+            android:text="6.Guilty" />
+
+        <EditText
+            android:id="@+id/editTextdis"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextint"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView51"
+            android:layout_alignStart="@+id/textView51"
+            android:layout_below="@+id/editTextups"
+            android:text="." />
+
+        <EditText
+            android:id="@+id/editTextexc"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editTextdis" />
+
+        <TextView
+            android:text="7.Scared"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView51"
+            android:layout_alignBaseline="@+id/editTextsca"
+            android:layout_alignBottom="@+id/editTextsca"
+            android:layout_alignRight="@+id/textView47"
+            android:layout_alignEnd="@+id/textView47" />
+        <EditText
+            android:id="@+id/editTextups"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextexc"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="8.Hostile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView52"
+            android:layout_alignBaseline="@+id/editTexthos"
+            android:layout_alignBottom="@+id/editTexthos"
+            android:layout_toLeftOf="@+id/button2"
+            android:layout_toStartOf="@+id/button2" />
+        <EditText
+            android:id="@+id/editTextstr"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextups"
+            android:layout_alignLeft="@+id/editTextups"
+            android:layout_alignStart="@+id/editTextups" />
+
+        <TextView
+            android:text="9.Enthusiastic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView53"
+            android:layout_alignBaseline="@+id/editTextent"
+            android:layout_alignBottom="@+id/editTextent"
+            android:layout_toRightOf="@+id/editTextent"
+            android:layout_toEndOf="@+id/editTextent" />
+        <EditText
+            android:id="@+id/editTextgui"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextstr"
+            android:layout_alignLeft="@+id/editTextsca"
+            android:layout_alignStart="@+id/editTextsca" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10.Proud"
+            android:layout_alignBaseline="@+id/editTextpro"
+            android:layout_alignBottom="@+id/editTextpro"
+            android:layout_toRightOf="@+id/editTextpro"
+            android:layout_toEndOf="@+id/editTextpro" />
+        <EditText
+            android:id="@+id/editTextpro"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--xmlns:tools="http://schemas.android.com/tools"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:id="@+id/relativeLayout2"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentBottom="true">-->
+
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView44"
+            android:layout_marginTop="46dp"
+            android:layout_toEndOf="@+id/editTextale"
+            android:layout_toRightOf="@+id/editTextale"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textView56"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/textView55"
+            android:layout_alignTop="@+id/textView45"
+            android:text="." />
+        <EditText
+            android:id="@+id/editTextale"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_alignBaseline="@+id/textView56"
+            android:layout_alignBottom="@+id/textView56"
+            android:layout_toLeftOf="@+id/textView76"
+            android:layout_toStartOf="@+id/textView76" />
+
+
+        <TextView
+            android:id="@+id/textView57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13. Ashamed"
+            android:layout_alignBottom="@+id/textView47"
+            android:layout_toRightOf="@+id/editTextash"
+            android:layout_toEndOf="@+id/editTextash" />
+        <EditText
+            android:id="@+id/editTextash"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextale"
+            android:layout_alignLeft="@+id/editTextins"
+            android:layout_alignStart="@+id/editTextins" />
+
+        <TextView
+            android:id="@+id/textView58"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14. Inspired"
+            android:layout_alignBaseline="@+id/editTextins"
+            android:layout_alignBottom="@+id/editTextins"
+            android:layout_alignLeft="@+id/textView61"
+            android:layout_alignStart="@+id/textView61" />
+        <EditText
+            android:id="@+id/editTextins"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextash"
+            android:layout_alignLeft="@+id/editTextner"
+            android:layout_alignStart="@+id/editTextner" />
+
+        <TextView
+            android:id="@+id/textView59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/editTextner"
+            android:layout_alignBottom="@+id/editTextner"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="." />
+        <EditText
+            android:id="@+id/editTextner"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextins"
+            android:layout_alignLeft="@+id/editTextdet"
+            android:layout_alignStart="@+id/editTextdet" />
+
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16. Determined"
+            android:layout_alignBaseline="@+id/editTextdet"
+            android:layout_alignBottom="@+id/editTextdet"
+            android:layout_alignRight="@+id/textView59"
+            android:layout_alignEnd="@+id/textView59" />
+        <EditText
+            android:id="@+id/editTextdet"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextner"
+            android:layout_toLeftOf="@+id/textView60"
+            android:layout_toStartOf="@+id/textView60"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"/>
+
+
+        <TextView
+            android:id="@+id/textView61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17. Attentive"
+            android:layout_alignBaseline="@+id/editTextatt"
+            android:layout_alignBottom="@+id/editTextatt"
+            android:layout_alignLeft="@+id/textView63"
+            android:layout_alignStart="@+id/textView63"
+            android:layout_alignRight="@+id/textView60"
+            android:layout_alignEnd="@+id/textView60" />
+        <EditText
+            android:id="@+id/editTextatt"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextdet"
+            android:layout_alignLeft="@+id/editTextjit"
+            android:layout_alignStart="@+id/editTextjit" />
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18. Jittery"
+            android:layout_alignBaseline="@+id/editTextjit"
+            android:layout_alignBottom="@+id/editTextjit"
+            android:layout_toRightOf="@+id/editTextatt"
+            android:layout_toEndOf="@+id/editTextatt" />
+        <EditText
+            android:id="@+id/editTextjit"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextatt"
+            android:layout_alignLeft="@+id/editTextact"
+            android:layout_alignStart="@+id/editTextact" />
+
+        <TextView
+            android:id="@+id/textView63"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19. Active"
+            android:layout_alignBaseline="@+id/editTextact"
+            android:layout_alignBottom="@+id/editTextact"
+            android:layout_alignRight="@+id/textView62"
+            android:layout_alignEnd="@+id/textView62" />
+        <EditText
+            android:id="@+id/editTextact"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextjit"
+            android:layout_alignLeft="@+id/editTextafr"
+            android:layout_alignStart="@+id/editTextafr" />
+
+        <TextView
+            android:id="@+id/textView64"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20. Afraid"
+            android:layout_alignBaseline="@+id/editTextafr"
+            android:layout_alignBottom="@+id/editTextafr"
+            android:layout_toRightOf="@+id/editTextash"
+            android:layout_alignRight="@+id/textView60"
+            android:layout_alignEnd="@+id/textView60" />
+        <EditText
+            android:id="@+id/editTextafr"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_below="@+id/editTextact"
+            android:layout_toLeftOf="@+id/textView64"
+            android:layout_toStartOf="@+id/textView64" />
+
+        <!--</RelativeLayout>-->
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginTop="7dp"
+            android:layout_below="@+id/editTextpro"
+            android:layout_toRightOf="@+id/textView54"
+            android:layout_toEndOf="@+id/textView54" />
+
+        <EditText
+            android:id="@+id/editTextirr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:digits="12345"
+            android:maxLength="1"
+            android:layout_alignLeft="@+id/editTextale"
+            android:layout_alignStart="@+id/editTextale"
+            android:layout_alignRight="@+id/editTextale"
+            android:layout_alignEnd="@+id/editTextale"
+            android:layout_alignTop="@+id/editTextint" />
+
+        <TextView
+            android:id="@+id/textView75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Interested"
+            android:layout_alignBaseline="@+id/editTextint"
+            android:layout_alignBottom="@+id/editTextint"
+            android:layout_toRightOf="@+id/editTextint"
+            android:layout_toEndOf="@+id/editTextint" />
+
+        <TextView
+            android:id="@+id/textView76"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView58"
+            android:layout_alignStart="@+id/textView58"
+            android:layout_alignTop="@+id/textView75"
+            android:text="11. Irritable" />
+
+        <TextView
+            android:id="@+id/textView77"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView56"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="253dp"
+            android:layout_marginStart="253dp"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/textView78"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView50"
+            android:layout_alignStart="@+id/textView50"
+            android:layout_below="@+id/textView50"
+            android:text="5. Strong" />
+
+        <TextView
+            android:id="@+id/textView79"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView56"
+            android:layout_toEndOf="@+id/editTextash"
+            android:layout_toRightOf="@+id/editTextash"
+            android:text="12. Alert" />
+
+        <TextView
+            android:id="@+id/textView80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView59"
+            android:layout_toEndOf="@+id/editTextner"
+            android:layout_toRightOf="@+id/editTextner"
+            android:text="15. Nervous" />
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
-</ScrollView>

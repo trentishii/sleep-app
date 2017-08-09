@@ -1,8 +1,8 @@
 package com.example.trent.sleepapp;
 
 import android.content.Intent;
-import android.icu.util.Calendar;
-import android.icu.util.TimeZone;
+//import android.icu.util.Calendar;
+//import android.icu.util.TimeZone;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,8 +20,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import static java.util.TimeZone.*;
 import java.util.List;
+import java.util.TimeZone;
 
 public class LeedsActivity extends AppCompatActivity {
     private ProgressBar pb;

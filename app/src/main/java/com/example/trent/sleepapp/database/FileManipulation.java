@@ -2,8 +2,8 @@ package com.example.trent.sleepapp.database;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.icu.util.Calendar;
-import android.icu.util.TimeZone;
+//import android.icu.util.Calendar;
+//import android.icu.util.TimeZone;
 import android.os.Environment;
 
 import org.json.JSONException;
@@ -14,7 +14,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+
 
 /**
  * Created by Trent on 2/27/2017.
