@@ -34,6 +34,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -85,7 +89,7 @@ public class LightLogService extends Service implements SensorEventListener{
     //private int count_0 = 0;
     //private int count_1 = 0;
     //private int count_2 = 0;
-    private String location, activity, user, id;
+    private String location, activity, id;
     private double gx,gy,gz;
     private float mbar;
     private ToneGenerator tg;
@@ -132,6 +136,7 @@ public class LightLogService extends Service implements SensorEventListener{
     private long sensorTimeReference = 0;
     private long myTimeReference = 0;
     private StorageReference mStorageRef;
+    private FirebaseUser user;
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -277,8 +282,14 @@ public class LightLogService extends Service implements SensorEventListener{
         if(!file.exists())  file.mkdirs();
         ts = System.currentTimeMillis();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_a");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        String name = user.getEmail();
+        String[] newName = name.split("@");
+        DatabaseReference myRef = database.getReference(newName[0]);
         String date = sdf.format(ts);
-        file = new File(file.getAbsolutePath() + "/" +  android_id  + "_" + date + "_" + location + "_" + activity + "_" + user + "_session" + id + ".csv");
+        file = new File(file.getAbsolutePath() + "/" +  android_id  + "_" + date + "_" + newName[0]  + ".csv");
+//        file = new File(file.getAbsolutePath() + "/" +  android_id  + "_" + date + "_" + location + "_" + activity + "_" + user + "_session" + id + ".csv");
         try{
             out = new BufferedWriter(new FileWriter(file),BUFFER_SIZE);
             out.write("ts,type,val0,val1,val2,val3\n");
@@ -347,7 +358,7 @@ public class LightLogService extends Service implements SensorEventListener{
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             // Get a URL to the uploaded content
-                            Uri downloadUrl = taskSnapshot.getDownloadUrl();
+//                            Uri downloadUrl = taskSnapshot.getDownloadUrl();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

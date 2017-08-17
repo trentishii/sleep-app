@@ -359,7 +359,7 @@ public class AccLogService extends Service implements SensorEventListener{
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             // Get a URL to the uploaded content
-//                            Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                            Uri downloadUrl = taskSnapshot.getDownloadUrl();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
