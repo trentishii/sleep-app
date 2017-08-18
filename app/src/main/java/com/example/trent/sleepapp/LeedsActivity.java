@@ -80,7 +80,7 @@ public class LeedsActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 LeedsEvent event = new LeedsEvent(sb1.getProgress(), sb2.getProgress(), sb3.getProgress(), sb4.getProgress(), sb5.getProgress(), sb6.getProgress(), sb7.getProgress(), sb8.getProgress(), sb9.getProgress(), sb10.getProgress());
                 myRef.child("Leeds").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PAMActivity.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });

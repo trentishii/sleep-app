@@ -66,7 +66,7 @@ public class PVTHome extends Activity {
     super.onCreate(b);
     requestWindowFeature(Window.FEATURE_NO_TITLE);
 //    setContentView(R.layout.pvt_home);
-	  setContentView(R.layout.tests_complete);
+	  setContentView(R.layout.fragment_start);
     
     //get views 
 //    testTagInput = (EditText) findViewById(R.id.testTagInput);

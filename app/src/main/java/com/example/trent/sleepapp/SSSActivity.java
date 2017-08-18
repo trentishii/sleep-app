@@ -59,7 +59,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(1);
                 myRef.child("SSS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });
@@ -82,7 +82,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(2);
                 myRef.child("SSS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });
@@ -105,7 +105,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(3);
                 myRef.child("SSS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });
@@ -128,7 +128,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(4);
                 myRef.child("SSS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });
@@ -151,7 +151,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(5);
                 myRef.child("SSS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });
@@ -174,7 +174,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(6);
                 myRef.child("SSS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });
@@ -197,7 +197,7 @@ public class SSSActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 SSSEvent event = new SSSEvent(7);
                 myRef.child("SSS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });

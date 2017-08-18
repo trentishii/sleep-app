@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
 
-import java.sql.Time;
-
 public class AlarmActivity extends AppCompatActivity {
     private TimePicker tpAlarm;
     private Button setButton;
@@ -24,7 +22,7 @@ public class AlarmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alarm);
+        setContentView(R.layout.sensor_timePicker);
         Button setButton = (Button) findViewById(R.id.bSetAlarm);
         final TimePicker tpAlarm = (TimePicker) findViewById(R.id.timePickerAlarm);
         Button startButton = (Button) findViewById(R.id.bStart);

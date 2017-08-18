@@ -14,13 +14,6 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Calendar;
-import java.util.Date;
-import static java.util.TimeZone.*;
-
 public class JournalActivity extends AppCompatActivity {
     SharedPreferences sharedPrefs;
     public static final String PREFNAME = "userPrefs";
@@ -97,7 +90,7 @@ public class JournalActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PAMActivity.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });

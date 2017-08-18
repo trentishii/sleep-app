@@ -68,20 +68,46 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.bTests:
-                Log.e("Start", "View Clicked");
+            case R.id.bPAM:
+            case R.id.b2PAM:
+            case R.id.b3PAM:
+                Log.e("Start", "PAM Clicked");
                 Intent intent = new Intent(getActivity(), PAMActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.bSSS:
+            case R.id.b2SSS:
+            case R.id.b3SSS:
+                Log.e("Start", "SSS Clicked");
+                Intent intent1 = new Intent(getActivity(), SSSActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.bPVT:
+            case R.id.b2PVT:
+            case R.id.b3PVT:
+                Log.e("Start", "PVT Clicked");
+                Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                startActivity(intent2);
+                break;
+            case R.id.bSleepLog:
+                Log.e("Start", "Sleep Log Clicked");
+                Intent intent3 = new Intent(getActivity(), SleepLogActivity.class);
+                startActivity(intent3);
+                break;
             case R.id.bLEEDS:
                 Log.e("Start", "Leeds Clicked");
-                Intent intent1 = new Intent(getActivity(), SleepLogActivity.class);
-                startActivity(intent1);
+                Intent intent4 = new Intent(getActivity(), LeedsActivity.class);
+                startActivity(intent4);
                 break;
             case R.id.bPANAS:
                 Log.e("Start", "Panas Clicked");
-                Intent intent2 = new Intent(getActivity(), PanasActivity.class);
-                startActivity(intent2);
+                Intent intent5 = new Intent(getActivity(), PanasActivity.class);
+                startActivity(intent5);
+                break;
+            case R.id.bJournal:
+                Log.e("Start", "Journal Clicked");
+                Intent intent6 = new Intent(getActivity(), JournalActivity.class);
+                startActivity(intent6);
                 break;
         }
     }
@@ -91,12 +117,32 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_start, container, false);
-        Button b = (Button) v.findViewById(R.id.bTests);
+        Button b = (Button) v.findViewById(R.id.bPAM);
         b.setOnClickListener(this);
-        Button b1 = (Button) v.findViewById(R.id.bLEEDS);
+        Button b1 = (Button) v.findViewById(R.id.b2PAM);
         b1.setOnClickListener(this);
-        Button b2 = (Button) v.findViewById(R.id.bPANAS);
+        Button b2 = (Button) v.findViewById(R.id.b3PAM);
         b2.setOnClickListener(this);
+        Button b3 = (Button) v.findViewById(R.id.bSSS);
+        b3.setOnClickListener(this);
+        Button b4 = (Button) v.findViewById(R.id.b2SSS);
+        b4.setOnClickListener(this);
+        Button b5 = (Button) v.findViewById(R.id.b3SSS);
+        b5.setOnClickListener(this);
+        Button b6 = (Button) v.findViewById(R.id.bPVT);
+        b6.setOnClickListener(this);
+        Button b7 = (Button) v.findViewById(R.id.b2PVT);
+        b7.setOnClickListener(this);
+        Button b8 = (Button) v.findViewById(R.id.b3PVT);
+        b8.setOnClickListener(this);
+        Button b9 = (Button) v.findViewById(R.id.bSleepLog);
+        b9.setOnClickListener(this);
+        Button b10 = (Button) v.findViewById(R.id.bLEEDS);
+        b10.setOnClickListener(this);
+        Button b11 = (Button) v.findViewById(R.id.bPANAS);
+        b11.setOnClickListener(this);
+        Button b12 = (Button) v.findViewById(R.id.bJournal);
+        b12.setOnClickListener(this);
         return v;
     }
 

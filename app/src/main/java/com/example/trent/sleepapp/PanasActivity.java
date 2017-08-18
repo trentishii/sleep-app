@@ -99,7 +99,7 @@ public class PanasActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 PanasEvent event = new PanasEvent(ent1.getText().toString(), ent2.getText().toString(), ent3.getText().toString(), ent4.getText().toString(), ent5.getText().toString(), ent6.getText().toString(), ent7.getText().toString(), ent8.getText().toString(), ent9.getText().toString(), ent10.getText().toString(),ent11.getText().toString(),ent12.getText().toString(),ent13.getText().toString(),ent14.getText().toString(),ent15.getText().toString(),ent16.getText().toString(),ent17.getText().toString(),ent18.getText().toString(),ent19.getText().toString(),ent20.getText().toString());
                 myRef.child("PANAS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), JournalActivity.class);
+                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
                 startActivity(intent);
             }
         });

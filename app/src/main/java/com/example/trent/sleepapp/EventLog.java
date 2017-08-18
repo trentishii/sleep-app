@@ -19,13 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.json.JSONException;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-
-import static java.util.TimeZone.*;
 
 public class EventLog extends AppCompatActivity {
     private TimePicker timePicker;
@@ -40,7 +36,7 @@ public class EventLog extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_log);
+        setContentView(R.layout.eventLog_timePicker);
         timePicker = (TimePicker) findViewById(R.id.timePickerTobacco);
         submit = (Button) findViewById(R.id.bSubmit);
         question = (TextView) findViewById(R.id.tvQuestion);

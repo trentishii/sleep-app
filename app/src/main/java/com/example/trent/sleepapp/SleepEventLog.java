@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 //import android.icu.util.Calendar;
-import android.icu.util.TimeZone;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -31,9 +30,6 @@ import static java.util.TimeZone.*;
 //package com.example.trent.sleepapp;
 
 
-import org.json.JSONException;
-
-
 public class SleepEventLog extends AppCompatActivity {
     private TimePicker timePicker;
     private Button submit;
@@ -47,7 +43,7 @@ public class SleepEventLog extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sleep_log);
+        setContentView(R.layout.sleepLog_timePicker);
         timePicker = (TimePicker) findViewById(R.id.timePicker3);
         submit = (Button) findViewById(R.id.button4);
         question = (TextView) findViewById(R.id.textView68);
