@@ -16,6 +16,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 //package com.example.trent.sleepapp;
 
 
@@ -26,7 +30,7 @@ public class SleepLogActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sleepLog);
+        setContentView(R.layout.activity_sleep_log);
         sleepsharedPrefs = getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
 
 
@@ -54,7 +58,24 @@ public class SleepLogActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
+
+                SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = buttonPrefs.edit();
+
+                Date d = Calendar.getInstance().getTime();
+                String[] dateString = d.toString().split(" ");
+                String noon = "12:00:00";
+                String pattern = "HH:mm:ss";
+                SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+                try {
+                    if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+                        editor.putBoolean("bSleepLog", false);
+                        editor.commit();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();        }
+
+                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(intent);
             }
         });

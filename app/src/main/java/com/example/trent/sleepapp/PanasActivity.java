@@ -1,8 +1,10 @@
 package com.example.trent.sleepapp;
 
+import android.content.Context;
 import android.content.Intent;
 //import android.icu.util.Calendar;
 //import android.icu.util.TimeZone;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -48,6 +51,7 @@ public class PanasActivity extends AppCompatActivity {
     private EditText ent18;
     private EditText ent19;
     private EditText ent20;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +103,22 @@ public class PanasActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 PanasEvent event = new PanasEvent(ent1.getText().toString(), ent2.getText().toString(), ent3.getText().toString(), ent4.getText().toString(), ent5.getText().toString(), ent6.getText().toString(), ent7.getText().toString(), ent8.getText().toString(), ent9.getText().toString(), ent10.getText().toString(),ent11.getText().toString(),ent12.getText().toString(),ent13.getText().toString(),ent14.getText().toString(),ent15.getText().toString(),ent16.getText().toString(),ent17.getText().toString(),ent18.getText().toString(),ent19.getText().toString(),ent20.getText().toString());
                 myRef.child("PANAS").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
+
+                SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = buttonPrefs.edit();
+
+                String bedtime = "20:00:00";
+                String pattern = "HH:mm:ss";
+                SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+                try {
+                    if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+                        editor.putBoolean("bPANAS", false);
+                        editor.commit();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();        }
+
+                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(intent);
             }
         });

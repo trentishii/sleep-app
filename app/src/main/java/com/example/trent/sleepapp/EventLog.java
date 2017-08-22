@@ -36,7 +36,7 @@ public class EventLog extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.eventLog_timePicker);
+        setContentView(R.layout.event_log_timepicker);
         timePicker = (TimePicker) findViewById(R.id.timePickerTobacco);
         submit = (Button) findViewById(R.id.bSubmit);
         question = (TextView) findViewById(R.id.tvQuestion);

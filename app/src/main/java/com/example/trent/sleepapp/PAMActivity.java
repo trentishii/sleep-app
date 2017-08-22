@@ -4,7 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -39,6 +41,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import static java.util.TimeZone.*;
@@ -213,8 +217,32 @@ public class PAMActivity extends AppCompatActivity {
             int date = c.get(Calendar.DATE);
             String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
             PAMEvent pamE = new PAMEvent(idx);
-
             myRef.child("PAM").child(currentDate).setValue(pamE);
+
+            SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = buttonPrefs.edit();
+
+            String noon = "12:00:00";
+            String evening = "18:00:00";
+            String bedtime = "20:00:00";
+            String pattern = "HH:mm:ss";
+            SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+
+            if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+                editor.putBoolean("bPAM", false);
+                editor.commit();
+            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
+                editor.putBoolean("b2PAM", false);
+                editor.commit();
+            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
+                editor.putBoolean("b3PAM", false);
+                editor.commit();
+            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+                editor.putBoolean("b4PAM", false);
+                editor.commit();
+            }
+
+
 
 //            PamSchema pamSchema = new PamSchema(idx, dt);
 //
@@ -241,7 +269,11 @@ public class PAMActivity extends AppCompatActivity {
 //            datapoint.save();
 //
             Toast.makeText(PAMActivity.this, "Submitted. IDX: " + idx, Toast.LENGTH_LONG).show();
-            Intent timeSubmitted = new Intent(PAMActivity.this, StartFragment.class);
+
+
+            Intent timeSubmitted = new Intent(PAMActivity.this, UserActivity.class);
+//            timeSubmitted.putExtra("isEnabled", false);
+
             PAMActivity.this.startActivity(timeSubmitted);
 //            // clear selection
 //            pam_photo_id = null;

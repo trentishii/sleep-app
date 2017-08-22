@@ -14,6 +14,10 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class JournalActivity extends AppCompatActivity {
     SharedPreferences sharedPrefs;
     public static final String PREFNAME = "userPrefs";
@@ -90,7 +94,24 @@ public class JournalActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
+
+                SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = buttonPrefs.edit();
+
+                Date d = Calendar.getInstance().getTime();
+                String[] dateString = d.toString().split(" ");
+                String bedtime = "20:00:00";
+                String pattern = "HH:mm:ss";
+                SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+                try {
+                    if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+                        editor.putBoolean("bJournal", false);
+                        editor.commit();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();        }
+
+                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(intent);
             }
         });

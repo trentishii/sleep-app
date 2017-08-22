@@ -36,11 +36,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private UserDBHelper mDbHelper;
     SharedPreferences sharedPrefs;
+    SharedPreferences buttonPrefs;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "EmailPassword";
 
     public static final String PREFNAME = "userPrefs";
+    public static final String BUTTONPREFNAME = "btnPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(LoginActivity.this, "User Signed In", Toast.LENGTH_LONG).show();
                     Log.d(TAG, "TOKEN: " + FirebaseInstanceId.getInstance().getToken());
                     Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);
+                    registerIntent.putExtra("isEnabled", true);
                     LoginActivity.this.startActivity(registerIntent);
                 } else {
                     // User is signed out
@@ -176,6 +179,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //    }
 
     private void createAccount(String email, String password) {
+        buttonPrefs = getSharedPreferences(BUTTONPREFNAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = buttonPrefs.edit();
+        editor.putBoolean("bPAM", true);
+        editor.putBoolean("b2PAM", true);
+        editor.putBoolean("b3PAM", true);
+        editor.putBoolean("b4PAM", true);
+        editor.putBoolean("bSSS", true);
+        editor.putBoolean("b2SSS", true);
+        editor.putBoolean("b3SSS", true);
+        editor.putBoolean("b4SSS", true);
+        editor.putBoolean("bPVT", true);
+        editor.putBoolean("b2PVT", true);
+        editor.putBoolean("b3PVT", true);
+        editor.putBoolean("b4PVT", true);
+        editor.putBoolean("bSleepLog", true);
+        editor.putBoolean("bLEEDS", true);
+        editor.putBoolean("bPANAS", true);
+        editor.putBoolean("bJournal", true);
+        editor.commit();
         Log.d(TAG, "createAccount:" + email);
         if (!validateForm()) {
             return;

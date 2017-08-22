@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import static java.util.TimeZone.*;
@@ -43,7 +44,7 @@ public class SleepEventLog extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sleepLog_timePicker);
+        setContentView(R.layout.sleep_log_timepicker);
         timePicker = (TimePicker) findViewById(R.id.timePicker3);
         submit = (Button) findViewById(R.id.button4);
         question = (TextView) findViewById(R.id.textView68);

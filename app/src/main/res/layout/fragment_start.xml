@@ -70,7 +70,7 @@
                 android:id="@+id/textView83"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DAY TIME TESTS "
+                android:text="FIRST DAY TIME TESTS "
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:layout_below="@+id/bPVT"
                 android:layout_centerHorizontal="true" />
@@ -103,9 +103,44 @@
                 android:id="@+id/textView84"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/b2PVT"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:text="SECOND DAY TIME TESTS "
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <Button
+                android:id="@+id/b3PAM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView84"
+                android:layout_centerHorizontal="true"
+                android:text="MOOD" />
+
+            <Button
+                android:id="@+id/b3SSS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sleepiness"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/b3PAM"/>
+
+            <Button
+                android:id="@+id/b3PVT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/b3SSS"
+                android:text="Alterness" />
+
+            <TextView
+                android:id="@+id/textView85"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text=" BED TIME TESTS"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:layout_below="@+id/b2PVT"
+                android:layout_below="@+id/b3PVT"
                 android:layout_centerHorizontal="true" />
 
             <Button
@@ -113,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/textView84"
+                android:layout_below="@+id/textView85"
                 android:text="Overall Mood" />
 
             <Button
@@ -125,7 +160,7 @@
                 android:layout_below="@+id/bPANAS" />
 
             <Button
-                android:id="@+id/b3PAM"
+                android:id="@+id/b4PAM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -133,19 +168,19 @@
                 android:text="MOOD" />
 
             <Button
-                android:id="@+id/b3SSS"
+                android:id="@+id/b4SSS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/b3PAM"
+                android:layout_below="@+id/b4PAM"
                 android:text="Sleepiness" />
 
             <Button
-                android:id="@+id/b3PVT"
+                android:id="@+id/b4PVT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/b3SSS"
+                android:layout_below="@+id/b4SSS"
                 android:text="Altertness" />
 
 

@@ -1,7 +1,9 @@
 package com.example.trent.sleepapp.pvt;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
@@ -24,6 +26,9 @@ import com.example.trent.sleepapp.UserActivity;
 import com.example.trent.sleepapp.pvt.PVTConfig.PVTConfigTest;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import com.example.trent.sleepapp.R;
 
@@ -66,8 +71,9 @@ public class PVTHome extends Activity {
     super.onCreate(b);
     requestWindowFeature(Window.FEATURE_NO_TITLE);
 //    setContentView(R.layout.pvt_home);
-	  setContentView(R.layout.fragment_start);
-    
+	  setContentView(R.layout.fragment_settings);
+
+
     //get views 
 //    testTagInput = (EditText) findViewById(R.id.testTagInput);
 //    subjectIdInput = (EditText) findViewById(R.id.subjectIdInput);
@@ -101,6 +107,8 @@ public class PVTHome extends Activity {
     if (params == null) {
       throw new RuntimeException("could not load configuration");
     }
+
+
 
     //populate views with current configuration
 //    testTagInput.setText(params.getStringValueOrDefault(PVTStringParam.test_tag));
@@ -186,6 +194,33 @@ public class PVTHome extends Activity {
   }
 
   public void returnHome(View v) throws IOException {
+      SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+      SharedPreferences.Editor editor = buttonPrefs.edit();
+
+      Date d = Calendar.getInstance().getTime();
+      String[] dateString = d.toString().split(" ");
+      String noon = "12:00:00";
+      String evening = "18:00:00";
+      String bedtime = "20:00:00";
+      String pattern = "HH:mm:ss";
+      SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+      try {
+          if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+              editor.putBoolean("bPVT", false);
+              editor.commit();
+          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
+              editor.putBoolean("b2PVT", false);
+              editor.commit();
+          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
+              editor.putBoolean("b3PVT", false);
+              editor.commit();
+          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+              editor.putBoolean("b4PVT", false);
+              editor.commit();
+          }
+      }catch (Exception e) {
+          e.printStackTrace();        }
+
 	  Intent i = new Intent(this, UserActivity.class);
 	  startActivity(i);
   }

@@ -40,6 +40,7 @@
         <activity android:name=".EventLog" />
         <activity android:name=".SleepEventLog" />
         <activity android:name=".AlarmActivity" />
+        <activity android:name=".StartFragment" />
         <receiver android:name=".CancelAlarmService"/>
         <service android:name=".AlarmReceiver" />
         <service android:name=".AccLogService" />

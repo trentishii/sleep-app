@@ -1,8 +1,10 @@
 package com.example.trent.sleepapp;
 
+import android.content.Context;
 import android.content.Intent;
 //import android.icu.util.Calendar;
 //import android.icu.util.TimeZone;
+import android.content.SharedPreferences;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -80,7 +83,22 @@ public class LeedsActivity extends AppCompatActivity {
                 String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
                 LeedsEvent event = new LeedsEvent(sb1.getProgress(), sb2.getProgress(), sb3.getProgress(), sb4.getProgress(), sb5.getProgress(), sb6.getProgress(), sb7.getProgress(), sb8.getProgress(), sb9.getProgress(), sb10.getProgress());
                 myRef.child("Leeds").child(currentDate).setValue(event);
-                Intent intent = new Intent(getApplicationContext(), StartFragment.class);
+
+                SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = buttonPrefs.edit();
+
+                String noon = "12:00:00";
+                String pattern = "HH:mm:ss";
+                SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+                try {
+                    if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+                        editor.putBoolean("bLEEDS", false);
+                        editor.commit();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();        }
+
+                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(intent);
             }
         });

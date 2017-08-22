@@ -2,9 +2,11 @@ package com.example.trent.sleepapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +24,10 @@ import com.example.trent.sleepapp.pvt.PVTHome;
  * Use the {@link StartFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class StartFragment extends Fragment implements View.OnClickListener {
+//public class StartFragment extends AppCompatActivity {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,10 +36,16 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private boolean myParam;
 
     private OnFragmentInteractionListener mListener;
 
+    SharedPreferences buttonPrefs;
+    public static final String BUTTONPREFNAME = "btnPrefs";
+
+
     public StartFragment() {
+
         // Required empty public constructor
     }
 
@@ -58,10 +69,12 @@ public class StartFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        buttonPrefs = getActivity().getSharedPreferences(BUTTONPREFNAME, Context.MODE_PRIVATE);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            myParam = getArguments().getBoolean("isEnabled");
         }
     }
 
@@ -71,6 +84,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.bPAM:
             case R.id.b2PAM:
             case R.id.b3PAM:
+            case R.id.b4PAM:
                 Log.e("Start", "PAM Clicked");
                 Intent intent = new Intent(getActivity(), PAMActivity.class);
                 startActivity(intent);
@@ -78,6 +92,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.bSSS:
             case R.id.b2SSS:
             case R.id.b3SSS:
+            case R.id.b4SSS:
                 Log.e("Start", "SSS Clicked");
                 Intent intent1 = new Intent(getActivity(), SSSActivity.class);
                 startActivity(intent1);
@@ -85,6 +100,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.bPVT:
             case R.id.b2PVT:
             case R.id.b3PVT:
+            case R.id.b4PVT:
                 Log.e("Start", "PVT Clicked");
                 Intent intent2 = new Intent(getActivity(), PVTHome.class);
                 startActivity(intent2);
@@ -118,31 +134,53 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_start, container, false);
         Button b = (Button) v.findViewById(R.id.bPAM);
+        b.setEnabled(buttonPrefs.getBoolean("bPAM", true));
         b.setOnClickListener(this);
         Button b1 = (Button) v.findViewById(R.id.b2PAM);
+        b1.setEnabled(buttonPrefs.getBoolean("b2PAM", true));
         b1.setOnClickListener(this);
         Button b2 = (Button) v.findViewById(R.id.b3PAM);
+        b2.setEnabled(buttonPrefs.getBoolean("b3PAM", true));
         b2.setOnClickListener(this);
-        Button b3 = (Button) v.findViewById(R.id.bSSS);
+        Button b3 = (Button) v.findViewById(R.id.b4PAM);
+        b3.setEnabled(buttonPrefs.getBoolean("b4PAM", true));
         b3.setOnClickListener(this);
-        Button b4 = (Button) v.findViewById(R.id.b2SSS);
+        Button b4 = (Button) v.findViewById(R.id.bSSS);
+        b4.setEnabled(buttonPrefs.getBoolean("bSSS", true));
         b4.setOnClickListener(this);
-        Button b5 = (Button) v.findViewById(R.id.b3SSS);
+        Button b5 = (Button) v.findViewById(R.id.b2SSS);
+        b5.setEnabled(buttonPrefs.getBoolean("b2SSS", true));
         b5.setOnClickListener(this);
-        Button b6 = (Button) v.findViewById(R.id.bPVT);
+        Button b6 = (Button) v.findViewById(R.id.b3SSS);
+        b6.setEnabled(buttonPrefs.getBoolean("b3SSS", true));
         b6.setOnClickListener(this);
-        Button b7 = (Button) v.findViewById(R.id.b2PVT);
+        Button b7 = (Button) v.findViewById(R.id.b4SSS);
+        b7.setEnabled(buttonPrefs.getBoolean("b4SSS", true));
         b7.setOnClickListener(this);
-        Button b8 = (Button) v.findViewById(R.id.b3PVT);
+        Button b8 = (Button) v.findViewById(R.id.bPVT);
+        b8.setEnabled(buttonPrefs.getBoolean("bPVT", true));
         b8.setOnClickListener(this);
-        Button b9 = (Button) v.findViewById(R.id.bSleepLog);
+        Button b9 = (Button) v.findViewById(R.id.b2PVT);
+        b9.setEnabled(buttonPrefs.getBoolean("b2PVT", true));
         b9.setOnClickListener(this);
-        Button b10 = (Button) v.findViewById(R.id.bLEEDS);
+        Button b10 = (Button) v.findViewById(R.id.b3PVT);
+        b10.setEnabled(buttonPrefs.getBoolean("b3PVT", true));
         b10.setOnClickListener(this);
-        Button b11 = (Button) v.findViewById(R.id.bPANAS);
+        Button b11 = (Button) v.findViewById(R.id.b4PVT);
+        b11.setEnabled(buttonPrefs.getBoolean("b4PVT", true));
         b11.setOnClickListener(this);
-        Button b12 = (Button) v.findViewById(R.id.bJournal);
+        Button b12 = (Button) v.findViewById(R.id.bSleepLog);
+        b12.setEnabled(buttonPrefs.getBoolean("bSleepLog", true));
         b12.setOnClickListener(this);
+        Button b13 = (Button) v.findViewById(R.id.bLEEDS);
+        b13.setEnabled(buttonPrefs.getBoolean("bLEEDS", true));
+        b13.setOnClickListener(this);
+        Button b14 = (Button) v.findViewById(R.id.bPANAS);
+        b14.setEnabled(buttonPrefs.getBoolean("bPANAS", true));
+        b14.setOnClickListener(this);
+        Button b15 = (Button) v.findViewById(R.id.bJournal);
+        b15.setEnabled(buttonPrefs.getBoolean("bJournal", true));
+        b15.setOnClickListener(this);
         return v;
     }
 
@@ -185,3 +223,4 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         void onFragmentInteraction(Uri uri);
     }
 }
+//}
