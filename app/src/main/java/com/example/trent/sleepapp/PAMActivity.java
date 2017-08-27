@@ -230,15 +230,19 @@ public class PAMActivity extends AppCompatActivity {
 
             if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                 editor.putBoolean("bPAM", false);
+                editor.putBoolean("WakeTimeDone", true);
                 editor.commit();
             } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                 editor.putBoolean("b2PAM", false);
+                editor.putBoolean("DayTime1Done", true);
                 editor.commit();
             } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                 editor.putBoolean("b3PAM", false);
+                editor.putBoolean("DayTime2Done", true);
                 editor.commit();
             } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                 editor.putBoolean("b4PAM", false);
+                editor.putBoolean("SleepTimeDone", true);
                 editor.commit();
             }
 

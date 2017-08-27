@@ -93,6 +93,7 @@ public class LeedsActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bLEEDS", false);
+                        editor.putBoolean("LLEDSDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {

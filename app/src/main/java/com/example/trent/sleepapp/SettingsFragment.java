@@ -220,50 +220,50 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calStop.getTimeInMillis(), cancellationPendingIntent);
 
 //
-//                if (!tobacco.isChecked() && journals.contains("Tobacco")) {
-//                    journals.remove("Tobacco");
-//                }
-//                if (tobacco.isChecked() && !journals.contains("Tobacco")) {
-//                    journals.add("Tobacco");
-//                }
-//
-//                if (!exercise.isChecked() && journals.contains("Exercise")) {
-//                    journals.remove("Exercise");
-//                }
-//                if (exercise.isChecked() && !journals.contains("Exercise")) {
-//                    journals.add("Exercise");
-//                }
-//
-//
-//                if (!alcohol.isChecked() && journals.contains("Alcohol")) {
-//                    journals.remove("Alcohol");
-//                }
-//                if (alcohol.isChecked() && !journals.contains("Alcohol")) {
-//                    journals.add("Alcohol");
-//                }
-//
-//
-//                if (!food.isChecked() && journals.contains("Food")) {
-//                    journals.remove("Food");
-//                }
-//                if (food.isChecked() && !journals.contains("Food")) {
-//                    journals.add("Food");
-//                }
-//
-//
-//                if (!medicine.isChecked() && journals.contains("Medicine")) {
-//                    journals.remove("Medicine");
-//                }
-//                if (medicine.isChecked() && !journals.contains("Medicine")) {
-//                    journals.add("Medicine");
-//                }
-//
-//                if (!coffee.isChecked() && journals.contains("Coffee")) {
-//                    journals.remove("Coffee");
-//                }
-//                if (coffee.isChecked() && !journals.contains("Coffee")) {
-//                    journals.add("Coffee");
-//                }
+                if (!tobacco.isChecked() && journals.contains("Tobacco")) {
+                    journals.remove("Tobacco");
+                }
+                if (tobacco.isChecked() && !journals.contains("Tobacco")) {
+                    journals.add("Tobacco");
+                }
+
+                if (!exercise.isChecked() && journals.contains("Exercise")) {
+                    journals.remove("Exercise");
+                }
+                if (exercise.isChecked() && !journals.contains("Exercise")) {
+                    journals.add("Exercise");
+                }
+
+
+                if (!alcohol.isChecked() && journals.contains("Alcohol")) {
+                    journals.remove("Alcohol");
+                }
+                if (alcohol.isChecked() && !journals.contains("Alcohol")) {
+                    journals.add("Alcohol");
+                }
+
+
+                if (!food.isChecked() && journals.contains("Food")) {
+                    journals.remove("Food");
+                }
+                if (food.isChecked() && !journals.contains("Food")) {
+                    journals.add("Food");
+                }
+
+
+                if (!medicine.isChecked() && journals.contains("Medicine")) {
+                    journals.remove("Medicine");
+                }
+                if (medicine.isChecked() && !journals.contains("Medicine")) {
+                    journals.add("Medicine");
+                }
+
+                if (!coffee.isChecked() && journals.contains("Coffee")) {
+                    journals.remove("Coffee");
+                }
+                if (coffee.isChecked() && !journals.contains("Coffee")) {
+                    journals.add("Coffee");
+                }
 
 
                 Toast.makeText(getActivity(),"Settings Submitted!",Toast.LENGTH_SHORT).show();

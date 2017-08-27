@@ -71,7 +71,8 @@ public class PVTHome extends Activity {
     super.onCreate(b);
     requestWindowFeature(Window.FEATURE_NO_TITLE);
 //    setContentView(R.layout.pvt_home);
-	  setContentView(R.layout.fragment_settings);
+	  setContentView(R.layout.activity_user);
+
 
 
     //get views 
@@ -207,15 +208,19 @@ public class PVTHome extends Activity {
       try {
           if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
               editor.putBoolean("bPVT", false);
+              editor.putBoolean("WakeTestDone", true);
               editor.commit();
           } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
               editor.putBoolean("b2PVT", false);
+              editor.putBoolean("DayTime1Done", true);
               editor.commit();
           } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
               editor.putBoolean("b3PVT", false);
+              editor.putBoolean("DayTime2Done", true);
               editor.commit();
           } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
               editor.putBoolean("b4PVT", false);
+              editor.putBoolean("SleepTimeDone", true);
               editor.commit();
           }
       }catch (Exception e) {

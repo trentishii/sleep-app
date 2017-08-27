@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import static com.example.trent.sleepapp.StartFragment.BUTTONPREFNAME;
 
@@ -25,57 +26,136 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 {
     private Toolbar myToolbar;
     private boolean buttonStatus;
-    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user);
+
+
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        StartFragment fragment = new StartFragment();
+
+
+        Date d = Calendar.getInstance().getTime();
+        String[] dateString = d.toString().split(" ");
+        String noon = "12:00:00";
+        String evening = "18:00:00";
+        String bedtime = "20:00:00";
+        String pattern = "HH:mm:ss";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+
+        SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = buttonPrefs.edit();
         try {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_user);
+            int count = 0;
+            if(count == 0) {
+                editor.putBoolean("PAMDone", false);
+                editor.putBoolean("SSSDone", false);
+                editor.commit();
+                count = count + 1;
+            }
+            if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
 
-            myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-            setSupportActionBar(myToolbar);
+                if (!buttonPrefs.getBoolean("WakeTimeDone",false)){
+                        editor.putBoolean("bSleepLog", true) ;
+                        editor.putBoolean("bLEEDS", true);
+                        editor.putBoolean("bPAM", true);
+                        editor.putBoolean("bSSS", true);
+                        editor.putBoolean("bPVT", true);
+                    }
+                editor.putBoolean("b2PAM", false);
+                editor.putBoolean("b3PAM", false);
+                editor.putBoolean("b4PAM", false);
+                editor.putBoolean("b2SSS", false);
+                editor.putBoolean("b3SSS", false);
+                editor.putBoolean("b4SSS", false);
+                editor.putBoolean("b2PVT", false);
+                editor.putBoolean("b3PVT", false);
+                editor.putBoolean("b4PVT", false);
+                editor.putBoolean("bPANAS", false);
+                editor.putBoolean("bJournal", false);
+                editor.putBoolean("SleepTimeDone", false);
+                editor.commit();
 
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            }
+            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
+                if (!buttonPrefs.getBoolean("DayTime1Done",false)){
+                    editor.putBoolean("b2PAM", true);
+                    editor.putBoolean("b2PVT", true);
+                    editor.putBoolean("b2SSS", true);
+                    editor.commit();
+                }
+                editor.putBoolean("bSleepLog", false);
+                editor.putBoolean("bLEEDS", false);
+                editor.putBoolean("bPAM", false);
+                editor.putBoolean("b3PAM", false);
+                editor.putBoolean("b4PAM", false);
+                editor.putBoolean("bSSS", false);
+                editor.putBoolean("b3SSS", false);
+                editor.putBoolean("b4SSS", false);
+                editor.putBoolean("bPVT", false);
+                editor.putBoolean("b3PVT", false);
+                editor.putBoolean("b4PVT", false);
+                editor.putBoolean("bPANAS", false);
+                editor.putBoolean("bJournal", false);
+                editor.putBoolean("WakeTimeDone", false);
+                editor.commit();
+            }
+            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
+                if (!buttonPrefs.getBoolean("DayTime2Done",false)) {
+                    editor.putBoolean("b3PAM", true);
+                    editor.putBoolean("b3SSS", true);
+                    editor.putBoolean("b3PVT", true);
+                }
+                editor.putBoolean("bPAM", false);
+                editor.putBoolean("b2PAM", false);
+                editor.putBoolean("b4PAM", false);
+                editor.putBoolean("bSSS", false);
+                editor.putBoolean("b2SSS", false);
+                editor.putBoolean("b4SSS", false);
+                editor.putBoolean("bPVT", false);
+                editor.putBoolean("b2PVT", false);
+                editor.putBoolean("b4PVT", false);
+                editor.putBoolean("bPANAS", false);
+                editor.putBoolean("bJournal", false);
+                editor.putBoolean("bSleepLog", false);
+                editor.putBoolean("bLEEDS", false);
+                editor.putBoolean("DayTime1Done", false);
+                editor.commit();
 
-            StartFragment fragment = new StartFragment();
-
-            String reset_time = "24:00:00";
-            String pattern = "HH:mm:ss";
-            SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-            Date d = Calendar.getInstance().getTime();
-            String[] dateString = d.toString().split(" ");
-            SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = buttonPrefs.edit();
-
-            if (dateFormat.parse(dateString[3]).after(dateFormat.parse(reset_time))) {
-                editor.putBoolean("bPAM", true);
-                editor.putBoolean("b2PAM", true);
-                editor.putBoolean("b3PAM", true);
-                editor.putBoolean("b4PAM", true);
-                editor.putBoolean("bSSS", true);
-                editor.putBoolean("b2SSS", true);
-                editor.putBoolean("b3SSS", true);
-                editor.putBoolean("b4SSS", true);
-                editor.putBoolean("bPVT", true);
-                editor.putBoolean("b2PVT", true);
-                editor.putBoolean("b3PVT", true);
-                editor.putBoolean("b4PVT", true);
-                editor.putBoolean("bSleepLog", true);
-                editor.putBoolean("bLEEDS", true);
-                editor.putBoolean("bPANAS", true);
-                editor.putBoolean("bJournal", true);
+            }
+            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+                if (!buttonPrefs.getBoolean("SleepTimeDone",false)) {
+                    editor.putBoolean("b4PAM", true);
+                    editor.putBoolean("b4SSS", true);
+                    editor.putBoolean("b4PVT", true);
+                    editor.putBoolean("bPANAS", true);
+                    editor.putBoolean("bJournal", true);
+                }
+                editor.putBoolean("bPAM", false);
+                editor.putBoolean("b2PAM", false);
+                editor.putBoolean("b3PAM", false);
+                editor.putBoolean("bSSS", false);
+                editor.putBoolean("b2SSS", false);
+                editor.putBoolean("b3SSS", false);
+                editor.putBoolean("bPVT", false);
+                editor.putBoolean("b2PVT", false);
+                editor.putBoolean("b3PVT", false);
+                editor.putBoolean("bPANAS", false);
+                editor.putBoolean("bJournal", false);
+                editor.putBoolean("bSleepLog", false);
+                editor.putBoolean("bLEEDS", false);
+                editor.putBoolean("DayTime2Done", false);
                 editor.commit();
             }
 
-//        if(count == 0) {
-//            editor.putBoolean("bPAM", true);
-//            editor.putBoolean("b2PAM", true);
-//            editor.commit();
-//            count = count + 1;
-//        }
-
+        }catch (Exception e) {
+            e.printStackTrace();        }
 
             fragmentTransaction.add(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
@@ -85,36 +165,6 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                     //Toast.makeText(getApplicationContext(), "Toolbar title clicked", Toast.LENGTH_SHORT).show();
                 }
             });
-
-
-//        Button btn2 = (Button)findViewById(R.id.bTests);
-//        btn2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), PVTHome.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        Button btn3 = (Button)findViewById(R.id.bSleep);
-//        btn3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), JournalActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        Button btn4 = (Button)findViewById(R.id.bAlarm);
-//        btn4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-        }catch (Exception e) {
-            e.printStackTrace();        }
     }
 
     @Override
@@ -162,7 +212,6 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 }

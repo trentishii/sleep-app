@@ -70,6 +70,7 @@ public class SleepLogActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bSleepLog", false);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {

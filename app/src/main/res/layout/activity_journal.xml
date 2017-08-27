@@ -102,6 +102,6 @@
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/imageButtonAlcohol"
         android:layout_toRightOf="@+id/imageButtonAlcohol"
-        android:text="SUBMIT" />
+        android:text="DONE" />
 
 </RelativeLayout>

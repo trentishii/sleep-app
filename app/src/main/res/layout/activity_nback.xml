@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.trent.sleepapp.NBackActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView86"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Click on the shape if it's same as the one displayed 2 images ago"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/imageStar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/star"
+        android:layout_marginRight="47dp"
+        android:layout_marginEnd="47dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/imageCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageStar"
+        android:layout_alignEnd="@+id/imageStar"
+        android:layout_alignRight="@+id/imageStar"
+        android:layout_alignTop="@+id/imageStar"
+        app:srcCompat="@drawable/circle"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/imageSquare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageStar"
+        android:layout_alignStart="@+id/imageStar"
+        android:layout_alignTop="@+id/imageStar"
+        app:srcCompat="@drawable/square"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/imageTriangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageStar"
+        android:layout_alignEnd="@+id/imageStar"
+        android:layout_alignRight="@+id/imageStar"
+        android:layout_alignTop="@+id/imageStar"
+        app:srcCompat="@drawable/triangle"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/imageHexagon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageStar"
+        android:layout_alignStart="@+id/imageStar"
+        android:layout_alignTop="@+id/imageStar"
+        app:srcCompat="@drawable/hexagon"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

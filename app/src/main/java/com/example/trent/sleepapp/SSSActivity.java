@@ -74,15 +74,19 @@ public class SSSActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bSSS", false);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                         editor.putBoolean("b2SSS", false);
+                        editor.putBoolean("DayTime1Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b3SSS", false);
+                        editor.putBoolean("DayTime2Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b4SSS", false);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {
@@ -123,15 +127,19 @@ public class SSSActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bSSS", false);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                         editor.putBoolean("b2SSS", false);
+                        editor.putBoolean("DayTime1Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b3SSS", false);
+                        editor.putBoolean("DayTime2Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b4SSS", false);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {
@@ -172,15 +180,19 @@ public class SSSActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bSSS", false);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                         editor.putBoolean("b2SSS", false);
+                        editor.putBoolean("DayTime1Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b3SSS", false);
+                        editor.putBoolean("DayTime2Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b4SSS", false);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {
@@ -221,15 +233,19 @@ public class SSSActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bSSS", false);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                         editor.putBoolean("b2SSS", false);
+                        editor.putBoolean("DayTime1Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b3SSS", false);
+                        editor.putBoolean("DayTime2Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b4SSS", false);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {
@@ -270,15 +286,19 @@ public class SSSActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bSSS", false);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                         editor.putBoolean("b2SSS", false);
+                        editor.putBoolean("DayTime1Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b3SSS", false);
+                        editor.putBoolean("DayTime2Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b4SSS", false);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {
@@ -319,15 +339,19 @@ public class SSSActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bSSS", false);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                         editor.putBoolean("b2SSS", false);
+                        editor.putBoolean("DayTime1Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b3SSS", false);
+                        editor.putBoolean("DayTime2Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b4SSS", false);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {
@@ -368,15 +392,19 @@ public class SSSActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                         editor.putBoolean("bSSS", false);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                         editor.putBoolean("b2SSS", false);
+                        editor.putBoolean("DayTime1Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b3SSS", false);
+                        editor.putBoolean("DayTime2Done", true);
                         editor.commit();
                     } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                         editor.putBoolean("b4SSS", false);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {

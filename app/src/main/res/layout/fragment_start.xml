@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="46dp"
+                android:layout_marginTop="50dp"
                 android:text="WAKE TIME TESTS"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:layout_centerHorizontal="true"

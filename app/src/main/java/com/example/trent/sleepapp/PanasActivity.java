@@ -113,6 +113,7 @@ public class PanasActivity extends AppCompatActivity {
                 try {
                     if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                         editor.putBoolean("bPANAS", false);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {

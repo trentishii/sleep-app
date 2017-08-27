@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 //import android.icu.util.Calendar;
 //import android.icu.util.TimeZone;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -18,108 +21,119 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class JournalActivity extends AppCompatActivity {
+public class JournalActivity extends AppCompatActivity implements JournalFragment.OnFragmentInteractionListener {
     SharedPreferences sharedPrefs;
     public static final String PREFNAME = "userPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_journal);
+//        setContentView(R.layout.activity_journal);
+        setContentView(R.layout.activity_user);
         sharedPrefs = getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
 
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        JournalFragment journalFrag = new JournalFragment();
+        transaction.add(R.id.fragment_container, journalFrag);
+//        transaction.addToBackStack(null);
+        transaction.commit();
 
 
-        ImageButton goToTobaccoLog = (ImageButton)findViewById(R.id.imageButtonTobacco);
-        goToTobaccoLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 0);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
 
-        ImageButton goToCoffeeLog = (ImageButton)findViewById(R.id.imageButtonCoffee);
-        goToCoffeeLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 1);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToExerciseLog = (ImageButton)findViewById(R.id.imageButtonExercise);
-        goToExerciseLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 2);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToMealLog = (ImageButton)findViewById(R.id.imageButtonMeal);
-        goToMealLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 3);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToAlcoholLog = (ImageButton)findViewById(R.id.imageButtonAlcohol);
-        goToAlcoholLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 4);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton goToPillLog = (ImageButton)findViewById(R.id.imageButtonPill);
-        goToPillLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                setPreferences(sharedPrefs, 5);
-                Intent intent = new Intent (JournalActivity.this, EventLog.class);
-                startActivity(intent);
-            }
-        });
-
-        Button btn3 = (Button)findViewById(R.id.button);
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = buttonPrefs.edit();
-
-                Date d = Calendar.getInstance().getTime();
-                String[] dateString = d.toString().split(" ");
-                String bedtime = "20:00:00";
-                String pattern = "HH:mm:ss";
-                SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-                try {
-                    if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
-                        editor.putBoolean("bJournal", false);
-                        editor.commit();
-                    }
-                }catch (Exception e) {
-                    e.printStackTrace();        }
-
-                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-                startActivity(intent);
-            }
-        });
+//        ImageButton goToTobaccoLog = (ImageButton)findViewById(R.id.imageButtonTobacco);
+//        goToTobaccoLog.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                setPreferences(sharedPrefs, 0);
+//                Intent intent = new Intent (JournalActivity.this, EventLog.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        ImageButton goToCoffeeLog = (ImageButton)findViewById(R.id.imageButtonCoffee);
+//        goToCoffeeLog.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                setPreferences(sharedPrefs, 1);
+//                Intent intent = new Intent (JournalActivity.this, EventLog.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        ImageButton goToExerciseLog = (ImageButton)findViewById(R.id.imageButtonExercise);
+//        goToExerciseLog.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                setPreferences(sharedPrefs, 2);
+//                Intent intent = new Intent (JournalActivity.this, EventLog.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        ImageButton goToMealLog = (ImageButton)findViewById(R.id.imageButtonMeal);
+//        goToMealLog.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                setPreferences(sharedPrefs, 3);
+//                Intent intent = new Intent (JournalActivity.this, EventLog.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        ImageButton goToAlcoholLog = (ImageButton)findViewById(R.id.imageButtonAlcohol);
+//        goToAlcoholLog.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                setPreferences(sharedPrefs, 4);
+//                Intent intent = new Intent (JournalActivity.this, EventLog.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        ImageButton goToPillLog = (ImageButton)findViewById(R.id.imageButtonPill);
+//        goToPillLog.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                setPreferences(sharedPrefs, 5);
+//                Intent intent = new Intent (JournalActivity.this, EventLog.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        Button btn3 = (Button)findViewById(R.id.button);
+//        btn3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = buttonPrefs.edit();
+//
+//                Date d = Calendar.getInstance().getTime();
+//                String[] dateString = d.toString().split(" ");
+//                String bedtime = "20:00:00";
+//                String pattern = "HH:mm:ss";
+//                SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+//                try {
+//                    if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+//                        editor.putBoolean("bJournal", false);
+//                        editor.commit();
+//                    }
+//                }catch (Exception e) {
+//                    e.printStackTrace();        }
+//
+//                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri){
+        //you can leave it empty
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
