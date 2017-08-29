@@ -136,7 +136,16 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_start, container, false);
         Button b = (Button) v.findViewById(R.id.bPAM);
         b.setEnabled(buttonPrefs.getBoolean("bPAM", true));
+        if(buttonPrefs.getBoolean("bPAM", true))
+        {
+            b.setBackgroundResource(0);
+        }
+        else
+        {
+            b.setBackgroundResource(R.drawable.check);
+        }
         b.setOnClickListener(this);
+
         Button b1 = (Button) v.findViewById(R.id.b2PAM);
         b1.setEnabled(buttonPrefs.getBoolean("b2PAM", true));
         b1.setOnClickListener(this);
@@ -145,6 +154,14 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         b2.setOnClickListener(this);
         Button b3 = (Button) v.findViewById(R.id.b4PAM);
         b3.setEnabled(buttonPrefs.getBoolean("b4PAM", true));
+        if(buttonPrefs.getBoolean("b4PAM", true))
+        {
+            b3.setBackgroundResource(0);
+        }
+        else
+        {
+            b3.setBackgroundResource(R.drawable.check);
+        }
         b3.setOnClickListener(this);
         Button b4 = (Button) v.findViewById(R.id.bSSS);
         b4.setEnabled(buttonPrefs.getBoolean("bSSS", true));
@@ -157,6 +174,14 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         b6.setOnClickListener(this);
         Button b7 = (Button) v.findViewById(R.id.b4SSS);
         b7.setEnabled(buttonPrefs.getBoolean("b4SSS", true));
+        if(buttonPrefs.getBoolean("b4SSS", true))
+        {
+            b7.setBackgroundResource(0);
+        }
+        else
+        {
+            b7.setBackgroundResource(R.drawable.check);
+        }
         b7.setOnClickListener(this);
         Button b8 = (Button) v.findViewById(R.id.bPVT);
         b8.setEnabled(buttonPrefs.getBoolean("bPVT", true));
