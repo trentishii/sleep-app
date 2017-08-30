@@ -71,7 +71,7 @@ public class PVTHome extends Activity {
     super.onCreate(b);
     requestWindowFeature(Window.FEATURE_NO_TITLE);
 //    setContentView(R.layout.pvt_home);
-	  setContentView(R.layout.activity_user);
+//	  setContentView(R.layout.activity_user);
 
 
 

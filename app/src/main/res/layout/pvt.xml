@@ -5,8 +5,8 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:orientation="vertical"
 >
-	<include layout="@layout/progessbar"
-		android:id="@+id/progbar"/>
+	<!--<include layout="@layout/progessbar"-->
+		<!--android:id="@+id/progbar"/>-->
 
     <TextView
 	android:layout_width="fill_parent"

@@ -44,7 +44,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
         Date d = Calendar.getInstance().getTime();
         String[] dateString = d.toString().split(" ");
         String noon = "12:00:00";
-        String evening = "18:00:00";
+        String evening = "14:38:00";
         String bedtime = "20:00:00";
         String pattern = "HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
@@ -201,13 +201,13 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
                 return true;
-            case R.id.action_journal:
-                Log.d("UserActivity", "Journal Button Change");
-                JournalFragment journalFrag = new JournalFragment();
-                transaction.replace(R.id.fragment_container, journalFrag);
-                transaction.addToBackStack(null);
-                transaction.commit();
-                return true;
+//            case R.id.action_journal:
+//                Log.d("UserActivity", "Journal Button Change");
+//                JournalFragment journalFrag = new JournalFragment();
+//                transaction.replace(R.id.fragment_container, journalFrag);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
+//                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
