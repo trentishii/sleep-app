@@ -201,6 +201,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("DayTime2Done", false);
         editor.putBoolean("WakeTimeDone", false);
         editor.putBoolean("SleepTimeDone", false);
+        editor.putBoolean("PAMDone", false);
+        editor.putBoolean("PAM2Done", false);
+        editor.putBoolean("PAM3Done", false);
+        editor.putBoolean("PAM4Done", false);
+        editor.putBoolean("SSSDone", false);
+        editor.putBoolean("SSS2Done", false);
+        editor.putBoolean("SSS3Done", false);
+        editor.putBoolean("SSS4Done", false);
+        editor.putBoolean("PVTDone", false);
+        editor.putBoolean("PVT2Done", false);
+        editor.putBoolean("PVT3Done", false);
+        editor.putBoolean("PVT4Done", false);
+        editor.putBoolean("JournalDone", false);
+        editor.putBoolean("SleepLogDone", false);
+        editor.putBoolean("PANASDone", false);
+        editor.putBoolean("LEEDSDone", false);
         editor.commit();
         Log.d(TAG, "createAccount:" + email);
         if (!validateForm()) {
