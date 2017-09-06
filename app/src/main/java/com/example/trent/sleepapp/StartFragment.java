@@ -107,7 +107,8 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.b3PVT:
             case R.id.b4PVT:
                 Log.e("Start", "PVT Clicked");
-                Intent intent2 = new Intent(getActivity(), PVTHome.class);
+//                Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                Intent intent2 = new Intent(getActivity(), NBackActivity.class);
                 startActivity(intent2);
                 break;
             case R.id.bSleepLog:

@@ -44,7 +44,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
         Date d = Calendar.getInstance().getTime();
         String[] dateString = d.toString().split(" ");
         String noon = "12:00:00";
-        String evening = "14:38:00";
+        String evening = "18:00:00";
         String bedtime = "20:00:00";
         String pattern = "HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
@@ -54,8 +54,10 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
         try {
             int count = 0;
             if(count == 0) {
-                editor.putBoolean("PAMDone", false);
-                editor.putBoolean("SSSDone", false);
+//                editor.putBoolean("PAM2Done", false);
+//                editor.putBoolean("SSS2Done", false);
+//                editor.putBoolean("PVT2Done", false);
+                editor.putBoolean("DayTime1Done",false);
                 editor.commit();
                 count = count + 1;
             }
@@ -146,8 +148,6 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bPVT", false);
                 editor.putBoolean("b2PVT", false);
                 editor.putBoolean("b3PVT", false);
-                editor.putBoolean("bPANAS", false);
-                editor.putBoolean("bJournal", false);
                 editor.putBoolean("bSleepLog", false);
                 editor.putBoolean("bLEEDS", false);
                 editor.putBoolean("DayTime2Done", false);

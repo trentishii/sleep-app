@@ -38,7 +38,7 @@ public class EventLog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_log_timepicker);
         timePicker = (TimePicker) findViewById(R.id.timePickerTobacco);
-        submit = (Button) findViewById(R.id.bSubmit);
+        submit = (Button) findViewById(R.id.bSAVE);
         question = (TextView) findViewById(R.id.tvQuestion);
         final Context t = this;
         sharedPrefs = getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);

@@ -223,25 +223,29 @@ public class PAMActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = buttonPrefs.edit();
 
             String noon = "12:00:00";
-            String evening = "14:38:00";
+            String evening = "18:00:00";
             String bedtime = "20:00:00";
             String pattern = "HH:mm:ss";
             SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
             if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
                 editor.putBoolean("bPAM", false);
+                editor.putBoolean("PAMDone", true);
                 editor.putBoolean("WakeTimeDone", true);
                 editor.commit();
             } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
                 editor.putBoolean("b2PAM", false);
+                editor.putBoolean("PAM2Done", true);
                 editor.putBoolean("DayTime1Done", true);
                 editor.commit();
             } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
                 editor.putBoolean("b3PAM", false);
+                editor.putBoolean("PAM3Done", true);
                 editor.putBoolean("DayTime2Done", true);
                 editor.commit();
             } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
                 editor.putBoolean("b4PAM", false);
+                editor.putBoolean("PAM4Done", true);
                 editor.putBoolean("SleepTimeDone", true);
                 editor.commit();
             }

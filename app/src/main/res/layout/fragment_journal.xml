@@ -32,6 +32,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DONE" />
     </LinearLayout>
 
 </FrameLayout>

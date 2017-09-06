@@ -71,4 +71,15 @@
         app:srcCompat="@drawable/hexagon"
         android:visibility="invisible"/>
 
+    <ImageView
+        android:id="@+id/imageClick"
+        app:srcCompat="@drawable/click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageStar"
+        android:layout_alignStart="@+id/imageStar"
+        android:layout_alignTop="@+id/imageStar"
+        android:layout_alignBottom="@+id/imageStar"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

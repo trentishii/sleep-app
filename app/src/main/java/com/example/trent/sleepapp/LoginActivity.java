@@ -197,6 +197,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("bLEEDS", true);
         editor.putBoolean("bPANAS", true);
         editor.putBoolean("bJournal", true);
+        editor.putBoolean("bMedicine", true);
+        editor.putBoolean("bMeal", true);
+        editor.putBoolean("bAlcohol", true);
+        editor.putBoolean("bSmoke", true);
+        editor.putBoolean("bExercise", true);
+        editor.putBoolean("bCoffee", true);
+
         editor.putBoolean("DayTime1Done", false);
         editor.putBoolean("DayTime2Done", false);
         editor.putBoolean("WakeTimeDone", false);
@@ -217,6 +224,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("SleepLogDone", false);
         editor.putBoolean("PANASDone", false);
         editor.putBoolean("LEEDSDone", false);
+
+
         editor.commit();
         Log.d(TAG, "createAccount:" + email);
         if (!validateForm()) {

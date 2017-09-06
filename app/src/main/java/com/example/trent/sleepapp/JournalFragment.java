@@ -14,13 +14,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 
+import static com.example.trent.sleepapp.LoginActivity.BUTTONPREFNAME;
 import static com.example.trent.sleepapp.LoginActivity.PREFNAME;
 
 
@@ -32,7 +37,7 @@ import static com.example.trent.sleepapp.LoginActivity.PREFNAME;
  * Use the {@link JournalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class JournalFragment extends Fragment {
+public class JournalFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -45,6 +50,8 @@ public class JournalFragment extends Fragment {
     private GridView gridview;
     private OnFragmentInteractionListener mListener;
     private SharedPreferences sharedPrefs;
+    SharedPreferences buttonPrefs;
+    public static final String BUTTONPREFNAME = "btnPrefs";
     public static final String PREFNAME = "userPrefs";
     private Context cont;
     public JournalFragment() {
@@ -66,11 +73,14 @@ public class JournalFragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+        SharedPreferences sharedPrefs;
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        buttonPrefs = getActivity().getSharedPreferences(BUTTONPREFNAME, Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = buttonPrefs.edit();
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -84,8 +94,11 @@ public class JournalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_journal, container, false);
+        final View v = inflater.inflate(R.layout.fragment_journal, container, false);
 
         LinearLayout linear1 = (LinearLayout) v.findViewById(R.id.linear1);
         LinearLayout linear2 = (LinearLayout) v.findViewById(R.id.linear2);
@@ -93,6 +106,7 @@ public class JournalFragment extends Fragment {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         int count = 0;
         sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = buttonPrefs.edit();
         for (String act : journals) {
             Log.d("JournalFragment", act + " " + count);
             if (act.equals("Tobacco")) {
@@ -105,17 +119,16 @@ public class JournalFragment extends Fragment {
                     linear2.addView(ib);
                 } else if (count == 4 || count == 5) {
                     linear3.addView(ib);
-                }
-                ib.setOnClickListener(new View.OnClickListener() {
+                } ib.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Log.d("JournalFragment", "tobacco Clicked");
                         JournalFragment.this.setPreferences(sharedPrefs, 0);
-                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        Intent intent = new Intent (getActivity().getApplicationContext(), EventLog.class);
                         startActivity(intent);
+                        editor.putBoolean("bSmoke", false);
+                        editor.commit();
                     }
-
-
                 });
             }
             if (act.equals("Medicine")) {
@@ -135,6 +148,8 @@ public class JournalFragment extends Fragment {
                         setPreferences(sharedPrefs, 5);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
                         startActivity(intent);
+                        editor.putBoolean("bMedicine", false);
+                        editor.commit();
                     }
                 });
             }
@@ -153,8 +168,11 @@ public class JournalFragment extends Fragment {
                     public void onClick(View v) {
                         Log.d("JournalFragment", "meal Clicked");
                         setPreferences(sharedPrefs, 3);
+                        editor.putBoolean("bMeal", false);
+                        editor.commit();
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
                         startActivity(intent);
+
                     }
                 });
             }
@@ -175,11 +193,13 @@ public class JournalFragment extends Fragment {
                         setPreferences(sharedPrefs, 4);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
                         startActivity(intent);
+                        editor.putBoolean("bAlcohol", false);
+                        editor.commit();
                     }
                 });
             }
             if (act.equals("Exercise")) {
-                ImageButton ib = new ImageButton(this.getActivity());
+                final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.exercise);
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
@@ -195,6 +215,9 @@ public class JournalFragment extends Fragment {
                         setPreferences(sharedPrefs, 2);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
                         startActivity(intent);
+                        editor.putBoolean("bExercise", false);
+                        editor.commit();
+                        ib.setEnabled(buttonPrefs.getBoolean("bExercise", false));
                     }
                 });
             }
@@ -215,11 +238,34 @@ public class JournalFragment extends Fragment {
                         setPreferences(sharedPrefs, 1);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
                         startActivity(intent);
+                        editor.putBoolean("bCoffee", false);
+                        editor.commit();
                     }
                 });
             }
             count++;
         }
+        Button btn3 = (Button)v.findViewById(R.id.buttonDone);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Date d = Calendar.getInstance().getTime();
+                String[] dateString = d.toString().split(" ");
+                String bedtime = "11:00:00";
+                String pattern = "HH:mm:ss";
+                SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+                try {
+                    if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+                        editor.putBoolean("bJournal", false);
+                        editor.commit();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();        }
+
+                Intent intent = new Intent(getActivity().getApplicationContext(), UserActivity.class);
+                startActivity(intent);
+            }
+        });
         return v;
     }
 
@@ -242,9 +288,9 @@ public class JournalFragment extends Fragment {
     }
 
     public void setPreferences(SharedPreferences sp, int value) {
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putInt("EventType", value);
-        editor.commit();
+        SharedPreferences.Editor editorS = sp.edit();
+        editorS.putInt("EventType", value);
+        editorS.commit();
     }
 
     @Override
