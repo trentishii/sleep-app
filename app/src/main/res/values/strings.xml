@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SleepApp</string>
+    <string name="app_name">Sleep Quality Tests</string>
     <string name="instructions">When each stimulus appears, respond as fast as you can.</string>
     <string-array name="input_techniques">
         <item>Touch down</item>

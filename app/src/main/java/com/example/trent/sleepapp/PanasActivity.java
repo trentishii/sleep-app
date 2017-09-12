@@ -107,7 +107,7 @@ public class PanasActivity extends AppCompatActivity {
                 SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = buttonPrefs.edit();
 
-                String bedtime = "20:00:00";
+                String bedtime = "21:00:00";
                 String pattern = "HH:mm:ss";
                 SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                 try {

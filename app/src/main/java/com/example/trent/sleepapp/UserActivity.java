@@ -45,7 +45,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
         String[] dateString = d.toString().split(" ");
         String noon = "12:00:00";
         String evening = "18:00:00";
-        String bedtime = "20:00:00";
+        String bedtime = "21:00:00";
         String pattern = "HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
@@ -54,21 +54,27 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
         try {
             int count = 0;
             if(count == 0) {
-//                editor.putBoolean("PAM2Done", false);
-//                editor.putBoolean("SSS2Done", false);
-//                editor.putBoolean("PVT2Done", false);
                 editor.putBoolean("DayTime1Done",false);
+                editor.putBoolean("DayTime2Done",false);
+                editor.putBoolean("WakeTimeDone",false);
+                editor.putBoolean("SleepTimeDone",false);
                 editor.commit();
                 count = count + 1;
             }
             if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
 
                 if (!buttonPrefs.getBoolean("WakeTimeDone",false)){
-                        editor.putBoolean("bSleepLog", true) ;
-                        editor.putBoolean("bLEEDS", true);
-                        editor.putBoolean("bPAM", true);
-                        editor.putBoolean("bSSS", true);
-                        editor.putBoolean("bPVT", true);
+                    editor.putBoolean("bSleepLog", true) ;
+                    editor.putBoolean("bLEEDS", true);
+                    editor.putBoolean("bPAM", true);
+                    editor.putBoolean("bSSS", true);
+                    editor.putBoolean("bPVT", true);
+                    editor.putBoolean("SleepLogDone", false);
+                    editor.putBoolean("LEEDSDone", true);
+                    editor.putBoolean("PAMDone", true);
+                    editor.putBoolean("SSSDone", true);
+                    editor.putBoolean("PVTDone", true);
+                    editor.commit();
                     }
                 editor.putBoolean("b2PAM", false);
                 editor.putBoolean("b3PAM", false);
@@ -90,6 +96,9 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                     editor.putBoolean("b2PAM", true);
                     editor.putBoolean("b2PVT", true);
                     editor.putBoolean("b2SSS", true);
+                    editor.putBoolean("PAM2Done", true);
+                    editor.putBoolean("SSS2Done", true);
+                    editor.putBoolean("PVT2Done", true);
                     editor.commit();
                 }
                 editor.putBoolean("bSleepLog", false);
@@ -113,6 +122,9 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                     editor.putBoolean("b3PAM", true);
                     editor.putBoolean("b3SSS", true);
                     editor.putBoolean("b3PVT", true);
+                    editor.putBoolean("PAM3Done", true);
+                    editor.putBoolean("SSS3Done", true);
+                    editor.putBoolean("PVT3Done", true);
                 }
                 editor.putBoolean("bPAM", false);
                 editor.putBoolean("b2PAM", false);
@@ -138,6 +150,11 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                     editor.putBoolean("b4PVT", true);
                     editor.putBoolean("bPANAS", true);
                     editor.putBoolean("bJournal", true);
+                    editor.putBoolean("JournalDone", false);
+                    editor.putBoolean("PANASDone", false);
+                    editor.putBoolean("PAM4Done", false);
+                    editor.putBoolean("SSS4Done", false);
+                    editor.putBoolean("PVT4Done", false);
                 }
                 editor.putBoolean("bPAM", false);
                 editor.putBoolean("b2PAM", false);

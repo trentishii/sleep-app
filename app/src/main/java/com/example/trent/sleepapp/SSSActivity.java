@@ -80,7 +80,7 @@ public class SSSActivity extends AppCompatActivity {
 
                     String noon = "12:00:00";
                     String evening = "18:00:00";
-                    String bedtime = "20:00:00";
+                    String bedtime = "21:00:00";
                     String pattern = "HH:mm:ss";
                     SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                     try {

@@ -42,7 +42,8 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     private OnFragmentInteractionListener mListener;
 
     private ArrayList<ImageView> check;
-    private ArrayList<String> buttons;
+    private ArrayList<Button> buttons;
+    private ArrayList<String> testsDone;
 
     SharedPreferences buttonPrefs;
     public static final String BUTTONPREFNAME = "btnPrefs";
@@ -141,40 +142,41 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_start, container, false);
 
         check = new ArrayList<>();
-        check.add((ImageView) v.findViewById(R.id.checkSleepLog));
-        check.add((ImageView) v.findViewById(R.id.checkLEEDS));
         check.add((ImageView) v.findViewById(R.id.checkPAM));
-        check.add((ImageView) v.findViewById(R.id.checkSSS));
-        check.add((ImageView) v.findViewById(R.id.checkPVT));
         check.add((ImageView) v.findViewById(R.id.check2PAM));
-        check.add((ImageView) v.findViewById(R.id.check2SSS));
-        check.add((ImageView) v.findViewById(R.id.check2PVT));
         check.add((ImageView) v.findViewById(R.id.check3PAM));
-        check.add((ImageView) v.findViewById(R.id.check3SSS));
-        check.add((ImageView) v.findViewById(R.id.check3PVT));
-        check.add((ImageView) v.findViewById(R.id.checkPANAS));
-        check.add((ImageView) v.findViewById(R.id.checkJournal));
         check.add((ImageView) v.findViewById(R.id.check4PAM));
+        check.add((ImageView) v.findViewById(R.id.checkSSS));
+        check.add((ImageView) v.findViewById(R.id.check2SSS));
+        check.add((ImageView) v.findViewById(R.id.check3SSS));
         check.add((ImageView) v.findViewById(R.id.check4SSS));
+        check.add((ImageView) v.findViewById(R.id.checkPVT));
+        check.add((ImageView) v.findViewById(R.id.check2PVT));
+        check.add((ImageView) v.findViewById(R.id.check3PVT));
         check.add((ImageView) v.findViewById(R.id.check4PVT));
+        check.add((ImageView) v.findViewById(R.id.checkJournal));
+        check.add((ImageView) v.findViewById(R.id.checkSleepLog));
+        check.add((ImageView) v.findViewById(R.id.checkPANAS));
+        check.add((ImageView) v.findViewById(R.id.checkLEEDS));
 
-        buttons = new ArrayList<>();
-        buttons.add(0, "bSleepLog");
-        buttons.add(1, "bLEEDS");
-        buttons.add(2, "bPAM");
-        buttons.add(3, "bSSS");
-        buttons.add(4, "bPVT");
-        buttons.add(5, "b2PAM");
-        buttons.add(6, "b2SSS");
-        buttons.add(7, "b2PVT");
-        buttons.add(8, "b3PAM");
-        buttons.add(9, "b3SSS");
-        buttons.add(10, "b3PVT");
-        buttons.add(11, "bPANAS");
-        buttons.add(12, "bJournal");
-        buttons.add(13, "b4PAM");
-        buttons.add(14, "b4SSS");
-        buttons.add(15, "b4PVT");
+        testsDone = new ArrayList<>();
+        testsDone.add(0, "PAMDone");
+        testsDone.add(1, "PAM2Done");
+        testsDone.add(2, "PAM3Done");
+        testsDone.add(3, "PAM4Done");
+        testsDone.add(4, "SSSDone");
+        testsDone.add(5, "SSS2Done");
+        testsDone.add(6, "SSS3Done");
+        testsDone.add(7, "SSS4Done");
+        testsDone.add(8, "PVTDone");
+        testsDone.add(9, "PVT2Done");
+        testsDone.add(10, "PVT3Done");
+        testsDone.add(11, "PVT4Done");
+        testsDone.add(12, "JournalDone");
+        testsDone.add(13, "SleepLogDone");
+        testsDone.add(14, "PANASDone");
+        testsDone.add(15, "LEEDSDone");
+
 
         Button b = (Button) v.findViewById(R.id.bPAM);
         b.setEnabled(buttonPrefs.getBoolean("bPAM", true));
@@ -243,9 +245,13 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             if (i >= 11 && i <= 15) {
                 window = "BedTimeDone";
             }
-            if (buttonPrefs.getBoolean(window, false) && !buttonPrefs.getBoolean(buttons.get(i), false)) {
+            if (buttonPrefs.getBoolean(testsDone.get(i),false)){
                 check.get(i).setVisibility(View.VISIBLE);
-            } else {
+            }
+//            else if (buttonPrefs.getBoolean(window, false)) {
+//                check.get(i).setVisibility(View.INVISIBLE);
+//            }
+            else {
                 check.get(i).setVisibility(View.INVISIBLE);
             }
         }
