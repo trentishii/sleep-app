@@ -204,6 +204,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("bExercise", true);
         editor.putBoolean("bCoffee", true);
 
+        editor.putBoolean("StartOfDay", false);
         editor.putBoolean("DayTime1Done", false);
         editor.putBoolean("DayTime2Done", false);
         editor.putBoolean("WakeTimeDone", false);

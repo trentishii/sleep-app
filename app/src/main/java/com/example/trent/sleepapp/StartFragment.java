@@ -15,7 +15,11 @@ import android.widget.ImageView;
 
 import com.example.trent.sleepapp.pvt.PVTHome;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -231,6 +235,12 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     }
 
     public void addCheck(){
+        Date d = Calendar.getInstance().getTime();
+        String[] dateString = d.toString().split(" ");
+        String noon = "12:00:00";
+        String pattern = "HH:mm:ss";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+
         String window = "null";
         for (int i=0; i<=15; i++) {
             if (i >= 0 && i <= 4) {
@@ -245,14 +255,21 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             if (i >= 11 && i <= 15) {
                 window = "BedTimeDone";
             }
-            if (buttonPrefs.getBoolean(testsDone.get(i),false)){
-                check.get(i).setVisibility(View.VISIBLE);
-            }
+            try {
+                if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon)) && buttonPrefs.getBoolean("StartOfDay",false)) {
+                    check.get(i).setVisibility(View.INVISIBLE);
+                }
+                else if (buttonPrefs.getBoolean(testsDone.get(i),false)){
+                    check.get(i).setVisibility(View.VISIBLE);
+                }
 //            else if (buttonPrefs.getBoolean(window, false)) {
 //                check.get(i).setVisibility(View.INVISIBLE);
 //            }
-            else {
-                check.get(i).setVisibility(View.INVISIBLE);
+                else {
+                    check.get(i).setVisibility(View.INVISIBLE);
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
         }
     }
