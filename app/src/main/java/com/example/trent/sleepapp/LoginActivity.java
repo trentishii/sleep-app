@@ -226,6 +226,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("PANASDone", false);
         editor.putBoolean("LEEDSDone", false);
 
+        editor.putString("noon", "13:00:00");
+
 
         editor.commit();
         Log.d(TAG, "createAccount:" + email);

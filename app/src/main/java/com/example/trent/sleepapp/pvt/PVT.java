@@ -31,7 +31,7 @@ public class PVT extends Activity {
 	private static final String TEST = "test";
 	private static final String STUDY_ID = "study_id";
 	private static final String DEFAULT_STUDY = "default_study";
-  private static final String DATE_FORMAT = "yyyy-MM-dd_kk.mm.ss";		//modified ISO date format
+	private static final String DATE_FORMAT = "yyyy-MM-dd_kk.mm.ss";		//modified ISO date format
 	private static final String UTEST = "_test";
 
 	private SharedPreferences prefs;

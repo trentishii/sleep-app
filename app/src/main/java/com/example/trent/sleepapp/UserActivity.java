@@ -16,22 +16,43 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
 import static com.example.trent.sleepapp.StartFragment.BUTTONPREFNAME;
 
+
+
 public class UserActivity extends AppCompatActivity implements StartFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener, JournalFragment.OnFragmentInteractionListener
 {
     private Toolbar myToolbar;
     private boolean buttonStatus;
-
+    private static final String TAG = "UserActivity";
+    private ArrayList<String> testsDone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+        testsDone = new ArrayList<>();
+        testsDone.add(0, "PAMDone");
+        testsDone.add(1, "PAM2Done");
+        testsDone.add(2, "PAM3Done");
+        testsDone.add(3, "PAM4Done");
+        testsDone.add(4, "SSSDone");
+        testsDone.add(5, "SSS2Done");
+        testsDone.add(6, "SSS3Done");
+        testsDone.add(7, "SSS4Done");
+        testsDone.add(8, "PVTDone");
+        testsDone.add(9, "PVT2Done");
+        testsDone.add(10, "PVT3Done");
+        testsDone.add(11, "PVT4Done");
+        testsDone.add(12, "JournalDone");
+        testsDone.add(13, "SleepLogDone");
+        testsDone.add(14, "PANASDone");
+        testsDone.add(15, "LEEDSDone");
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -43,37 +64,38 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
         Date d = Calendar.getInstance().getTime();
         String[] dateString = d.toString().split(" ");
-        String noon = "12:00:00";
-        String evening = "18:00:00";
-        String bedtime = "21:00:00";
         String pattern = "HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
         SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = buttonPrefs.edit();
+        editor.putString("noon", "12:00:00");
+        editor.putString("evening", "13:00:00" );
+        editor.putString("bedtime","14:00:00");
+        editor.commit();
         try {
             int count = 0;
             if(count == 0) {
-                editor.putBoolean("DayTime1Done",false);
-                editor.putBoolean("DayTime2Done",false);
-                editor.putBoolean("WakeTimeDone",false);
+//                Log.e(TAG, "*************"+ buttonPrefs.getString("noon",null));
+//                editor.putBoolean("DayTime1Done",false);
+//                editor.putBoolean("DayTime2Done",false);
+//                editor.putBoolean("WakeTimeDone",false);
                 editor.putBoolean("SleepTimeDone",false);
                 editor.commit();
                 count = count + 1;
             }
 
-            if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+            if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
                 if (!buttonPrefs.getBoolean("WakeTimeDone",false)){
                     editor.putBoolean("bSleepLog", true) ;
                     editor.putBoolean("bLEEDS", true);
                     editor.putBoolean("bPAM", true);
                     editor.putBoolean("bSSS", true);
                     editor.putBoolean("bPVT", true);
-                    editor.putBoolean("SleepLogDone", false);
-                    editor.putBoolean("LEEDSDone", false);
-                    editor.putBoolean("PAMDone", false);
-                    editor.putBoolean("SSSDone", false);
-                    editor.putBoolean("PVTDone", false);
+
+                    for (int i=0; i<=15; i++) {
+                        editor.putBoolean(testsDone.get(i),false);
+                    }
                     editor.commit();
                     }
                 editor.putBoolean("b2PAM", false);
@@ -88,10 +110,11 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bPANAS", false);
                 editor.putBoolean("bJournal", false);
                 editor.putBoolean("SleepTimeDone", false);
+                editor.putBoolean("StartOfDay", false);
                 editor.commit();
 
             }
-            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
+            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon", null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening", null)))) {
                 if (!buttonPrefs.getBoolean("DayTime1Done",false)){
                     editor.putBoolean("b2PAM", true);
                     editor.putBoolean("b2PVT", true);
@@ -115,9 +138,10 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bPANAS", false);
                 editor.putBoolean("bJournal", false);
                 editor.putBoolean("WakeTimeDone", false);
+                editor.putBoolean("StartOfDay", false);
                 editor.commit();
             }
-            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
+            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening", null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime", null)))) {
                 if (!buttonPrefs.getBoolean("DayTime2Done",false)) {
                     editor.putBoolean("b3PAM", true);
                     editor.putBoolean("b3SSS", true);
@@ -140,10 +164,11 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bSleepLog", false);
                 editor.putBoolean("bLEEDS", false);
                 editor.putBoolean("DayTime1Done", false);
+                editor.putBoolean("StartOfDay", false);
                 editor.commit();
 
             }
-            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+            else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime", null)))) {
                 if (!buttonPrefs.getBoolean("SleepTimeDone",false)) {
                     editor.putBoolean("b4PAM", true);
                     editor.putBoolean("b4SSS", true);
@@ -168,6 +193,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bSleepLog", false);
                 editor.putBoolean("bLEEDS", false);
                 editor.putBoolean("DayTime2Done", false);
+                editor.putBoolean("StartOfDay", false);
                 editor.commit();
             }
 

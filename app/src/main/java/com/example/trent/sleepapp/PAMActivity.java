@@ -228,22 +228,22 @@ public class PAMActivity extends AppCompatActivity {
             String pattern = "HH:mm:ss";
             SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
-            if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+            if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
                 editor.putBoolean("bPAM", false);
                 editor.putBoolean("PAMDone", true);
                 editor.putBoolean("WakeTimeDone", true);
                 editor.commit();
-            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
+            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening",null)))) {
                 editor.putBoolean("b2PAM", false);
                 editor.putBoolean("PAM2Done", true);
                 editor.putBoolean("DayTime1Done", true);
                 editor.commit();
-            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
+            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
                 editor.putBoolean("b3PAM", false);
                 editor.putBoolean("PAM3Done", true);
                 editor.putBoolean("DayTime2Done", true);
                 editor.commit();
-            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+            } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
                 editor.putBoolean("b4PAM", false);
                 editor.putBoolean("PAM4Done", true);
                 editor.putBoolean("SleepTimeDone", true);

@@ -2,8 +2,8 @@
 <pvtconfig name="Debug Study" >
     <test type="spot" enabled="true" >
         <testparams>
-            <param name="test_duration" value="180000" />               <!-- duration of the test (3 min = 180000ms) -->
-            <!--<param name="test_duration" value="10000" />-->
+            <!--<param name="test_duration" value="180000" />               &lt;!&ndash; duration of the test (3 min = 180000ms) &ndash;&gt;-->
+            <param name="test_duration" value="60000" />
             <param name="min_delay" value="1000" />                     <!-- minimum foreperiod duration (1000ms in [Basner, M., & Rubinstein, J. (2011)]) -->
             <param name="max_delay" value="4000" />                    <!-- maximum foreperiod duration (4000ms in [Basner, M., & Rubinstein, J. (2011)]) -->
 <!--             <param name="test_duration" value="180000" />               duration of the test (3 min = 180000ms in [Basner & Rubinstein 2011]) -->

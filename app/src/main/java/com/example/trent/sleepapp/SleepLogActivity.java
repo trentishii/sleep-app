@@ -64,11 +64,11 @@ public class SleepLogActivity extends AppCompatActivity {
 
                 Date d = Calendar.getInstance().getTime();
                 String[] dateString = d.toString().split(" ");
-                String noon = "12:00:00";
+//                String noon = "12:00:00";
                 String pattern = "HH:mm:ss";
                 SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                 try {
-                    if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+                    if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
                         editor.putBoolean("bSleepLog", false);
                         editor.putBoolean("SleepLogDone" , true);
                         editor.putBoolean("WakeTimeDone", true);

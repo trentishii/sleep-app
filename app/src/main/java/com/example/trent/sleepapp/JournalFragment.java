@@ -112,6 +112,8 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Tobacco")) {
                 ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.tobacco);
+                ib.setEnabled(buttonPrefs.getBoolean("bSmoke", true));
+                ib.setBackgroundResource(R.drawable.check);
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -134,6 +136,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Medicine")) {
                 ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.pill);
+                ib.setEnabled(buttonPrefs.getBoolean("bMedicine", true));
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -156,6 +159,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Food")) {
                 ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.meal);
+                ib.setEnabled(buttonPrefs.getBoolean("bMeal", true));
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -179,6 +183,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Alcohol")) {
                 ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.alcohol);
+                ib.setEnabled(buttonPrefs.getBoolean("bAlcohol", true));
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -201,6 +206,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Exercise")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.exercise);
+                ib.setEnabled(buttonPrefs.getBoolean("bExercise", true));
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -224,6 +230,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Coffee")) {
                 ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.coffee);
+                ib.setEnabled(buttonPrefs.getBoolean("bCoffee", true));
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -251,12 +258,13 @@ public class JournalFragment extends Fragment  {
             public void onClick(View v) {
                 Date d = Calendar.getInstance().getTime();
                 String[] dateString = d.toString().split(" ");
-                String bedtime = "11:00:00";
                 String pattern = "HH:mm:ss";
                 SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                 try {
-                    if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+                    if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
                         editor.putBoolean("bJournal", false);
+                        editor.putBoolean("JournalDone" , true);
+                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {

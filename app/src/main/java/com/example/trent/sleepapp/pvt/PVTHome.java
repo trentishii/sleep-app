@@ -68,13 +68,37 @@ public class PVTHome extends Activity {
 
   @Override
   public void onCreate(Bundle b) {
-    super.onCreate(b);
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
+      super.onCreate(b);
+      requestWindowFeature(Window.FEATURE_NO_TITLE);
 //    setContentView(R.layout.pvt_home);
-//	  setContentView(R.layout.activity_user);
+      setContentView(R.layout.fragment_start);
+//      Intent in = new Intent(this, UserActivity.class);
+//      startActivity(in);
 
+// get params from the pvt_config.xml file
+      configGetter = new PVTConfigGetter(this);
+      config = configGetter.get();
+      params = null;
+      for (int i = 0; i < config.tests.size(); i++) {
+          PVTConfigTest test = config.tests.get(i);
+          if (test.type.equals("spot")) {
+              params = test.testParams;
+              break;
+          }
+      }
+      if (params == null) {
+          throw new RuntimeException("could not load configuration");
+      }
+      try {
+          configGetter.saveConfigFile();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
 
-
+      //start test
+      Intent i = new Intent(this, PVT.class);
+      startActivity(i);
+  }
     //get views 
 //    testTagInput = (EditText) findViewById(R.id.testTagInput);
 //    subjectIdInput = (EditText) findViewById(R.id.subjectIdInput);
@@ -94,20 +118,6 @@ public class PVTHome extends Activity {
 //    Resources res = getResources();
 //    final String[] inputTechniqueParams = res.getStringArray(R.array.input_techniques_values);	//names of the config params for turning on each input technique
 //
-    // get params from the pvt_config.xml file
-    configGetter = new PVTConfigGetter(this);
-		config = configGetter.get();
-    params = null;
-    for (int i = 0; i < config.tests.size(); i++) {
-    	PVTConfigTest test = config.tests.get(i);
-      if (test.type.equals("spot")) {
-        params = test.testParams;
-        break;
-      }
-    }
-    if (params == null) {
-      throw new RuntimeException("could not load configuration");
-    }
 
 
 
@@ -160,16 +170,8 @@ public class PVTHome extends Activity {
 //		    }
 //			}
 //		});
-	  try {
-		  configGetter.saveConfigFile();
-	  } catch (IOException e) {
-		  e.printStackTrace();
-	  }
 
-	  //start test
-	  Intent i = new Intent(this, PVT.class);
-	  startActivity(i);
-  }
+//  }
 
 //  private void setupNumericInput(final EditText input, PVTIntParam param, int multiplier) {
 //    input.addTextChangedListener(new NumericInputWatcher(param, multiplier));
@@ -185,50 +187,50 @@ public class PVTHome extends Activity {
 //		});
 //  }
   
-  public void takeTest(View v) throws IOException {
-  	//save settings
-  	configGetter.saveConfigFile();
-  	
-  	//start test
-    Intent i = new Intent(this, PVT.class);
-    startActivity(i);
-  }
+//  public void takeTest(View v) throws IOException {
+//  	//save settings
+//  	configGetter.saveConfigFile();
+//
+//  	//start test
+//    Intent i = new Intent(this, PVT.class);
+//    startActivity(i);
+//  }
 
-  public void returnHome(View v) throws IOException {
-      SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
-      SharedPreferences.Editor editor = buttonPrefs.edit();
-
-      Date d = Calendar.getInstance().getTime();
-      String[] dateString = d.toString().split(" ");
-      String noon = "12:00:00";
-      String evening = "18:00:00";
-      String bedtime = "20:00:00";
-      String pattern = "HH:mm:ss";
-      SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-      try {
-          if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
-              editor.putBoolean("bPVT", false);
-              editor.putBoolean("WakeTestDone", true);
-              editor.commit();
-          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
-              editor.putBoolean("b2PVT", false);
-              editor.putBoolean("DayTime1Done", true);
-              editor.commit();
-          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
-              editor.putBoolean("b3PVT", false);
-              editor.putBoolean("DayTime2Done", true);
-              editor.commit();
-          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
-              editor.putBoolean("b4PVT", false);
-              editor.putBoolean("SleepTimeDone", true);
-              editor.commit();
-          }
-      }catch (Exception e) {
-          e.printStackTrace();        }
-
-	  Intent i = new Intent(this, UserActivity.class);
-	  startActivity(i);
-  }
+//  public void returnHome(View v) throws IOException {
+//      SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+//      SharedPreferences.Editor editor = buttonPrefs.edit();
+//
+//      Date d = Calendar.getInstance().getTime();
+//      String[] dateString = d.toString().split(" ");
+//      String noon = "12:00:00";
+//      String evening = "18:00:00";
+//      String bedtime = "20:00:00";
+//      String pattern = "HH:mm:ss";
+//      SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+//      try {
+//          if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+//              editor.putBoolean("bPVT", false);
+//              editor.putBoolean("WakeTestDone", true);
+//              editor.commit();
+//          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
+//              editor.putBoolean("b2PVT", false);
+//              editor.putBoolean("DayTime1Done", true);
+//              editor.commit();
+//          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
+//              editor.putBoolean("b3PVT", false);
+//              editor.putBoolean("DayTime2Done", true);
+//              editor.commit();
+//          } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+//              editor.putBoolean("b4PVT", false);
+//              editor.putBoolean("SleepTimeDone", true);
+//              editor.commit();
+//          }
+//      }catch (Exception e) {
+//          e.printStackTrace();        }
+//
+//	  Intent i = new Intent(this, UserActivity.class);
+//	  startActivity(i);
+//  }
   
 //  private class NumericInputWatcher implements TextWatcher {
 //

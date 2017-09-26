@@ -87,11 +87,11 @@ public class LeedsActivity extends AppCompatActivity {
                 SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = buttonPrefs.edit();
 
-                String noon = "12:00:00";
+//                String noon = "12:00:00";
                 String pattern = "HH:mm:ss";
                 SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                 try {
-                    if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+                    if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
                         editor.putBoolean("bLEEDS", false);
                         editor.putBoolean("LEEDSDone", true);
                         editor.commit();

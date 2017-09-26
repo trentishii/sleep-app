@@ -112,8 +112,8 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.b3PVT:
             case R.id.b4PVT:
                 Log.e("Start", "PVT Clicked");
-//                Intent intent2 = new Intent(getActivity(), PVTHome.class);
-                Intent intent2 = new Intent(getActivity(), NBackActivity.class);
+                Intent intent2 = new Intent(getActivity(), PVTHome.class);
+//                Intent intent2 = new Intent(getActivity(), NBackActivity.class);
                 startActivity(intent2);
                 break;
             case R.id.bSleepLog:
@@ -235,11 +235,6 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     }
 
     public void addCheck(){
-        Date d = Calendar.getInstance().getTime();
-        String[] dateString = d.toString().split(" ");
-        String noon = "12:00:00";
-        String pattern = "HH:mm:ss";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
         String window = "null";
         for (int i=0; i<=15; i++) {
@@ -255,24 +250,21 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             if (i >= 11 && i <= 15) {
                 window = "BedTimeDone";
             }
-            try {
-                if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon)) && buttonPrefs.getBoolean("StartOfDay",false)) {
-                    check.get(i).setVisibility(View.INVISIBLE);
-                }
-                else if (buttonPrefs.getBoolean(testsDone.get(i),false)){
-                    check.get(i).setVisibility(View.VISIBLE);
-                }
-//            else if (buttonPrefs.getBoolean(window, false)) {
-//                check.get(i).setVisibility(View.INVISIBLE);
-//            }
-                else {
-                    check.get(i).setVisibility(View.INVISIBLE);
-                }
-            } catch (ParseException e) {
-                e.printStackTrace();
+            if (buttonPrefs.getBoolean("StartOfDay",false)) {
+                check.get(i).setVisibility(View.INVISIBLE);
+            }
+            else if (buttonPrefs.getBoolean(testsDone.get(i),false)){
+                check.get(i).setVisibility(View.VISIBLE);
+            }
+            else if (buttonPrefs.getBoolean(window, false)) {
+                check.get(i).setVisibility(View.INVISIBLE);
+            }
+            else {
+                check.get(i).setVisibility(View.INVISIBLE);
             }
         }
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

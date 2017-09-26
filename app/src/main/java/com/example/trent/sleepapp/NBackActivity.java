@@ -215,28 +215,25 @@ public class NBackActivity extends AppCompatActivity {
 
             Date d = Calendar.getInstance().getTime();
             String[] dateString = d.toString().split(" ");
-            String noon = "12:00:00";
-            String evening = "18:00:00";
-            String bedtime = "21:00:00";
             String pattern = "HH:mm:ss";
             SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
             try {
-                if (dateFormat.parse(dateString[3]).before(dateFormat.parse(noon))) {
+                if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
                     editor.putBoolean("bPVT", false);
                     editor.putBoolean("PVTDone", true);
                     editor.putBoolean("WakeTimeDone", true);
                     editor.commit();
-                } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(noon)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(evening))) {
+                } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening",null)))) {
                     editor.putBoolean("b2PVT", false);
                     editor.putBoolean("PVT2Done", true);
                     editor.putBoolean("DayTime1Done", true);
                     editor.commit();
-                } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(evening)) && dateFormat.parse(dateString[3]).before(dateFormat.parse(bedtime))) {
+                } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
                     editor.putBoolean("b3PVT", false);
                     editor.putBoolean("PVT3Done", true);
                     editor.putBoolean("DayTime2Done", true);
                     editor.commit();
-                } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(bedtime))) {
+                } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
                     editor.putBoolean("b4PVT", false);
                     editor.putBoolean("PVT4Done", true);
                     editor.putBoolean("SleepTimeDone", true);
