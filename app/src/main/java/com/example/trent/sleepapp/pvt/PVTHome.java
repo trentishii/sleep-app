@@ -47,9 +47,9 @@ import com.example.trent.sleepapp.R;
 // rt feedback: off
 // input type: touch down
 public class PVTHome extends Activity {
-  public final String TAG = getClass().getSimpleName();
+    public final String TAG = getClass().getSimpleName();
 
-  //fields
+    //fields
 //	private EditText testTagInput;
 //	private EditText subjectIdInput;
 //  private EditText durationInput;
@@ -60,45 +60,47 @@ public class PVTHome extends Activity {
 //	private EditText minForeperiodInput;
 //	private EditText maxForeperiodInput;
 
-	private PVTConfigParamsMap params;
+    private PVTConfigParamsMap params;
 
-	private PVTConfig config;
+    private PVTConfig config;
 
-	private PVTConfigGetter configGetter;
+    private PVTConfigGetter configGetter;
 
-  @Override
-  public void onCreate(Bundle b) {
-      super.onCreate(b);
-      requestWindowFeature(Window.FEATURE_NO_TITLE);
+    @Override
+    public void onCreate(Bundle b) {
+        super.onCreate(b);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 //    setContentView(R.layout.pvt_home);
-      setContentView(R.layout.fragment_start);
+//        setContentView(R.layout.fragment_start);
 //      Intent in = new Intent(this, UserActivity.class);
 //      startActivity(in);
 
 // get params from the pvt_config.xml file
-      configGetter = new PVTConfigGetter(this);
-      config = configGetter.get();
-      params = null;
-      for (int i = 0; i < config.tests.size(); i++) {
-          PVTConfigTest test = config.tests.get(i);
-          if (test.type.equals("spot")) {
-              params = test.testParams;
-              break;
-          }
-      }
-      if (params == null) {
-          throw new RuntimeException("could not load configuration");
-      }
-      try {
-          configGetter.saveConfigFile();
-      } catch (IOException e) {
-          e.printStackTrace();
-      }
+        configGetter = new PVTConfigGetter(this);
+        config = configGetter.get();
+        params = null;
+        for (int i = 0; i < config.tests.size(); i++) {
+            PVTConfigTest test = config.tests.get(i);
+            if (test.type.equals("spot")) {
+                params = test.testParams;
+                break;
+            }
+        }
+        if (params == null) {
+            throw new RuntimeException("could not load configuration");
+        }
+        try {
+            configGetter.saveConfigFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-      //start test
-      Intent i = new Intent(this, PVT.class);
-      startActivity(i);
-  }
+        //start test
+        Intent i = new Intent(this, PVT.class);
+        startActivity(i);
+    }
+
+}
     //get views 
 //    testTagInput = (EditText) findViewById(R.id.testTagInput);
 //    subjectIdInput = (EditText) findViewById(R.id.subjectIdInput);
@@ -267,7 +269,7 @@ public class PVTHome extends Activity {
 //		public void onTextChanged(CharSequence s, int start, int before, int count) {
 //		}
   	
-  }
+//  }
 
 
 

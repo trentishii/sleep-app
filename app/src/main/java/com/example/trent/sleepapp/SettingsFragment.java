@@ -27,6 +27,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.sql.Time;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Set;
 
 import static com.example.trent.sleepapp.LoginActivity.PREFNAME;
@@ -100,6 +101,16 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        Set<String> journals = new HashSet<String>();
+        journals.add("Tobacco");
+        journals.add("Coffee");
+        journals.add("Food");
+        journals.add("Exercise");
+        journals.add("Alcohol");
+        journals.add("Medicine");
+        editor.putStringSet("journals", journals);
+        editor.commit();
         journals = sharedPrefs.getStringSet("journals", null);
         user = FirebaseAuth.getInstance().getCurrentUser();
     }
@@ -122,23 +133,25 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         coffee = (CheckBox) v.findViewById(R.id.cbCoffee);
         wakeup = (TimePicker) v.findViewById(R.id.timePicker1);
         sleep = (TimePicker) v.findViewById(R.id.timePicker2);
-//        for (String type: journals) {
-//            Log.d("Settings", journals.toString());
-//            if (type.equals("Tobacco")) {
-//                Log.d("Settings", "Here");
-//                tobacco.setChecked(true);
-//            } else if (type.equals("Exercise")) {
-//                exercise.setChecked(true);
-//            } else if (type.equals("Alcohol")) {
-//                alcohol.setChecked(true);
-//            } else if (type.equals("Food")) {
-//                food.setChecked(true);
-//            } else if (type.equals("Medicine")) {
-//                medicine.setChecked(true);
-//            } else if (type.equals("Coffee")) {
-//                coffee.setChecked(true);
-//            }
-//        }
+        journals = sharedPrefs.getStringSet("journals", null);
+
+        for (String type: journals) {
+            Log.d("Settings", journals.toString());
+            if (type.equals("Tobacco")) {
+                Log.d("Settings", "Here");
+                tobacco.setChecked(true);
+            } else if (type.equals("Exercise")) {
+                exercise.setChecked(true);
+            } else if (type.equals("Alcohol")) {
+                alcohol.setChecked(true);
+            } else if (type.equals("Food")) {
+                food.setChecked(true);
+            } else if (type.equals("Medicine")) {
+                medicine.setChecked(true);
+            } else if (type.equals("Coffee")) {
+                coffee.setChecked(true);
+            }
+        }
         return v;
     }
 

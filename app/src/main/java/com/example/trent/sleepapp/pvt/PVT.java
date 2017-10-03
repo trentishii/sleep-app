@@ -9,11 +9,17 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.view.Window;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.example.trent.sleepapp.R;
+import com.example.trent.sleepapp.UserActivity;
 import com.example.trent.sleepapp.pvt.*;
+
+import static java.lang.System.out;
 
 //import com.pvt.R;
 
@@ -102,6 +108,45 @@ public class PVT extends Activity {
 			intent.putExtra("value", csvValue.toString());
 			setResult(RESULT_OK, intent);
 			finish();
+
+			SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+		  SharedPreferences.Editor editor = buttonPrefs.edit();
+
+		  Date d = Calendar.getInstance().getTime();
+		  String[] dateString = d.toString().split(" ");
+		  String pattern = "HH:mm:ss";
+		  SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+			try {
+				if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
+					editor.putBoolean("bPVT", false);
+					editor.putBoolean("PVTDone", true);
+					editor.putBoolean("WakeTimeDone", true);
+					editor.commit();
+				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening",null)))) {
+					editor.putBoolean("b2PVT", false);
+					editor.putBoolean("PVT2Done", true);
+					editor.putBoolean("DayTime1Done", true);
+					editor.commit();
+				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
+					editor.putBoolean("b3PVT", false);
+					editor.putBoolean("PVT3Done", true);
+					editor.putBoolean("DayTime2Done", true);
+					editor.commit();
+				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
+					editor.putBoolean("b4PVT", false);
+					editor.putBoolean("PVT4Done", true);
+					editor.putBoolean("SleepTimeDone", true);
+					editor.commit();
+				}
+				out.flush();
+				out.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			Intent in = new Intent(this, UserActivity.class);
+			startActivity(in);
+
 		}
 	}
 }
