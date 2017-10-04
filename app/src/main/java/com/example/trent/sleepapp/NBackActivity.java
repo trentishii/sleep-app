@@ -107,7 +107,7 @@ public class NBackActivity extends AppCompatActivity {
 
         class pickShape extends TimerTask {
             public void run() {
-                if (((System.currentTimeMillis()/ 1000) % 60) - timeElapsed <= 5) {
+                if (((System.currentTimeMillis()/ 1000) % 60) - timeElapsed <= 10) {
                     final Random r = new Random();
                     randIdx = r.nextInt(5) ;
                     Log.d(TAG, "*************"+Integer.toString(randIdx));
@@ -160,7 +160,7 @@ public class NBackActivity extends AppCompatActivity {
 
         class flash extends TimerTask {
             public void run() {
-                if (((System.currentTimeMillis() / 1000) % 60) - timeElapsed <= 5) {
+                if (((System.currentTimeMillis() / 1000) % 60) - timeElapsed <= 10) {
                     runOnUiThread(new Thread(new Runnable() {
                         public void run() {
                             setStar.setVisibility(View.INVISIBLE);

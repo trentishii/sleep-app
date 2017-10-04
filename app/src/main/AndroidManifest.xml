@@ -27,7 +27,8 @@
         <activity android:name=".pvt.PVT" />
         <activity android:name=".pvt.RunTest" />
         <activity android:name=".PAMActivity" />
-        <activity android:name=".NBackActivity">
+        <activity android:name=".NBackActivity"/>
+        <activity android:name=".NBackStart">
             <intent-filter>
                 <action android:name="OPEN_PAM" />
 

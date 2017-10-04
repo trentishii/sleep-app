@@ -20,6 +20,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
+
+import static com.example.trent.sleepapp.pvt.RunTest.TAG;
 
 
 /**
@@ -48,6 +51,8 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     private ArrayList<ImageView> check;
     private ArrayList<Button> buttons;
     private ArrayList<String> testsDone;
+
+    public int randIdx;
 
     SharedPreferences buttonPrefs;
     public static final String BUTTONPREFNAME = "btnPrefs";
@@ -112,9 +117,15 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.b3PVT:
             case R.id.b4PVT:
                 Log.e("Start", "PVT Clicked");
-                Intent intent2 = new Intent(getActivity(), PVTHome.class);
-//                Intent intent2 = new Intent(getActivity(), NBackActivity.class);
-                startActivity(intent2);
+                final Random r = new Random();
+                randIdx = r.nextInt(2) ;
+                Log.d(TAG, "$$$$$$$$$$$$$$$$$$$$$$"+Integer.toString(randIdx));
+                if (randIdx == 0){
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    startActivity(intent2);}
+                else if (randIdx == 1){
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    startActivity(intent2);}
                 break;
             case R.id.bSleepLog:
                 Log.e("Start", "Sleep Log Clicked");

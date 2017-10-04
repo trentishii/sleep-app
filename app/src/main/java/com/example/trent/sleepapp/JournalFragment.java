@@ -95,8 +95,6 @@ public class JournalFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-
         // Inflate the layout for this fragment
         final View v = inflater.inflate(R.layout.fragment_journal, container, false);
 
@@ -107,13 +105,15 @@ public class JournalFragment extends Fragment  {
         int count = 0;
         sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = buttonPrefs.edit();
+
         for (String act : journals) {
             Log.d("JournalFragment", act + " " + count);
             if (act.equals("Tobacco")) {
-                ImageButton ib = new ImageButton(this.getActivity());
+                final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.tobacco);
                 ib.setEnabled(buttonPrefs.getBoolean("bSmoke", true));
-                ib.setBackgroundResource(R.drawable.check);
+                if (! buttonPrefs.getBoolean("bSmoke", true)){
+                    ib.setBackgroundResource(R.drawable.check);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -134,9 +134,11 @@ public class JournalFragment extends Fragment  {
                 });
             }
             if (act.equals("Medicine")) {
-                ImageButton ib = new ImageButton(this.getActivity());
+                final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.pill);
                 ib.setEnabled(buttonPrefs.getBoolean("bMedicine", true));
+                if (! buttonPrefs.getBoolean("bMedicine", true)){
+                    ib.setBackgroundResource(R.drawable.check);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -157,9 +159,11 @@ public class JournalFragment extends Fragment  {
                 });
             }
             if (act.equals("Food")) {
-                ImageButton ib = new ImageButton(this.getActivity());
+                final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.meal);
                 ib.setEnabled(buttonPrefs.getBoolean("bMeal", true));
+                if (! buttonPrefs.getBoolean("bMeal", true)){
+                    ib.setBackgroundResource(R.drawable.check);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -181,9 +185,11 @@ public class JournalFragment extends Fragment  {
                 });
             }
             if (act.equals("Alcohol")) {
-                ImageButton ib = new ImageButton(this.getActivity());
+                final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.alcohol);
                 ib.setEnabled(buttonPrefs.getBoolean("bAlcohol", true));
+                if (! buttonPrefs.getBoolean("bAlcohol", true)){
+                    ib.setBackgroundResource(R.drawable.check);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -207,6 +213,8 @@ public class JournalFragment extends Fragment  {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.exercise);
                 ib.setEnabled(buttonPrefs.getBoolean("bExercise", true));
+                if (! buttonPrefs.getBoolean("bExercise", true)){
+                    ib.setBackgroundResource(R.drawable.check);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -223,14 +231,15 @@ public class JournalFragment extends Fragment  {
                         startActivity(intent);
                         editor.putBoolean("bExercise", false);
                         editor.commit();
-                        ib.setEnabled(buttonPrefs.getBoolean("bExercise", false));
                     }
                 });
             }
             if (act.equals("Coffee")) {
-                ImageButton ib = new ImageButton(this.getActivity());
+                final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.coffee);
                 ib.setEnabled(buttonPrefs.getBoolean("bCoffee", true));
+                if (! buttonPrefs.getBoolean("bCoffee", true)){
+                ib.setBackgroundResource(R.drawable.check);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -265,6 +274,12 @@ public class JournalFragment extends Fragment  {
                         editor.putBoolean("bJournal", false);
                         editor.putBoolean("JournalDone" , true);
                         editor.putBoolean("SleepTimeDone", true);
+                        editor.putBoolean("bMedicine", true);
+                        editor.putBoolean("bMeal",true);
+                        editor.putBoolean("bCoffee",true);
+                        editor.putBoolean("bExercise",true);
+                        editor.putBoolean("bSmoke",true);
+                        editor.putBoolean("bAlcohol",true);
                         editor.commit();
                     }
                 }catch (Exception e) {

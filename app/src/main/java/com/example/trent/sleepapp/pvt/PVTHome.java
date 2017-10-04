@@ -70,7 +70,7 @@ public class PVTHome extends Activity {
     public void onCreate(Bundle b) {
         super.onCreate(b);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-//    setContentView(R.layout.pvt_home);
+//        setContentView(R.layout.pvt_home);
 //        setContentView(R.layout.fragment_start);
 //      Intent in = new Intent(this, UserActivity.class);
 //      startActivity(in);
