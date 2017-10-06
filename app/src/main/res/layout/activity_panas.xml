@@ -4,77 +4,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView44"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:paddingLeft="10dp"
-        android:text="Indicate to what extent you felt this way throughout the day"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    <RelativeLayout
+        android:id = "@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/textView70"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="\t\t\t 1 \n Very Slightly"
-        android:layout_below="@+id/textView44"
-        android:paddingLeft="10dp"
-        android:paddingTop="40dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        <TextView
+            android:id="@+id/textView70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/textView44"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingTop="40dp"
+            android:text="\t\t\t 1 \n Very Slightly"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-    <TextView
-        android:id="@+id/textView71"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\t\t 2 \n A Little"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_below="@+id/textView44"
-        android:layout_toRightOf= "@+id/textView70"
-        android:paddingLeft="50dp"
-        android:paddingTop="40dp"
-        android:layout_alignBaseline="@+id/textView70"
-        android:layout_alignBottom="@+id/textView70"/>
+        <TextView
+            android:id="@+id/textView72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView70"
+            android:layout_alignBottom="@+id/textView70"
+            android:layout_below="@+id/textView44"
+            android:layout_toRightOf="@+id/textView70"
+            android:layout_weight="1"
+            android:paddingLeft="140dp"
+            android:paddingTop="40dp"
+            android:text="\t\t\t 3 \n Moderately"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-    <TextView
-        android:id="@+id/textView72"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\t\t\t 3 \n Moderately"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:layout_below="@+id/textView44"
-        android:layout_toRightOf= "@+id/textView70"
-        android:paddingLeft="140dp"
-        android:paddingTop="40dp"
-        android:layout_alignBaseline="@+id/textView70"
-        android:layout_alignBottom="@+id/textView70" />
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:text="Indicate to what extent you felt this way throughout the day"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-    <TextView
-        android:id="@+id/textView73"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\t\t\t 4 \n Quite a Bit"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:paddingLeft="10dp"
-        android:paddingTop="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/textView74"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView73"
+            android:layout_alignBottom="@+id/textView73"
+            android:layout_weight="1"
+            android:paddingLeft="140dp"
+            android:paddingTop="80dp"
+            android:text="\t\t 5 \n Extremely"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-    <TextView
-        android:id="@+id/textView74"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\t\t 5 \n Extremely"
-        android:layout_alignBaseline="@+id/textView73"
-        android:layout_alignBottom="@+id/textView73"
-        android:paddingLeft="140dp"
-        android:paddingTop="80dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        <TextView
+            android:id="@+id/textView71"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView70"
+            android:layout_alignBottom="@+id/textView70"
+            android:layout_below="@+id/textView44"
+            android:layout_toRightOf="@+id/textView70"
+            android:layout_weight="1"
+            android:paddingLeft="50dp"
+            android:paddingTop="40dp"
+            android:text="\t\t 2 \n A Little"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <TextView
+            android:id="@+id/textView73"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingTop="80dp"
+            android:text="\t\t\t 4 \n Quite a Bit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </RelativeLayout>
 
 
     <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
@@ -83,6 +96,7 @@
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
+            android:layout_below="@+id/relativeLayout2"
             android:layout_height="wrap_content">
 
             <RelativeLayout

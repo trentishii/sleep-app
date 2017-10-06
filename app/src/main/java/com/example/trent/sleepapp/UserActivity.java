@@ -69,18 +69,18 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
         SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = buttonPrefs.edit();
-        editor.putString("noon", "12:00:00");
-        editor.putString("evening", "16:00:00" );
+        editor.putString("noon", "18:00:00");
+        editor.putString("evening", "19:00:00" );
         editor.putString("bedtime","20:00:00");
         editor.commit();
         try {
             int count = 0;
             if(count == 0) {
-//                editor.putBoolean("DayTime1Done",false);
-//                editor.putBoolean("DayTime2Done",false);
-//                editor.putBoolean("WakeTimeDone",false);
-//                editor.putBoolean("SleepTimeDone",false);
-//                editor.commit();
+                editor.putBoolean("DayTime1Done",false);
+                editor.putBoolean("DayTime2Done",false);
+                editor.putBoolean("WakeTimeDone",false);
+                editor.putBoolean("SleepTimeDone",false);
+                editor.commit();
                 count = count + 1;
             }
 

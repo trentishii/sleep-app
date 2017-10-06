@@ -94,6 +94,7 @@ public class LeedsActivity extends AppCompatActivity {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
                         editor.putBoolean("bLEEDS", false);
                         editor.putBoolean("LEEDSDone", true);
+                        editor.putBoolean("WakeTimeDone", true);
                         editor.commit();
                     }
                 }catch (Exception e) {
