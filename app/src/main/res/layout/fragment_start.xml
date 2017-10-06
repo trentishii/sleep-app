@@ -127,198 +127,205 @@
             app:srcCompat="@drawable/check" />
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout1"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/line_horizontal" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout1"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/line_horizontal" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/imageView"
-                android:paddingLeft="20dp"
-                android:gravity="center"
-                android:layout_marginTop="60dp"
-                android:id = "@+id/relativeLayout2">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imageView"
+        android:paddingLeft="0dp"
+        android:gravity="center"
+        android:layout_marginTop="60dp"
+        android:id = "@+id/relativeLayout2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
-                <TextView
-                android:id="@+id/textView85"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="BED TIME"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bPANAS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/bJournal"
-                android:text="Overall Mood" />
-
-            <ImageView
-                android:id="@+id/checkPANAS"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/bPANAS"
-                android:layout_alignTop="@+id/bPANAS"
-                android:layout_toLeftOf="@+id/bPANAS"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/check" />
-            <Button
-                android:id="@+id/b4SSS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/bPANAS"
-                android:layout_below="@+id/b4PAM"
-                android:text="Sleepiness" />
-
-            <Button
-                android:id="@+id/bJournal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/bPANAS"
-                android:layout_below="@+id/textView85"
-                android:text="Journal" />
-
-            <ImageView
-                android:id="@+id/checkJournal"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/bJournal"
-                android:layout_alignTop="@+id/bJournal"
-                android:layout_toLeftOf="@+id/bJournal"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/check" />
-
-            <ImageView
-                android:id="@+id/check4PAM"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/b4PAM"
-                android:layout_alignTop="@+id/b4PAM"
-                android:layout_toLeftOf="@+id/b4PAM"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/check" />
-
-            <ImageView
-                android:id="@+id/check4PVT"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/b4PVT"
-                android:layout_alignTop="@+id/b4PVT"
-                android:layout_toLeftOf="@+id/b4PVT"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/check" />
-
-            <Button
-                android:id="@+id/b4PVT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/bPANAS"
-                android:layout_below="@+id/b4SSS"
-                android:text="Alertness" />
-
-            <ImageView
-                android:id="@+id/check4SSS"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/b4SSS"
-                android:layout_alignTop="@+id/b4SSS"
-                android:layout_toLeftOf="@+id/b4SSS"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/check" />
-
-            <Button
-                android:id="@+id/b4PAM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/bPANAS"
-                android:layout_below="@+id/bPANAS"
-                android:text="MOOD" />
-
-            </RelativeLayout>
-
-        <RelativeLayout
+        <TextView
+            android:id="@+id/textView85"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:layout_below="@+id/imageView2"
-            android:id = "@+id/relativeLayout3">
+            android:layout_alignParentTop="true"
+            android:text="BED TIME"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="30sp"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/checkJournal"
+            android:layout_alignStart="@+id/checkJournal"
+            android:layout_alignRight="@+id/bPANAS"
+            android:layout_alignEnd="@+id/bPANAS" />
 
-            <TextView
-                android:id="@+id/textView83"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerInParent="true"
-                android:text="DAYTIME I"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textSize="30sp" />
+        <Button
+            android:id="@+id/bPANAS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bJournal"
+            android:layout_below="@+id/bJournal"
+            android:text="Overall Mood" />
 
-            <Button
-                android:id="@+id/b2PAM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView83"
-                android:layout_centerHorizontal="true"
-                android:text="MOOD" />
+        <ImageView
+            android:id="@+id/checkPANAS"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/bPANAS"
+            android:layout_alignTop="@+id/bPANAS"
+            android:layout_toLeftOf="@+id/bPANAS"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/check" />
+        <Button
+            android:id="@+id/b4SSS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bPANAS"
+            android:layout_below="@+id/b4PAM"
+            android:text="Sleepiness" />
 
-            <ImageView
-                android:id="@+id/check2PAM"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/b2PAM"
-                android:layout_alignTop="@+id/b2PAM"
-                android:layout_toLeftOf="@+id/b2PAM"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/check" />
+        <Button
+            android:id="@+id/bJournal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/textView85"
+            android:text="Journal" />
 
-            <Button
-                android:id="@+id/b2SSS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/b2PAM"
-                android:layout_alignLeft="@+id/b2PAM"
-                android:text="Sleepiness" />
+        <ImageView
+            android:id="@+id/checkJournal"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/bJournal"
+            android:layout_alignTop="@+id/bJournal"
+            android:layout_toLeftOf="@+id/bJournal"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/check" />
 
-            <ImageView
-                android:id="@+id/check2SSS"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/b2SSS"
-                android:layout_alignTop="@+id/b2SSS"
-                android:layout_toLeftOf="@+id/b2SSS"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/check" />
+        <ImageView
+            android:id="@+id/check4PAM"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/b4PAM"
+            android:layout_alignTop="@+id/b4PAM"
+            android:layout_toLeftOf="@+id/b4PAM"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/check" />
 
-            <Button
-                android:id="@+id/b2PVT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/b2SSS"
-                android:layout_alignLeft="@+id/b2PAM"
-                android:text="Alertness" />
+        <ImageView
+            android:id="@+id/check4PVT"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/b4PVT"
+            android:layout_alignTop="@+id/b4PVT"
+            android:layout_toLeftOf="@+id/b4PVT"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/check" />
 
-            <ImageView
-                android:id="@+id/check2PVT"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/b2PVT"
-                android:layout_alignTop="@+id/b2PVT"
-                android:layout_toLeftOf="@+id/b2PVT"
-                android:visibility="invisible"
-                app:srcCompat="@drawable/check" />
+        <Button
+            android:id="@+id/b4PVT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bPANAS"
+            android:layout_below="@+id/b4SSS"
+            android:text="Alertness" />
 
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/check4SSS"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/b4SSS"
+            android:layout_alignTop="@+id/b4SSS"
+            android:layout_toLeftOf="@+id/b4SSS"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/check" />
+
+        <Button
+            android:id="@+id/b4PAM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/bPANAS"
+            android:layout_below="@+id/bPANAS"
+            android:text="MOOD" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/imageView2"
+        android:id = "@+id/relativeLayout3">
+
+        <TextView
+            android:id="@+id/textView83"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:text="DAYTIME I"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/b2PAM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView83"
+            android:layout_centerHorizontal="true"
+            android:text="MOOD" />
+
+        <ImageView
+            android:id="@+id/check2PAM"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/b2PAM"
+            android:layout_alignTop="@+id/b2PAM"
+            android:layout_toLeftOf="@+id/b2PAM"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/check" />
+
+        <Button
+            android:id="@+id/b2SSS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/b2PAM"
+            android:layout_alignLeft="@+id/b2PAM"
+            android:text="Sleepiness" />
+
+        <ImageView
+            android:id="@+id/check2SSS"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/b2SSS"
+            android:layout_alignTop="@+id/b2SSS"
+            android:layout_toLeftOf="@+id/b2SSS"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/check" />
+
+        <Button
+            android:id="@+id/b2PVT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/b2SSS"
+            android:layout_alignLeft="@+id/b2PAM"
+            android:text="Alertness" />
+
+        <ImageView
+            android:id="@+id/check2PVT"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/b2PVT"
+            android:layout_alignTop="@+id/b2PVT"
+            android:layout_toLeftOf="@+id/b2PVT"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/check" />
+
+    </RelativeLayout>
 
     <RelativeLayout
     android:layout_width="wrap_content"
@@ -326,7 +333,8 @@
     android:layout_below="@+id/imageView2"
     android:layout_toRightOf="@+id/imageView"
     android:paddingLeft="10dp"
-    android:gravity="center">
+    android:gravity="center"
+        android:id="@+id/relativeLayout">
 
     <TextView
         android:id="@+id/textView84"
