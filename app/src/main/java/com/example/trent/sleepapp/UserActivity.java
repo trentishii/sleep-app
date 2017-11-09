@@ -1,8 +1,13 @@
 package com.example.trent.sleepapp;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -31,10 +36,24 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
     private boolean buttonStatus;
     private static final String TAG = "UserActivity";
     private ArrayList<String> testsDone;
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
+        // Block for notifications
+
+//        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//
+//        Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
+//        notificationIntent.addCategory("android.intent.category.DEFAULT");
+//
+//        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//        Calendar cal = Calendar.getInstance();
+//        cal.add(Calendar.SECOND, 10);
+//        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
 
         testsDone = new ArrayList<>();
         testsDone.add(0, "PAMDone");
@@ -69,17 +88,17 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
         SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = buttonPrefs.edit();
-        editor.putString("noon", "18:00:00");
-        editor.putString("evening", "19:00:00" );
-        editor.putString("bedtime","20:00:00");
+        editor.putString("noon", "16:00:00");
+        editor.putString("evening", "16:00:00" );
+        editor.putString("bedtime","16:00:00");
         editor.commit();
         try {
             int count = 0;
             if(count == 0) {
-                editor.putBoolean("DayTime1Done",false);
-                editor.putBoolean("DayTime2Done",false);
+//                editor.putBoolean("DayTime1Done",false);
+//                editor.putBoolean("DayTime2Done",false);
                 editor.putBoolean("WakeTimeDone",false);
-                editor.putBoolean("SleepTimeDone",false);
+//                editor.putBoolean("SleepTimeDone",false);
                 editor.commit();
                 count = count + 1;
             }
@@ -109,7 +128,6 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bPANAS", false);
                 editor.putBoolean("bJournal", false);
                 editor.putBoolean("SleepTimeDone", false);
-                editor.putBoolean("StartOfDay", false);
                 editor.commit();
 
             }
@@ -137,7 +155,6 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bPANAS", false);
                 editor.putBoolean("bJournal", false);
                 editor.putBoolean("WakeTimeDone", false);
-                editor.putBoolean("StartOfDay", false);
                 editor.commit();
             }
             else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening", null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime", null)))) {
@@ -163,7 +180,6 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bSleepLog", false);
                 editor.putBoolean("bLEEDS", false);
                 editor.putBoolean("DayTime1Done", false);
-                editor.putBoolean("StartOfDay", false);
                 editor.commit();
 
             }
@@ -192,7 +208,6 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bSleepLog", false);
                 editor.putBoolean("bLEEDS", false);
                 editor.putBoolean("DayTime2Done", false);
-                editor.putBoolean("StartOfDay", false);
                 editor.commit();
             }
 

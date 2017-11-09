@@ -53,7 +53,7 @@ public class DataStorage {
 	private StorageReference mStorageRef;
 
 	/** Convenience class to return two values from openFile(). */
-	private static class OpenFileResponse {
+	public static class OpenFileResponse {
 		public PrintStream printStream;
 		public String firstLine;
 		public OpenFileResponse(PrintStream printStream, String firstLine) {

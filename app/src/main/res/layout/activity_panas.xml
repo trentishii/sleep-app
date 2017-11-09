@@ -7,721 +7,636 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/textView44"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_weight="1"
             android:paddingLeft="10dp"
             android:text="Indicate to what extent you felt this way throughout the day"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView91"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginBottom="184dp"
-                    android:layout_marginLeft="141dp"
-                    android:layout_marginStart="141dp"
-                    android:layout_weight="0.17"
-                    android:text="1" />
+                    android:text="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_blue_light" />
 
                 <TextView
                     android:id="@+id/textView70"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_below="@+id/textView44"
-                    android:layout_weight="1"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="40dp"
                     android:text="Very Slightly"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_blue_light" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView92"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2" />
+                    android:text="2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_green_light" />
 
                 <TextView
                     android:id="@+id/textView71"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView70"
-                    android:layout_alignBottom="@+id/textView70"
-                    android:layout_below="@+id/textView44"
-                    android:layout_toRightOf="@+id/textView70"
-                    android:layout_weight="1"
-                    android:paddingLeft="50dp"
-                    android:paddingTop="40dp"
                     android:text="A Little"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_green_light" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView95"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="3" />
+                    android:text="3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_orange_light" />
 
                 <TextView
                     android:id="@+id/textView72"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView70"
-                    android:layout_alignBottom="@+id/textView70"
-                    android:layout_below="@+id/textView44"
-                    android:layout_toRightOf="@+id/textView70"
-                    android:layout_weight="1"
-                    android:paddingLeft="140dp"
-                    android:paddingTop="40dp"
                     android:text="Moderately"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_orange_light" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView94"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="4" />
+                    android:text="4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_orange_dark" />
 
                 <TextView
                     android:id="@+id/textView73"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_weight="1"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="80dp"
                     android:text="Quite a Bit"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_orange_dark" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView93"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="5" />
+                    android:text="5"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_red_light" />
 
                 <TextView
                     android:id="@+id/textView74"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView73"
-                    android:layout_alignBottom="@+id/textView73"
-                    android:layout_weight="1"
-                    android:paddingLeft="140dp"
-                    android:paddingTop="80dp"
                     android:text="Extremely"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@android:color/holo_red_light" />
             </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
-
-
-    <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content">-->
-
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_below="@+id/relativeLayout2"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:id="@+id/activity_panas"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context="com.example.trent.sleepapp.PanasActivity">
+                android:orientation="vertical">
 
-
-                <TextView
-                    android:id="@+id/textView45"
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/textView75"
-                    android:layout_alignRight="@+id/textView75"
-                    android:layout_below="@+id/textView55"
-                    android:layout_marginTop="97dp"
-                    android:text="2. Distressed" />
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editTextsca"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextstr"
-                    android:layout_alignStart="@+id/editTextstr"
-                    android:layout_below="@+id/editTextgui"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp">
 
-                <TextView
-                    android:id="@+id/textView46"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/textView45"
-                    android:layout_alignTop="@+id/textView55"
-                    android:layout_toEndOf="@+id/editTextint"
-                    android:layout_toRightOf="@+id/editTextint"
-                    android:text="." />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editTexthos"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/editTextsca"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <EditText
+                                android:id="@+id/editTextint"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_above="@+id/editTextale"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <TextView
-                    android:id="@+id/textView47"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextexc"
-                    android:layout_alignBottom="@+id/editTextexc"
-                    android:layout_toEndOf="@+id/editTextexc"
-                    android:layout_toRightOf="@+id/editTextexc"
-                    android:text="3.Excited" />
+                            <TextView
+                                android:id="@+id/textView75"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1. Interested" />
+                        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editTextent"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTexthos"
-                    android:layout_alignStart="@+id/editTexthos"
-                    android:layout_below="@+id/editTexthos"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView48"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextups"
-                    android:layout_alignBottom="@+id/editTextups"
-                    android:layout_toEndOf="@+id/editTextups"
-                    android:layout_toRightOf="@+id/editTextups"
-                    android:text="4.Upset" />
+                            <EditText
+                                android:id="@+id/editTextdis"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextint"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/editTextale"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView45"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2. Distressed" />
+                        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView49"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextgui"
-                    android:layout_alignBottom="@+id/editTextgui"
-                    android:layout_alignLeft="@+id/textView51"
-                    android:layout_alignStart="@+id/textView51"
-                    android:text="6.Guilty" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editTextdis"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/editTextint"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <EditText
+                                android:id="@+id/editTextexc"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
+                            <TextView
+                                android:id="@+id/textView47"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="3.Excited" />
+                        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView50"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/textView51"
-                    android:layout_alignStart="@+id/textView51"
-                    android:layout_below="@+id/editTextups"
-                    android:text="." />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editTextexc"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/editTextdis"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <EditText
+                                android:id="@+id/editTextups"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <TextView
-                    android:id="@+id/textView51"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextsca"
-                    android:layout_alignBottom="@+id/editTextsca"
-                    android:layout_alignEnd="@+id/textView47"
-                    android:layout_alignRight="@+id/textView47"
-                    android:text="7.Scared" />
+                            <TextView
+                                android:id="@+id/textView48"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4.Upset" />
+                        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editTextups"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/editTextexc"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView52"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTexthos"
-                    android:layout_alignBottom="@+id/editTexthos"
-                    android:layout_toLeftOf="@+id/button2"
-                    android:layout_toStartOf="@+id/button2"
-                    android:text="8.Hostile" />
+                            <EditText
+                                android:id="@+id/editTextstr"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextstr"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextups"
-                    android:layout_alignStart="@+id/editTextups"
-                    android:layout_below="@+id/editTextups"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView78"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5.Strong" />
 
-                <TextView
-                    android:id="@+id/textView53"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextent"
-                    android:layout_alignBottom="@+id/editTextent"
-                    android:layout_toEndOf="@+id/editTextent"
-                    android:layout_toRightOf="@+id/editTextent"
-                    android:text="9.Enthusiastic" />
+                        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editTextgui"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextsca"
-                    android:layout_alignStart="@+id/editTextsca"
-                    android:layout_below="@+id/editTextstr"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView54"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextpro"
-                    android:layout_alignBottom="@+id/editTextpro"
-                    android:layout_toEndOf="@+id/editTextpro"
-                    android:layout_toRightOf="@+id/editTextpro"
-                    android:text="10.Proud" />
+                            <EditText
+                                android:id="@+id/editTextgui"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextpro"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/editTextent"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView49"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6.Guilty" />
+                        </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <!--</RelativeLayout>-->
+                            <EditText
+                                android:id="@+id/editTextsca"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-                <!--xmlns:tools="http://schemas.android.com/tools"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical"-->
-                <!--android:id="@+id/relativeLayout2"-->
-                <!--android:layout_alignParentRight="true"-->
-                <!--android:layout_alignParentEnd="true"-->
-                <!--android:layout_alignParentBottom="true">-->
+                            <TextView
+                                android:id="@+id/textView51"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="7.Scared" />
+                        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView55"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/textView44"
-                    android:layout_marginTop="46dp"
-                    android:layout_toEndOf="@+id/editTextale"
-                    android:layout_toRightOf="@+id/editTextale"
-                    android:text="." />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView56"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignRight="@+id/textView55"
-                    android:layout_alignTop="@+id/textView45"
-                    android:text="." />
+                            <EditText
+                                android:id="@+id/editTexthos"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextale"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView56"
-                    android:layout_alignBottom="@+id/textView56"
-                    android:layout_toLeftOf="@+id/textView76"
-                    android:layout_toStartOf="@+id/textView76"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView52"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="8.Hostile" />
+                        </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView57"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/textView47"
-                    android:layout_toEndOf="@+id/editTextash"
-                    android:layout_toRightOf="@+id/editTextash"
-                    android:text="13. Ashamed" />
+                            <EditText
+                                android:id="@+id/editTextent"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextash"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextins"
-                    android:layout_alignStart="@+id/editTextins"
-                    android:layout_below="@+id/editTextale"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView53"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="9.Enthusiastic" />
+                        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView58"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextins"
-                    android:layout_alignBottom="@+id/editTextins"
-                    android:layout_alignLeft="@+id/textView61"
-                    android:layout_alignStart="@+id/textView61"
-                    android:text="14. Inspired" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editTextins"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextner"
-                    android:layout_alignStart="@+id/editTextner"
-                    android:layout_below="@+id/editTextash"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <EditText
+                                android:id="@+id/editTextpro"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <TextView
-                    android:id="@+id/textView59"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextner"
-                    android:layout_alignBottom="@+id/editTextner"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:text="." />
+                            <TextView
+                                android:id="@+id/textView54"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10.Proud" />
+                        </LinearLayout>
+                    </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editTextner"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextdet"
-                    android:layout_alignStart="@+id/editTextdet"
-                    android:layout_below="@+id/editTextins"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView60"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextdet"
-                    android:layout_alignBottom="@+id/editTextdet"
-                    android:layout_alignEnd="@+id/textView59"
-                    android:layout_alignRight="@+id/textView59"
-                    android:text="16. Determined" />
+                            <EditText
+                                android:id="@+id/editTextirr"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextdet"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/editTextner"
-                    android:layout_toLeftOf="@+id/textView60"
-                    android:layout_toStartOf="@+id/textView60"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView76"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="11. Irritable" />
+                        </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView61"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextatt"
-                    android:layout_alignBottom="@+id/editTextatt"
-                    android:layout_alignEnd="@+id/textView60"
-                    android:layout_alignLeft="@+id/textView63"
-                    android:layout_alignRight="@+id/textView60"
-                    android:layout_alignStart="@+id/textView63"
-                    android:text="17. Attentive" />
+                            <EditText
+                                android:id="@+id/editTextale"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextatt"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextjit"
-                    android:layout_alignStart="@+id/editTextjit"
-                    android:layout_below="@+id/editTextdet"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView79"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12. Alert" />
+                        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView62"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextjit"
-                    android:layout_alignBottom="@+id/editTextjit"
-                    android:layout_toEndOf="@+id/editTextatt"
-                    android:layout_toRightOf="@+id/editTextatt"
-                    android:text="18. Jittery" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editTextjit"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextact"
-                    android:layout_alignStart="@+id/editTextact"
-                    android:layout_below="@+id/editTextatt"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <EditText
+                                android:id="@+id/editTextash"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <TextView
-                    android:id="@+id/textView63"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextact"
-                    android:layout_alignBottom="@+id/editTextact"
-                    android:layout_alignEnd="@+id/textView62"
-                    android:layout_alignRight="@+id/textView62"
-                    android:text="19. Active" />
+                            <TextView
+                                android:id="@+id/textView57"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="13. Ashamed" />
+                        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editTextact"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/editTextafr"
-                    android:layout_alignStart="@+id/editTextafr"
-                    android:layout_below="@+id/editTextjit"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView64"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextafr"
-                    android:layout_alignBottom="@+id/editTextafr"
-                    android:layout_alignEnd="@+id/textView60"
-                    android:layout_alignRight="@+id/textView60"
-                    android:layout_toRightOf="@+id/editTextash"
-                    android:text="20. Afraid" />
+                            <EditText
+                                android:id="@+id/editTextins"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextafr"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/editTextact"
-                    android:layout_toLeftOf="@+id/textView64"
-                    android:layout_toStartOf="@+id/textView64"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView58"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="14. Inspired" />
+                        </LinearLayout>
 
-                <!--</RelativeLayout>-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/editTextpro"
-                    android:layout_marginTop="7dp"
-                    android:layout_toEndOf="@+id/textView54"
-                    android:layout_toRightOf="@+id/textView54"
-                    android:text="DONE" />
+                            <EditText
+                                android:id="@+id/editTextner"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <EditText
-                    android:id="@+id/editTextirr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignEnd="@+id/editTextale"
-                    android:layout_alignLeft="@+id/editTextale"
-                    android:layout_alignRight="@+id/editTextale"
-                    android:layout_alignStart="@+id/editTextale"
-                    android:layout_alignTop="@+id/editTextint"
-                    android:digits="12345"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="1" />
+                            <TextView
+                                android:id="@+id/textView80"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15. Nervous" />
+                        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView75"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/editTextint"
-                    android:layout_alignBottom="@+id/editTextint"
-                    android:layout_toEndOf="@+id/editTextint"
-                    android:layout_toRightOf="@+id/editTextint"
-                    android:text="1. Interested" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView76"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/textView58"
-                    android:layout_alignStart="@+id/textView58"
-                    android:layout_alignTop="@+id/textView75"
-                    android:text="11. Irritable" />
+                            <EditText
+                                android:id="@+id/editTextdet"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <TextView
-                    android:id="@+id/textView77"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/textView56"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="253dp"
-                    android:layout_marginStart="253dp"
-                    android:text="." />
+                            <TextView
+                                android:id="@+id/textView60"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16. Determined" />
+                        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView78"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/textView50"
-                    android:layout_alignStart="@+id/textView50"
-                    android:layout_below="@+id/textView50"
-                    android:text="5. Strong" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView79"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/textView56"
-                    android:layout_toEndOf="@+id/editTextash"
-                    android:layout_toRightOf="@+id/editTextash"
-                    android:text="12. Alert" />
+                            <EditText
+                                android:id="@+id/editTextatt"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
 
-                <TextView
-                    android:id="@+id/textView80"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/textView59"
-                    android:layout_toEndOf="@+id/editTextner"
-                    android:layout_toRightOf="@+id/editTextner"
-                    android:text="15. Nervous" />
-            </RelativeLayout>
+                            <TextView
+                                android:id="@+id/textView61"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="17. Attentive" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/editTextjit"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
+
+                            <TextView
+                                android:id="@+id/textView62"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="18. Jittery" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/editTextact"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
+
+                            <TextView
+                                android:id="@+id/textView63"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19. Active" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/editTextafr"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:digits="12345"
+                                android:ems="10"
+                                android:inputType="number"
+                                android:maxLength="1" />
+
+                            <TextView
+                                android:id="@+id/textView64"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20. Afraid" />
+                        </LinearLayout>
+                    </LinearLayout>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DONE" />
+        </LinearLayout>
+    </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
 
 </RelativeLayout>

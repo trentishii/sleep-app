@@ -5,7 +5,6 @@ import android.content.Intent;
 //import android.icu.util.Calendar;
 //import android.icu.util.TimeZone;
 import android.content.SharedPreferences;
-import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,18 +14,14 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.trent.sleepapp.pvt.PVTHome;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import static java.util.TimeZone.*;
-import java.util.List;
 import java.util.TimeZone;
 
 public class LeedsActivity extends AppCompatActivity {
@@ -54,13 +49,13 @@ public class LeedsActivity extends AppCompatActivity {
 //        pbText = (TextView) pbView.findViewById(R.id.tvProgress);
 //        pb.setProgress(2);
 //        pbText.setText("You have completed 2 of 7 tests");
-        sb1 = (SeekBar) findViewById(R.id.seekBar2);
-        sb2 = (SeekBar) findViewById(R.id.seekBar3);
-        sb3 = (SeekBar) findViewById(R.id.seekBar5);
-        sb4 = (SeekBar) findViewById(R.id.seekBar);
-        sb5 = (SeekBar) findViewById(R.id.seekBar4);
+        sb1 = (SeekBar) findViewById(R.id.seekBar1);
+        sb2 = (SeekBar) findViewById(R.id.seekBar1);
+        sb3 = (SeekBar) findViewById(R.id.seekBar2);
+        sb4 = (SeekBar) findViewById(R.id.seekBar4);
+        sb5 = (SeekBar) findViewById(R.id.seekBar5);
         sb6 = (SeekBar) findViewById(R.id.seekBar6);
-        sb7 = (SeekBar) findViewById(R.id.seekBar7);
+        sb7 = (SeekBar) findViewById(R.id.seekBar3);
         sb8 = (SeekBar) findViewById(R.id.seekBar8);
         sb9 = (SeekBar) findViewById(R.id.seekBar9);
         sb10 = (SeekBar) findViewById(R.id.seekBar10);

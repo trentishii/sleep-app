@@ -15,10 +15,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 //package com.example.trent.sleepapp;
 
@@ -26,33 +33,49 @@ import java.util.Date;
 public class SleepLogActivity extends AppCompatActivity {
     SharedPreferences sleepsharedPrefs;
     public static final String PREFNAME = "userPrefs";
+    private SeekBar sb;
+    private FirebaseUser user;
+    private SharedPreferences sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_log);
         sleepsharedPrefs = getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
+        final SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = buttonPrefs.edit();
 
-
-        ImageButton goToSleepLog = (ImageButton)findViewById(R.id.imageButtonSleep);
+        final ImageButton goToSleepLog = (ImageButton)findViewById(R.id.imageButtonSleep);
+        goToSleepLog.setEnabled(buttonPrefs.getBoolean("bSleep", true));
+        if (! buttonPrefs.getBoolean("bSleep", true)){
+            goToSleepLog.setImageResource(R.drawable.sleep_done);}
         goToSleepLog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 setPreferences(sleepsharedPrefs, 0);
                 Intent intent = new Intent (SleepLogActivity.this, SleepEventLog.class);
                 startActivity(intent);
+                editor.putBoolean("bSleep", false);
+                editor.commit();
+
             }
         });
 
-        ImageButton goToWakeLog = (ImageButton)findViewById(R.id.imageButtonWake);
+        final ImageButton goToWakeLog = (ImageButton)findViewById(R.id.imageButtonWake);
+        goToWakeLog.setEnabled(buttonPrefs.getBoolean("bWake", true));
+        if (! buttonPrefs.getBoolean("bWake", true)){
+            goToWakeLog.setImageResource(R.drawable.wake_done);}
         goToWakeLog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 setPreferences(sleepsharedPrefs, 1);
                 Intent intent = new Intent (SleepLogActivity.this, SleepEventLog.class);
                 startActivity(intent);
+                editor.putBoolean("bWake", false);
+                editor.commit();
             }
         });
+
 
         Button btn4 = (Button)findViewById(R.id.button3);
         btn4.setOnClickListener(new View.OnClickListener() {
@@ -62,9 +85,25 @@ public class SleepLogActivity extends AppCompatActivity {
                 SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = buttonPrefs.edit();
 
-                Date d = Calendar.getInstance().getTime();
+                sb= (SeekBar) findViewById(R.id.seekBar11);
+                user = FirebaseAuth.getInstance().getCurrentUser();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                String name = user.getEmail();
+                String[] newName = name.split("@");
+                DatabaseReference myRef = database.getReference(newName[0]);
+                TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
+                Calendar c = Calendar.getInstance(tz);
+                Date d = c.getTime();
                 String[] dateString = d.toString().split(" ");
-//                String noon = "12:00:00";
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH) + 1;
+                int date = c.get(Calendar.DATE);
+                String currentDate = month + "-" + date + "-" + year + ":" + dateString[3];
+
+                int answer = sb.getProgress();
+                SleepScale sc = new SleepScale(answer);
+                myRef.child("Sleep Log").child(currentDate).setValue(sc);
+
                 String pattern = "HH:mm:ss";
                 SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                 try {
@@ -72,6 +111,8 @@ public class SleepLogActivity extends AppCompatActivity {
                         editor.putBoolean("bSleepLog", false);
                         editor.putBoolean("SleepLogDone" , true);
                         editor.putBoolean("WakeTimeDone", true);
+                        editor.putBoolean("bSleep", true);
+                        editor.putBoolean("bWake",true);
                         editor.commit();
                     }
                 }catch (Exception e) {
@@ -114,25 +155,6 @@ public class SleepLogActivity extends AppCompatActivity {
         editor.putInt("EventType", value);
         editor.commit();
     }
-//    public void somefunction(){
-//        Bundle info_bundle = createInfoBundle();
-//        Long measurement_time = System.currentTimeMillis();
-//        Utils_Json mJsonUtil = new Utils_Json();
-//        String json_string = mJsonUtil.toJSon(info_bundle);
-//        System.out.println(json_string);
-//        String filePath = getExternalFilesDir(null).getAbsolutePath()
-//                + "/" + Integer.toString(computer_generated_id)
-//                + "-" + Long.toString(measurement_time)
-//                + ".info";
-//        try {
-//            FileOutputStream os = new FileOutputStream(filePath, true);
-//            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(os);
-//            outputStreamWriter.write(json_string + "\r\n");
-//            outputStreamWriter.close();
-//        } catch (IOException e) {
-//            Log.e("Exception", "File write failed: " + e.toString());
-//        }
-//
-//    }
+
 }
 

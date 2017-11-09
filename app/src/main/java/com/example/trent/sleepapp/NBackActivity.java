@@ -3,9 +3,11 @@ package com.example.trent.sleepapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,10 +17,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.example.trent.sleepapp.pvt.DataStorage;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -33,6 +41,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.R.attr.id;
+import static android.R.attr.lines;
 import static android.provider.SyncStateContract.Columns.DATA;
 import static com.example.trent.sleepapp.R.id.container;
 import static java.lang.System.out;
@@ -59,10 +68,13 @@ public class NBackActivity extends AppCompatActivity {
         private final int BUFFER_SIZE = 8*1024;
         private BufferedWriter out = null;
         private long ts = 0;
+//        private int test_duration = 10*1000;
+        private int test_duration = 2*60*1000;
         private FirebaseUser user;
         private String android_id;
         private SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
         long now = 0;
+        private StorageReference mStorageRef;
         private File file = null;
 
 //        protected void onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,13 +102,10 @@ public class NBackActivity extends AppCompatActivity {
             setSquare.setClickable(true);
             setTriangle.setClickable(true);
             setStar.setClickable(true);
-            int after = 0;
-            int interval = 1000;
             timer = new Timer();
-            timeElapsed = (System.currentTimeMillis()/1000)%60;
+            timeElapsed = System.currentTimeMillis();
             timer.scheduleAtFixedRate(new pickShape(), 0, 1500);
             timer.scheduleAtFixedRate(new flash(), 1400, 1500);
-
             try {
                 file = getFile();
             } catch (IOException e) {
@@ -105,12 +114,23 @@ public class NBackActivity extends AppCompatActivity {
 
         }
 
+//        class runTest extends TimerTask{
+//            public void run(){
+//                Log.e(TAG, "**************In timer***************");
+//                runOnUiThread(new Thread(new Runnable() {
+//                    public void run() {
+//                        timer.scheduleAtFixedRate(new pickShape(), 0, 1500);
+//                        timer.scheduleAtFixedRate(new flash(), 1400, 1500);
+//                    }
+//            }
+//        }
+
         class pickShape extends TimerTask {
             public void run() {
-                if (((System.currentTimeMillis()/ 1000) % 60) - timeElapsed <= 10) {
+                if (System.currentTimeMillis() - timeElapsed <= test_duration) {
                     final Random r = new Random();
                     randIdx = r.nextInt(5) ;
-                    Log.d(TAG, "*************"+Integer.toString(randIdx));
+                    Log.d(TAG, "!!!!!!!!!!!!!!!"+Long.toString(System.currentTimeMillis() - timeElapsed));
                     runOnUiThread(new Thread(new Runnable() {
                         public void run() {
                             memoryImageViews.get(randIdx).setVisibility(View.VISIBLE);
@@ -151,16 +171,17 @@ public class NBackActivity extends AppCompatActivity {
                         }));
                     }else {
                         timer.cancel();
-                        Log.e(TAG, "**************Task Ended***************");
+                        timer.purge();
+                        timer = null;
+                        Log.e(TAG, "**************Timer Task Ended***************");
                         stopTask();
-                        return;
                     }
                 }
             }
 
         class flash extends TimerTask {
             public void run() {
-                if (((System.currentTimeMillis() / 1000) % 60) - timeElapsed <= 10) {
+                if (System.currentTimeMillis() - timeElapsed <= test_duration) {
                     runOnUiThread(new Thread(new Runnable() {
                         public void run() {
                             setStar.setVisibility(View.INVISIBLE);
@@ -172,6 +193,8 @@ public class NBackActivity extends AppCompatActivity {
                     }));
                 } else {
                     timer.cancel();
+                    timer.purge();
+                    timer = null;
                     Log.e(TAG, "**************Flash Ended***************");
                     stopTask();
                     return;
@@ -179,6 +202,8 @@ public class NBackActivity extends AppCompatActivity {
 
             }
         }
+
+
         private File getFile() throws IOException {
             File externalPath = Environment.getExternalStorageDirectory();
             String packageName = getApplicationContext().getPackageName();
@@ -208,6 +233,7 @@ public class NBackActivity extends AppCompatActivity {
             }
             return file;
         }
+
 
         public void stopTask(){
             SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
@@ -241,6 +267,26 @@ public class NBackActivity extends AppCompatActivity {
                 }
                 out.flush();
                 out.close();
+
+                mStorageRef = FirebaseStorage.getInstance().getReference();
+                Uri nFile = Uri.fromFile(file);
+                StorageReference riversRef = mStorageRef.child(file.getName());
+                riversRef.putFile(nFile)
+                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                // Get a URL to the uploaded content
+                                Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                // Handle unsuccessful uploads
+                                // ...
+                            }
+                        });
+//
             } catch (Exception e) {
                 e.printStackTrace();
             }

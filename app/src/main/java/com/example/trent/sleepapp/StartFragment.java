@@ -53,6 +53,11 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     private ArrayList<String> testsDone;
 
     public int randIdx;
+    public int randSeq1;
+    public int randSeq2;
+    public int randSeq3;
+    public int randSeq4;
+    private ArrayList<Integer> randSeq;
 
     SharedPreferences buttonPrefs;
     public static final String BUTTONPREFNAME = "btnPrefs";
@@ -94,6 +99,28 @@ public class StartFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        if (!buttonPrefs.getBoolean("WakeTimeDone",false)) {
+            final Random r = new Random();
+            randSeq1 = r.nextInt(3);
+            randSeq2 = r.nextInt(3);
+            while(randSeq2 == randSeq1){
+                randSeq2 = r.nextInt(3);
+            }
+            randSeq3 = r.nextInt(3);
+            while(randSeq3 == randSeq1 || randSeq3 == randSeq2){
+                randSeq3 = r.nextInt(3);
+            }
+            randSeq4 = r.nextInt(3);
+            while(randSeq4 == randSeq3 || randSeq4 == randSeq2 || randSeq4 == randSeq1){
+                randSeq4 = r.nextInt(3);
+            }
+            randSeq = new ArrayList<>();
+            randSeq.add(randSeq1);
+            randSeq.add(randSeq2);
+            randSeq.add(randSeq3);
+            randSeq.add(randSeq4);
+        }
+
         switch(v.getId()) {
             case R.id.bPAM:
             case R.id.b2PAM:
@@ -101,7 +128,6 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.b4PAM:
                 Log.e("Start", "PAM Clicked");
                 Intent intent = new Intent(getActivity(), PAMActivity.class);
-//                Intent intent = new Intent(getActivity(), NBackActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bSSS:
@@ -118,14 +144,22 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.b4PVT:
                 Log.e("Start", "PVT Clicked");
                 final Random r = new Random();
-                randIdx = r.nextInt(2) ;
+//                randIdx = r.nextInt(2) ;
+                randIdx = 1;
                 Log.d(TAG, "$$$$$$$$$$$$$$$$$$$$$$"+Integer.toString(randIdx));
-                if (randIdx == 0){
-                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
-                    startActivity(intent2);}
-                else if (randIdx == 1){
-                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
-                    startActivity(intent2);}
+
+                for (int j=0; j<=3; j++) {
+                    if (randSeq[j] ){
+
+                    }
+                }
+
+//                if (randSeq1 ||  == 0){
+//                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+//                    startActivity(intent2);}
+//                else if (randIdx == 1){
+//                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+//                    startActivity(intent2);}
                 break;
             case R.id.bSleepLog:
                 Log.e("Start", "Sleep Log Clicked");
@@ -259,12 +293,9 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 window = "DayTime2Done";
             }
             if (i >= 11 && i <= 15) {
-                window = "BedTimeDone";
+                window = "SleepTimeDone";
             }
-            if (buttonPrefs.getBoolean("StartOfDay",false)) {
-                check.get(i).setVisibility(View.INVISIBLE);
-            }
-            else if (buttonPrefs.getBoolean(testsDone.get(i),false)){
+            if (buttonPrefs.getBoolean(testsDone.get(i),false)){
                 check.get(i).setVisibility(View.VISIBLE);
             }
             else if (buttonPrefs.getBoolean(window, false)) {

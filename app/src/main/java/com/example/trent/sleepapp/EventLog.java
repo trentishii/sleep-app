@@ -27,8 +27,8 @@ public class EventLog extends AppCompatActivity {
     private TimePicker timePicker;
     private Button submit;
     private TextView question;
-    private final static String[] EVENT_NAMES = {"tobacco", "coffee", "exercise", "meal", "alcohol", "medicine"};
-    private final static String[] EVENT_PHRASES = {"smoke?", "have coffee?", "exercise?", "eat?", "have an alcoholic beverage?", "have medicine?"};
+    private final static String[] EVENT_NAMES = {"tobacco", "coffee", "exercise", "meal", "alcohol", "medicine", "nap", "electronics"};
+    private final static String[] EVENT_PHRASES = {"smoke?", "have coffee?", "exercise?", "eat?", "have an alcoholic beverage?", "have medicine?","take a nap?","use electronic devices for a prolonged time?"};
     SharedPreferences sharedPrefs;
     public static final String PREFNAME = "userPrefs";
     private FirebaseUser user;

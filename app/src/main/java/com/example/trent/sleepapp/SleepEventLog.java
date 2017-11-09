@@ -40,6 +40,7 @@ public class SleepEventLog extends AppCompatActivity {
     private final static String[] EVENT_PHRASES = {" sleep?", " wake up?"};
     public static final String PREFNAME = "userPrefs";
     private FirebaseUser user;
+//    private SleepEvent sleepEvent = new SleepEvent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

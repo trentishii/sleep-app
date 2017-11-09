@@ -10,7 +10,7 @@
         <!--android:layout_height="match_parent">-->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="25dp"
+        android:layout_width="15dp"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -130,7 +130,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="15dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/relativeLayout1"
@@ -256,20 +256,25 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
         android:paddingLeft="10dp"
         android:layout_below="@+id/imageView2"
-        android:id = "@+id/relativeLayout3">
+        android:id = "@+id/relativeLayout3"
+        android:layout_alignBottom="@+id/relativeLayout"
+        android:layout_toLeftOf="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/textView83"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
             android:text="DAYTIME I"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:id="@+id/b2PAM"
@@ -328,22 +333,27 @@
     </RelativeLayout>
 
     <RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/imageView2"
-    android:layout_toRightOf="@+id/imageView"
-    android:paddingLeft="10dp"
-    android:gravity="center"
-        android:id="@+id/relativeLayout">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imageView"
+        android:paddingLeft="0dp"
+        android:gravity="left"
+        android:id="@+id/relativeLayout"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true">
 
     <TextView
         android:id="@+id/textView84"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:text="DAYTIME II"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/check3PAM"
+        android:layout_alignStart="@+id/check3PAM" />
 
     <ImageView
         android:id="@+id/check3PVT"

@@ -101,6 +101,7 @@ public class JournalFragment extends Fragment  {
         LinearLayout linear1 = (LinearLayout) v.findViewById(R.id.linear1);
         LinearLayout linear2 = (LinearLayout) v.findViewById(R.id.linear2);
         LinearLayout linear3 = (LinearLayout) v.findViewById(R.id.linear3);
+        LinearLayout linear4 = (LinearLayout) v.findViewById(R.id.linear4);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         int count = 0;
         sharedPrefs = this.getActivity().getSharedPreferences(PREFNAME, Context.MODE_PRIVATE);
@@ -113,7 +114,7 @@ public class JournalFragment extends Fragment  {
                 ib.setImageResource(R.drawable.tobacco);
                 ib.setEnabled(buttonPrefs.getBoolean("bSmoke", true));
                 if (! buttonPrefs.getBoolean("bSmoke", true)){
-                    ib.setBackgroundResource(R.drawable.check);}
+                    ib.setImageResource(R.drawable.tobacco_done);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -121,6 +122,8 @@ public class JournalFragment extends Fragment  {
                     linear2.addView(ib);
                 } else if (count == 4 || count == 5) {
                     linear3.addView(ib);
+                } else if (count == 6 || count == 7) {
+                    linear4.addView(ib);
                 } ib.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -138,7 +141,7 @@ public class JournalFragment extends Fragment  {
                 ib.setImageResource(R.drawable.pill);
                 ib.setEnabled(buttonPrefs.getBoolean("bMedicine", true));
                 if (! buttonPrefs.getBoolean("bMedicine", true)){
-                    ib.setBackgroundResource(R.drawable.check);}
+                    ib.setImageResource(R.drawable.pill_done);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -146,7 +149,9 @@ public class JournalFragment extends Fragment  {
                     linear2.addView(ib);
                 } else if (count == 4 || count == 5) {
                     linear3.addView(ib);
-                }                ib.setOnClickListener(new View.OnClickListener() {
+                }  else if (count == 6 || count == 7) {
+                    linear4.addView(ib);
+                }               ib.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Log.d("JournalFragment", "pill Clicked");
@@ -163,7 +168,7 @@ public class JournalFragment extends Fragment  {
                 ib.setImageResource(R.drawable.meal);
                 ib.setEnabled(buttonPrefs.getBoolean("bMeal", true));
                 if (! buttonPrefs.getBoolean("bMeal", true)){
-                    ib.setBackgroundResource(R.drawable.check);}
+                    ib.setImageResource(R.drawable.meal_done);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -171,6 +176,8 @@ public class JournalFragment extends Fragment  {
                     linear2.addView(ib);
                 } else if (count == 4 || count == 5) {
                     linear3.addView(ib);
+                } else if (count == 6 || count == 7) {
+                    linear4.addView(ib);
                 }                ib.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -189,7 +196,7 @@ public class JournalFragment extends Fragment  {
                 ib.setImageResource(R.drawable.alcohol);
                 ib.setEnabled(buttonPrefs.getBoolean("bAlcohol", true));
                 if (! buttonPrefs.getBoolean("bAlcohol", true)){
-                    ib.setBackgroundResource(R.drawable.check);}
+                    ib.setImageResource(R.drawable.alcohol_done);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -197,6 +204,8 @@ public class JournalFragment extends Fragment  {
                     linear2.addView(ib);
                 } else if (count == 4 || count == 5) {
                     linear3.addView(ib);
+                } else if (count == 6 || count == 7) {
+                    linear4.addView(ib);
                 }                ib.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -214,7 +223,7 @@ public class JournalFragment extends Fragment  {
                 ib.setImageResource(R.drawable.exercise);
                 ib.setEnabled(buttonPrefs.getBoolean("bExercise", true));
                 if (! buttonPrefs.getBoolean("bExercise", true)){
-                    ib.setBackgroundResource(R.drawable.check);}
+                    ib.setImageResource(R.drawable.exercise_done);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -222,7 +231,9 @@ public class JournalFragment extends Fragment  {
                     linear2.addView(ib);
                 } else if (count == 4 || count == 5) {
                     linear3.addView(ib);
-                }                ib.setOnClickListener(new View.OnClickListener() {
+                }else if (count == 6 || count == 7) {
+                    linear4.addView(ib);
+                }                 ib.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Log.d("JournalFragment", "exercise Clicked");
@@ -239,7 +250,7 @@ public class JournalFragment extends Fragment  {
                 ib.setImageResource(R.drawable.coffee);
                 ib.setEnabled(buttonPrefs.getBoolean("bCoffee", true));
                 if (! buttonPrefs.getBoolean("bCoffee", true)){
-                ib.setBackgroundResource(R.drawable.check);}
+                    ib.setImageResource(R.drawable.coffee_done);}
                 ib.setLayoutParams(params);
                 if (count == 0 || count == 1) {
                     linear1.addView(ib);
@@ -247,6 +258,8 @@ public class JournalFragment extends Fragment  {
                     linear2.addView(ib);
                 } else if (count == 4 || count == 5) {
                     linear3.addView(ib);
+                } else if (count == 6 || count == 7) {
+                    linear4.addView(ib);
                 }                ib.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -255,6 +268,62 @@ public class JournalFragment extends Fragment  {
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
                         startActivity(intent);
                         editor.putBoolean("bCoffee", false);
+                        editor.commit();
+                    }
+                });
+            }
+
+            if (act.equals("Naps")) {
+                final ImageButton ib = new ImageButton(this.getActivity());
+                ib.setImageResource(R.drawable.nap);
+                ib.setEnabled(buttonPrefs.getBoolean("bNaps", true));
+                if (! buttonPrefs.getBoolean("bNaps", true)){
+                    ib.setImageResource(R.drawable.nap_done);}
+                ib.setLayoutParams(params);
+                if (count == 0 || count == 1) {
+                    linear1.addView(ib);
+                } else if (count == 2 || count == 3) {
+                    linear2.addView(ib);
+                } else if (count == 4 || count == 5) {
+                    linear3.addView(ib);
+                } else if (count == 6 || count == 7) {
+                    linear4.addView(ib);
+                }                ib.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("JournalFragment", "naps Clicked");
+                        setPreferences(sharedPrefs, 6);
+                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        startActivity(intent);
+                        editor.putBoolean("bNaps", false);
+                        editor.commit();
+                    }
+                });
+            }
+
+            if (act.equals("Electronics")) {
+                final ImageButton ib = new ImageButton(this.getActivity());
+                ib.setImageResource(R.drawable.electronics);
+                ib.setEnabled(buttonPrefs.getBoolean("bElectronics", true));
+                if (! buttonPrefs.getBoolean("bElectronics", true)){
+                    ib.setImageResource(R.drawable.electronics_done);}
+                ib.setLayoutParams(params);
+                if (count == 0 || count == 1) {
+                    linear1.addView(ib);
+                } else if (count == 2 || count == 3) {
+                    linear2.addView(ib);
+                } else if (count == 4 || count == 5) {
+                    linear3.addView(ib);
+                } else if (count == 6 || count == 7) {
+                    linear4.addView(ib);
+                }                ib.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("JournalFragment", "electronics Clicked");
+                        setPreferences(sharedPrefs, 7);
+                        Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        startActivity(intent);
+                        editor.putBoolean("bElectronics", false);
                         editor.commit();
                     }
                 });
@@ -280,6 +349,8 @@ public class JournalFragment extends Fragment  {
                         editor.putBoolean("bExercise",true);
                         editor.putBoolean("bSmoke",true);
                         editor.putBoolean("bAlcohol",true);
+                        editor.putBoolean("bNaps",true);
+                        editor.putBoolean("bElectronics",true);
                         editor.commit();
                     }
                 }catch (Exception e) {

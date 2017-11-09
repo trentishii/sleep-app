@@ -71,6 +71,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                    if (!user.isEmailVerified()) {
 //                        sendEmailVerification();
 //                    }
+
+                    buttonPrefs = getSharedPreferences(BUTTONPREFNAME, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = buttonPrefs.edit();
+//                    editor.putBoolean("DayTime1Done", false);
+//                    editor.putBoolean("DayTime2Done", false);
+//                    editor.putBoolean("WakeTimeDone", false);
+//                    editor.putBoolean("SleepTimeDone", false);
+                    editor.commit();
+
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     Toast.makeText(LoginActivity.this, "User Signed In", Toast.LENGTH_LONG).show();
                     Log.d(TAG, "TOKEN: " + FirebaseInstanceId.getInstance().getToken());
@@ -203,8 +212,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("bSmoke", true);
         editor.putBoolean("bExercise", true);
         editor.putBoolean("bCoffee", true);
+        editor.putBoolean("bNaps", true);
+        editor.putBoolean("bElectronics", true);
+        editor.putBoolean("bSleep", true);
+        editor.putBoolean("bWake", true);
 
-        editor.putBoolean("StartOfDay", false);
         editor.putBoolean("DayTime1Done", false);
         editor.putBoolean("DayTime2Done", false);
         editor.putBoolean("WakeTimeDone", false);
@@ -225,8 +237,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("SleepLogDone", false);
         editor.putBoolean("PANASDone", false);
         editor.putBoolean("LEEDSDone", false);
-
-        editor.putString("noon", "13:00:00");
 
 
         editor.commit();
@@ -297,6 +307,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             journals.add("Exercise");
                             journals.add("Alcohol");
                             journals.add("Medicine");
+                            journals.add("Electronics");
+                            journals.add("Naps");
                             editor.putStringSet("journals", journals);
                             editor.commit();
                             Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);

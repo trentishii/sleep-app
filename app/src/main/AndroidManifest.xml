@@ -14,21 +14,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".UserActivity" />
-        <activity android:name=".pvt.PVTHome" />
-        <activity android:name=".pvt.PVT" />
-        <activity android:name=".pvt.RunTest" />
-        <activity android:name=".PAMActivity" />
-        <activity android:name=".NBackActivity"/>
-        <activity android:name=".NBackStart">
+        <activity android:name=".RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UserActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".pvt.PVTHome"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".pvt.PVT"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".pvt.RunTest"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PAMActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NBackActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NBackStart"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="OPEN_PAM" />
 
@@ -37,31 +46,40 @@
         </activity>
         <activity
             android:name=".JournalActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EventLog" />
-        <activity android:name=".SleepEventLog" />
+        <activity android:name=".EventLog"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SleepEventLog"
+            android:screenOrientation="portrait"/>
         <activity android:name=".AlarmActivity" />
         <receiver android:name=".CancelAlarmService"/>
         <service android:name=".AlarmReceiver" />
         <service android:name=".AccLogService" />
         <service android:name=".LightLogService" />
-        <activity android:name=".LeedsActivity" />
-        <activity android:name=".SleepLogActivity" >
+        <activity android:name=".LeedsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SleepLogActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="OPEN_SLEEPLOG" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".PanasActivity" >
+        <activity android:name=".PanasActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+
             <intent-filter>
                 <action android:name="OPEN_PANAS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SSSActivity" />
+        <activity android:name=".SSSActivity"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".MyFirebaseMessagingService"
@@ -83,6 +101,16 @@
             android:name=".MyJobService"
             android:enabled="true"
             android:exported="true"></service>
+
+    <activity android:name=".NotificationActivity" />
+
+    <receiver android:name=".AlarmReceive">
+        <intent-filter>
+            <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </receiver>
+
     </application>
 
 </manifest>

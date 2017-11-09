@@ -56,6 +56,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     private CheckBox food;
     private CheckBox medicine;
     private CheckBox coffee;
+    private CheckBox naps;
+    private CheckBox electronics;
     private Set<String> journals;
     private TimePicker wakeup;
     private TimePicker sleep;
@@ -109,6 +111,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         journals.add("Exercise");
         journals.add("Alcohol");
         journals.add("Medicine");
+        journals.add("Naps");
+        journals.add("Electronics");
         editor.putStringSet("journals", journals);
         editor.commit();
         journals = sharedPrefs.getStringSet("journals", null);
@@ -131,6 +135,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         food = (CheckBox) v.findViewById(R.id.cbFood);
         medicine = (CheckBox) v.findViewById(R.id.cbMedicine);
         coffee = (CheckBox) v.findViewById(R.id.cbCoffee);
+        naps = (CheckBox) v.findViewById(R.id.cbNaps);
+        electronics = (CheckBox) v.findViewById(R.id.cbElectronics);
         wakeup = (TimePicker) v.findViewById(R.id.timePicker1);
         sleep = (TimePicker) v.findViewById(R.id.timePicker2);
         journals = sharedPrefs.getStringSet("journals", null);
@@ -150,6 +156,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 medicine.setChecked(true);
             } else if (type.equals("Coffee")) {
                 coffee.setChecked(true);
+            }else if (type.equals("Naps")) {
+                naps.setChecked(true);
+            }else if (type.equals("Electronics")) {
+                electronics.setChecked(true);
             }
         }
         return v;
@@ -247,7 +257,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                     journals.add("Exercise");
                 }
 
-
                 if (!alcohol.isChecked() && journals.contains("Alcohol")) {
                     journals.remove("Alcohol");
                 }
@@ -276,6 +285,20 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 }
                 if (coffee.isChecked() && !journals.contains("Coffee")) {
                     journals.add("Coffee");
+                }
+
+                if (!naps.isChecked() && journals.contains("Naps")) {
+                    journals.remove("Naps");
+                }
+                if (naps.isChecked() && !journals.contains("Naps")) {
+                    journals.add("Naps");
+                }
+
+                if (!electronics.isChecked() && journals.contains("Electronics")) {
+                    journals.remove("Electronics");
+                }
+                if (electronics.isChecked() && !journals.contains("Electronics")) {
+                    journals.add("Electronics");
                 }
 
 

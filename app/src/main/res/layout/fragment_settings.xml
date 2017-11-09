@@ -69,6 +69,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cbMedicine" />
+        <CheckBox
+            android:text="Naps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbNaps" />
+        <CheckBox
+            android:text="Electronics Usage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbElectronics" />
 
         <TextView
             android:text="Wakeup Time"
