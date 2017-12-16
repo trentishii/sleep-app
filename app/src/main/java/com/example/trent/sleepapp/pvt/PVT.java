@@ -36,7 +36,7 @@ public class PVT extends Activity {
 	public static final String PREFS_NAME = "pvt_settings";
 	private static final String TEST = "test";
 	private static final String STUDY_ID = "study_id";
-	private static final String DEFAULT_STUDY = "default_study";
+	private static final String DEFAULT_STUDY = "PVT";
 	private static final String DATE_FORMAT = "yyyy-MM-dd_kk.mm.ss";		//modified ISO date format
 	private static final String UTEST = "_test";
 
@@ -120,22 +120,22 @@ public class PVT extends Activity {
 				if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
 					editor.putBoolean("bPVT", false);
 					editor.putBoolean("PVTDone", true);
-					editor.putBoolean("WakeTimeDone", true);
+//					editor.putBoolean("WakeTimeDone", true);
 					editor.commit();
 				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening",null)))) {
 					editor.putBoolean("b2PVT", false);
 					editor.putBoolean("PVT2Done", true);
-					editor.putBoolean("DayTime1Done", true);
+//					editor.putBoolean("DayTime1Done", true);
 					editor.commit();
 				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
 					editor.putBoolean("b3PVT", false);
 					editor.putBoolean("PVT3Done", true);
-					editor.putBoolean("DayTime2Done", true);
+//					editor.putBoolean("DayTime2Done", true);
 					editor.commit();
 				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
 					editor.putBoolean("b4PVT", false);
 					editor.putBoolean("PVT4Done", true);
-					editor.putBoolean("SleepTimeDone", true);
+//					editor.putBoolean("SleepTimeDone", true);
 					editor.commit();
 				}
 				out.flush();

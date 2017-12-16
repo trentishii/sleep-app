@@ -27,7 +27,7 @@ import javax.xml.parsers.ParserConfigurationException;
 public class PVTConfigGetter {
 	/** Strings allocated in beginning to prevent garbage collection. */
 	private static final String STUDY_ID = "study_id";
-	private static final String DEFAULT_STUDY = "default_study";
+	private static final String DEFAULT_STUDY = "PVT";
 	private static final String PVTCONFIG = "pvtconfig";
 	private static final String PARSING_EXCEPTION = 
 		"There should be exactly one pvtconfig node";

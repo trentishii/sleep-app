@@ -1,5 +1,7 @@
 package com.example.trent.sleepapp;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -74,10 +77,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     buttonPrefs = getSharedPreferences(BUTTONPREFNAME, Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = buttonPrefs.edit();
-//                    editor.putBoolean("DayTime1Done", false);
-//                    editor.putBoolean("DayTime2Done", false);
-//                    editor.putBoolean("WakeTimeDone", false);
-//                    editor.putBoolean("SleepTimeDone", false);
                     editor.commit();
 
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
@@ -221,6 +220,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("DayTime2Done", false);
         editor.putBoolean("WakeTimeDone", false);
         editor.putBoolean("SleepTimeDone", false);
+        editor.putBoolean("StartOfDay", false);
         editor.putBoolean("PAMDone", false);
         editor.putBoolean("PAM2Done", false);
         editor.putBoolean("PAM3Done", false);
@@ -237,9 +237,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editor.putBoolean("SleepLogDone", false);
         editor.putBoolean("PANASDone", false);
         editor.putBoolean("LEEDSDone", false);
-
-
         editor.commit();
+
+
         Log.d(TAG, "createAccount:" + email);
         if (!validateForm()) {
             return;
@@ -268,6 +268,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 });
         // [END create_user_with_email]
+
     }
 
     private void signIn(final String email, String password) {

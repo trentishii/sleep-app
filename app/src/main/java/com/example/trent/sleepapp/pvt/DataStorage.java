@@ -77,7 +77,7 @@ public class DataStorage {
 			FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 			String name = user.getEmail();
 			String[] newName = name.split("@");
-			OpenFileResponse ofResponse = openFile(newName[0] + "-" + fileName + CSV);
+			OpenFileResponse ofResponse = openFile("PVT_"+ fileName + "_" + newName[0] + CSV);
 			out = ofResponse.printStream;
 			if (ofResponse.firstLine == null) {
 				out.println(rawFileHeader);
@@ -86,7 +86,7 @@ public class DataStorage {
 			for (int i = 0; i < lines.size(); i++) {
 				out.println(lines.get(i));
 			}
-			File file = new File(studyDirectory, newName[0] + "-" + fileName + CSV);
+			File file = new File(studyDirectory, "PVT_"+ fileName + "_" + newName[0] + CSV);
 			mStorageRef = FirebaseStorage.getInstance().getReference();
 			Uri nFile = Uri.fromFile(file);
 			StorageReference riversRef = mStorageRef.child(file.getName());

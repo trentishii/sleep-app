@@ -18,7 +18,9 @@ import com.example.trent.sleepapp.pvt.PVTHome;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Random;
 
@@ -50,14 +52,9 @@ public class StartFragment extends Fragment implements View.OnClickListener {
 
     private ArrayList<ImageView> check;
     private ArrayList<Button> buttons;
-    private ArrayList<String> testsDone;
-
-    public int randIdx;
-    public int randSeq1;
-    public int randSeq2;
-    public int randSeq3;
-    public int randSeq4;
+    private ArrayList<String> seqOrder;
     private ArrayList<Integer> randSeq;
+    private ArrayList<String> testsDone;
 
     SharedPreferences buttonPrefs;
     public static final String BUTTONPREFNAME = "btnPrefs";
@@ -99,28 +96,27 @@ public class StartFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (!buttonPrefs.getBoolean("WakeTimeDone",false)) {
-            final Random r = new Random();
-            randSeq1 = r.nextInt(3);
-            randSeq2 = r.nextInt(3);
-            while(randSeq2 == randSeq1){
-                randSeq2 = r.nextInt(3);
-            }
-            randSeq3 = r.nextInt(3);
-            while(randSeq3 == randSeq1 || randSeq3 == randSeq2){
-                randSeq3 = r.nextInt(3);
-            }
-            randSeq4 = r.nextInt(3);
-            while(randSeq4 == randSeq3 || randSeq4 == randSeq2 || randSeq4 == randSeq1){
-                randSeq4 = r.nextInt(3);
-            }
+        SharedPreferences.Editor editor = buttonPrefs.edit();
+        if (buttonPrefs.getBoolean("StartOfDay",false)) {
             randSeq = new ArrayList<>();
-            randSeq.add(randSeq1);
-            randSeq.add(randSeq2);
-            randSeq.add(randSeq3);
-            randSeq.add(randSeq4);
+            randSeq.add(1);
+            randSeq.add(1);
+            randSeq.add(0);
+            randSeq.add(0);
+            Collections.shuffle(randSeq);
+            for (int i=0; i<=3; i++) {
+                editor.putInt("list"+i,randSeq.get(i));
+                editor.commit();
+                System.out.println("RAND SEQ ========= "+randSeq.get(i));
+                System.out.println("SHARED PREFS =========== "+buttonPrefs.getInt("list"+i,0));
+            }
+            editor.putBoolean("StartOfDay",false);
+            editor.commit();
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!Start of day:" + buttonPrefs.getBoolean("StartOfDay",false));
         }
-
+        for (int j=0; j<=3; j++) {
+            System.out.println("\nShuffled List : ****************" + buttonPrefs.getInt("list"+j,0));
+        }
         switch(v.getId()) {
             case R.id.bPAM:
             case R.id.b2PAM:
@@ -139,27 +135,44 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent1);
                 break;
             case R.id.bPVT:
+                Log.e("Start", "PVT Clicked");
+                if (buttonPrefs.getInt("list0",0) == 0){
+//                if (randSeq.get(0) == 0){
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    startActivity(intent2);}
+                else {
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    startActivity(intent2);}
+                break;
             case R.id.b2PVT:
+                Log.e("Start", "PVT Clicked");
+                if (buttonPrefs.getInt("list1",0) == 0){
+//                if (randSeq.get(1) == 0){
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    startActivity(intent2);}
+                else {
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    startActivity(intent2);}
+                break;
             case R.id.b3PVT:
+                Log.e("Start", "PVT Clicked");
+                if (buttonPrefs.getInt("list2",0) == 0){
+//                if (randSeq.get(2) == 0){
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    startActivity(intent2);}
+                else {
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    startActivity(intent2);}
+                break;
             case R.id.b4PVT:
                 Log.e("Start", "PVT Clicked");
-                final Random r = new Random();
-//                randIdx = r.nextInt(2) ;
-                randIdx = 1;
-                Log.d(TAG, "$$$$$$$$$$$$$$$$$$$$$$"+Integer.toString(randIdx));
-
-                for (int j=0; j<=3; j++) {
-                    if (randSeq[j] ){
-
-                    }
-                }
-
-//                if (randSeq1 ||  == 0){
-//                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
-//                    startActivity(intent2);}
-//                else if (randIdx == 1){
-//                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
-//                    startActivity(intent2);}
+                if (buttonPrefs.getInt("list3",0) == 0){
+//                if (randSeq.get(3) == 0){
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    startActivity(intent2);}
+                else{
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    startActivity(intent2);}
                 break;
             case R.id.bSleepLog:
                 Log.e("Start", "Sleep Log Clicked");

@@ -30,6 +30,7 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
+import static android.content.Context.ALARM_SERVICE;
 import static com.example.trent.sleepapp.LoginActivity.PREFNAME;
 
 /**
@@ -71,6 +72,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
     SharedPreferences sharedPrefs;
+//    private Context context;
 //    public DatabaseReference myRef;
 
     public SettingsFragment() {
@@ -242,7 +244,49 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calSet.getTimeInMillis(), pendingLight);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calStop.getTimeInMillis(), cancellationPendingIntent);
 
-//
+
+                Intent myIntent = new Intent(getActivity() , MyNewIntentService.class);
+                Intent myIntent1 = new Intent(getActivity() , MyNewIntentService.class);
+                Intent myIntent2 = new Intent(getActivity() , MyNewIntentService.class);
+                Intent myIntent3 = new Intent(getActivity() , MyNewIntentService.class);
+
+
+                AlarmManager alarmManager = (AlarmManager)getActivity().getSystemService(ALARM_SERVICE);
+                AlarmManager alarmManager1 = (AlarmManager)getActivity().getSystemService(ALARM_SERVICE);
+
+//        PendingIntent pendingIntent = PendingIntent.getService(LoginActivity.this, 0, myIntent, 0);
+                PendingIntent pendingIntent = PendingIntent.getService(getActivity(), 10, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntent1 = PendingIntent.getService(getActivity(), 11, myIntent1, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntent2 = PendingIntent.getService(getActivity(), 12, myIntent2, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntent3 = PendingIntent.getService(getActivity(), 13, myIntent3, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                Calendar morning = Calendar.getInstance();
+                Calendar noon = Calendar.getInstance();
+                Calendar evening = Calendar.getInstance();
+                Calendar night  =  Calendar.getInstance();
+
+                morning.set(Calendar.HOUR_OF_DAY, 04);
+                morning.set(Calendar.MINUTE, 00);
+                morning.set(Calendar.SECOND, 00);
+
+                noon.set(Calendar.HOUR_OF_DAY, 12);
+                noon.set(Calendar.MINUTE, 00);
+                noon.set(Calendar.SECOND, 00);
+
+                evening.set(Calendar.HOUR_OF_DAY, 16);
+                evening.set(Calendar.MINUTE, 00);
+                evening.set(Calendar.SECOND, 00);
+
+                night.set(Calendar.HOUR_OF_DAY, 20);
+                night.set(Calendar.MINUTE, 00);
+                night.set(Calendar.SECOND, 00);
+
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, morning.getTimeInMillis(), AlarmManager.INTERVAL_DAY , pendingIntent);  //set repeating every 24 hours
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, noon.getTimeInMillis(), AlarmManager.INTERVAL_DAY , pendingIntent1);  //set repeating every 24 hours
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, evening.getTimeInMillis(), AlarmManager.INTERVAL_DAY , pendingIntent2);  //set repeating every 24 hours
+                alarmManager1.setRepeating(AlarmManager.RTC_WAKEUP, night.getTimeInMillis(), AlarmManager.INTERVAL_DAY , pendingIntent3);  //set repeating every 24 hours
+
+
                 if (!tobacco.isChecked() && journals.contains("Tobacco")) {
                     journals.remove("Tobacco");
                 }

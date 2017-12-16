@@ -1,15 +1,22 @@
 package com.example.trent.sleepapp;
 
+import android.Manifest;
 import android.app.AlarmManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -25,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+import android.content.Context;
 
 import static com.example.trent.sleepapp.StartFragment.BUTTONPREFNAME;
 
@@ -33,27 +41,43 @@ import static com.example.trent.sleepapp.StartFragment.BUTTONPREFNAME;
 public class UserActivity extends AppCompatActivity implements StartFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener, JournalFragment.OnFragmentInteractionListener
 {
     private Toolbar myToolbar;
+    private static final int PERMISSION_REQUEST_CODE = 1;
     private boolean buttonStatus;
     private static final String TAG = "UserActivity";
     private ArrayList<String> testsDone;
+    private Context context;
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        // Block for notifications
+//        Intent notifyIntent = new Intent(this,MyReceiver.class);
+//        Intent notifyIntent = new Intent(this,MyNewIntentService.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast
+//                (context, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast
+//                (this, 1, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        try {
+//             Perform the operation associated with our pendingIntent
+//            pendingIntent.send();
+//            System.out.println("Pending Intent set");
+//        } catch (PendingIntent.CanceledException e) {
+//            e.printStackTrace();
+//        }
+//        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  System.currentTimeMillis(),
+//                1000 * 60 * 60 * 24, pendingIntent);
 
-//        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-//
-//        Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
-//        notificationIntent.addCategory("android.intent.category.DEFAULT");
-//
-//        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//        Calendar cal = Calendar.getInstance();
-//        cal.add(Calendar.SECOND, 10);
-//        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
+
+        if (checkPermission()) {
+        //If your app has access to the device’s storage, then print the following message to Android Studio’s Logcat//
+            Log.e("permission", "Permission already granted.");
+        } else {
+        //If your app doesn’t have permission to access external storage, then call requestPermission//
+            requestPermission();
+        }
 
         testsDone = new ArrayList<>();
         testsDone.add(0, "PAMDone");
@@ -88,19 +112,18 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
         SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = buttonPrefs.edit();
-        editor.putString("noon", "16:00:00");
+        editor.putString("noon", "12:00:00");
         editor.putString("evening", "16:00:00" );
-        editor.putString("bedtime","16:00:00");
+        editor.putString("bedtime","20:00:00");
         editor.commit();
         try {
             int count = 0;
             if(count == 0) {
 //                editor.putBoolean("DayTime1Done",false);
 //                editor.putBoolean("DayTime2Done",false);
-                editor.putBoolean("WakeTimeDone",false);
+//                editor.putBoolean("WakeTimeDone",false);
 //                editor.putBoolean("SleepTimeDone",false);
                 editor.commit();
-                count = count + 1;
             }
 
             if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
@@ -110,7 +133,8 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                     editor.putBoolean("bPAM", true);
                     editor.putBoolean("bSSS", true);
                     editor.putBoolean("bPVT", true);
-
+                    editor.putBoolean("StartOfDay",true);
+                    editor.putBoolean("WakeTimeDone", true);
                     for (int i=0; i<=15; i++) {
                         editor.putBoolean(testsDone.get(i),false);
                     }
@@ -128,6 +152,8 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bPANAS", false);
                 editor.putBoolean("bJournal", false);
                 editor.putBoolean("SleepTimeDone", false);
+                editor.putBoolean("DayTime1Done", false);
+                editor.putBoolean("DayTime2Done", false);
                 editor.commit();
 
             }
@@ -139,6 +165,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                     editor.putBoolean("PAM2Done", false);
                     editor.putBoolean("SSS2Done", false);
                     editor.putBoolean("PVT2Done", false);
+                    editor.putBoolean("DayTime1Done", true);
                     editor.commit();
                 }
                 editor.putBoolean("bSleepLog", false);
@@ -155,6 +182,8 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bPANAS", false);
                 editor.putBoolean("bJournal", false);
                 editor.putBoolean("WakeTimeDone", false);
+                editor.putBoolean("DayTime2Done", false);
+                editor.putBoolean("SleepTimeDone", false);
                 editor.commit();
             }
             else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening", null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime", null)))) {
@@ -165,6 +194,8 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                     editor.putBoolean("PAM3Done", false);
                     editor.putBoolean("SSS3Done", false);
                     editor.putBoolean("PVT3Done", false);
+                    editor.putBoolean("DayTime2Done", true);
+                    editor.commit();
                 }
                 editor.putBoolean("bPAM", false);
                 editor.putBoolean("b2PAM", false);
@@ -179,7 +210,9 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("bJournal", false);
                 editor.putBoolean("bSleepLog", false);
                 editor.putBoolean("bLEEDS", false);
+                editor.putBoolean("WakeTimeDone", false);
                 editor.putBoolean("DayTime1Done", false);
+                editor.putBoolean("SleepTimeDone", false);
                 editor.commit();
 
             }
@@ -195,6 +228,8 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                     editor.putBoolean("PAM4Done", false);
                     editor.putBoolean("SSS4Done", false);
                     editor.putBoolean("PVT4Done", false);
+                    editor.putBoolean("SleepTimeDone", true);
+                    editor.commit();
                 }
                 editor.putBoolean("bPAM", false);
                 editor.putBoolean("b2PAM", false);
@@ -207,6 +242,8 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 editor.putBoolean("b3PVT", false);
                 editor.putBoolean("bSleepLog", false);
                 editor.putBoolean("bLEEDS", false);
+                editor.putBoolean("WakeTimeDone", false);
+                editor.putBoolean("DayTime1Done", false);
                 editor.putBoolean("DayTime2Done", false);
                 editor.commit();
             }
@@ -223,6 +260,48 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                 }
             });
     }
+
+    private boolean checkPermission() {
+
+    //Check for READ_EXTERNAL_STORAGE access, using ContextCompat.checkSelfPermission()//
+
+        int result = ContextCompat.checkSelfPermission(UserActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+    //If the app does have this permission, then return true//
+
+        if (result == PackageManager.PERMISSION_GRANTED) {
+        return true;
+        } else {
+
+    //If the app doesn’t have this permission, then return false//
+
+        return false;
+        }
+        }
+
+    private void requestPermission() {
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Toast.makeText(UserActivity.this,
+                            "Permission accepted", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(UserActivity.this,
+                            "Permission denied", Toast.LENGTH_LONG).show();
+
+                }
+                break;
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

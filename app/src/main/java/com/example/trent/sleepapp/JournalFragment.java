@@ -342,7 +342,7 @@ public class JournalFragment extends Fragment  {
                     if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
                         editor.putBoolean("bJournal", false);
                         editor.putBoolean("JournalDone" , true);
-                        editor.putBoolean("SleepTimeDone", true);
+//                        editor.putBoolean("SleepTimeDone", true);
                         editor.putBoolean("bMedicine", true);
                         editor.putBoolean("bMeal",true);
                         editor.putBoolean("bCoffee",true);

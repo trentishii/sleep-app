@@ -70,6 +70,7 @@ public class NBackActivity extends AppCompatActivity {
         private long ts = 0;
 //        private int test_duration = 10*1000;
         private int test_duration = 2*60*1000;
+         private int shape_number = 0;
         private FirebaseUser user;
         private String android_id;
         private SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
@@ -130,14 +131,16 @@ public class NBackActivity extends AppCompatActivity {
                 if (System.currentTimeMillis() - timeElapsed <= test_duration) {
                     final Random r = new Random();
                     randIdx = r.nextInt(5) ;
-                    Log.d(TAG, "!!!!!!!!!!!!!!!"+Long.toString(System.currentTimeMillis() - timeElapsed));
+//                    randIdx = 0;
+                    shape_number = shape_number+1;
+//                    Log.d(TAG, "!!!!!!!!!!!!!!!"+Long.toString(System.currentTimeMillis() - timeElapsed));
                     runOnUiThread(new Thread(new Runnable() {
                         public void run() {
                             memoryImageViews.get(randIdx).setVisibility(View.VISIBLE);
                             now = System.currentTimeMillis();
                             try{
-                                out.write(df.format(new Date(now)) + "," + now + "," + "@@@@@"+ randIdx );
-                                out.newLine();
+                                // "111111111111" implies displayed shape
+                                out.write(df.format(new Date(now)) + "," + now + "," + "11111,"+ shape_number+ "," +randIdx );
                                 out.newLine();
                             }catch(IOException e){
                                 Log.e(TAG, ""+e.getMessage());
@@ -156,7 +159,8 @@ public class NBackActivity extends AppCompatActivity {
                                                 Log.d(TAG, "*************CLICK release***********");
                                                 memoryImageViews.get(5).setVisibility(View.INVISIBLE);
                                                 try{
-                                                out.write(df.format(new Date(now)) + "," + now + ","+ "***********"+ + randIdx);
+                                                    // "00000" implies shape clicked
+                                                out.write(df.format(new Date(now)) + "," + now + ","+ "00000,"+  shape_number+ "," + randIdx);
                                                 out.newLine();
                                                 }catch(IOException e){
                                                     Log.e(TAG, ""+e.getMessage());
@@ -219,7 +223,7 @@ public class NBackActivity extends AppCompatActivity {
             String name = user.getEmail();
             String[] newName = name.split("@");
             DatabaseReference myRef = database.getReference(newName[0]);
-            file = new File(file.getAbsolutePath() + "/" + date + "_" + newName[0]  + ".csv");
+            file = new File(file.getAbsolutePath() + "/" + "Nback_"+ date + "_" + newName[0]  + ".csv");
 //            file = new File(file.getAbsolutePath() + "/" +  android_id  + "_" + date + "_" + location + "_" + activity + "_" + user + "_session" + id + ".csv");
 
             try{
@@ -247,22 +251,22 @@ public class NBackActivity extends AppCompatActivity {
                 if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
                     editor.putBoolean("bPVT", false);
                     editor.putBoolean("PVTDone", true);
-                    editor.putBoolean("WakeTimeDone", true);
+//                    editor.putBoolean("WakeTimeDone", true);
                     editor.commit();
                 } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening",null)))) {
                     editor.putBoolean("b2PVT", false);
                     editor.putBoolean("PVT2Done", true);
-                    editor.putBoolean("DayTime1Done", true);
+//                    editor.putBoolean("DayTime1Done", true);
                     editor.commit();
                 } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
                     editor.putBoolean("b3PVT", false);
                     editor.putBoolean("PVT3Done", true);
-                    editor.putBoolean("DayTime2Done", true);
+//                    editor.putBoolean("DayTime2Done", true);
                     editor.commit();
                 } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
                     editor.putBoolean("b4PVT", false);
                     editor.putBoolean("PVT4Done", true);
-                    editor.putBoolean("SleepTimeDone", true);
+//                    editor.putBoolean("SleepTimeDone", true);
                     editor.commit();
                 }
                 out.flush();
@@ -276,7 +280,7 @@ public class NBackActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                 // Get a URL to the uploaded content
-                                Uri downloadUrl = taskSnapshot.getDownloadUrl();
+//                                Uri downloadUrl = taskSnapshot.getDownloadUrl();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -297,4 +301,14 @@ public class NBackActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), UserActivity.class);
             startActivity(intent);
         }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        timer.cancel();
+        timer.purge();
+        timer = null;
+        Log.e(TAG, "**************Activity Ended***************");
+        finish();
+    }
 }

@@ -110,7 +110,7 @@ public class SleepLogActivity extends AppCompatActivity {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
                         editor.putBoolean("bSleepLog", false);
                         editor.putBoolean("SleepLogDone" , true);
-                        editor.putBoolean("WakeTimeDone", true);
+//                        editor.putBoolean("WakeTimeDone", true);
                         editor.putBoolean("bSleep", true);
                         editor.putBoolean("bWake",true);
                         editor.commit();
