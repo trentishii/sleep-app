@@ -47,74 +47,22 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
     private ArrayList<String> testsDone;
     private Context context;
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
-
-//        Intent notifyIntent = new Intent(this,MyReceiver.class);
-//        Intent notifyIntent = new Intent(this,MyNewIntentService.class);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast
-//                (context, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast
-//                (this, 1, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-//        try {
-//             Perform the operation associated with our pendingIntent
-//            pendingIntent.send();
-//            System.out.println("Pending Intent set");
-//        } catch (PendingIntent.CanceledException e) {
-//            e.printStackTrace();
-//        }
-//        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  System.currentTimeMillis(),
-//                1000 * 60 * 60 * 24, pendingIntent);
-
-
-        if (checkPermission()) {
-        //If your app has access to the device’s storage, then print the following message to Android Studio’s Logcat//
-            Log.e("permission", "Permission already granted.");
-        } else {
-        //If your app doesn’t have permission to access external storage, then call requestPermission//
-            requestPermission();
-        }
-
-        testsDone = new ArrayList<>();
-        testsDone.add(0, "PAMDone");
-        testsDone.add(1, "PAM2Done");
-        testsDone.add(2, "PAM3Done");
-        testsDone.add(3, "PAM4Done");
-        testsDone.add(4, "SSSDone");
-        testsDone.add(5, "SSS2Done");
-        testsDone.add(6, "SSS3Done");
-        testsDone.add(7, "SSS4Done");
-        testsDone.add(8, "PVTDone");
-        testsDone.add(9, "PVT2Done");
-        testsDone.add(10, "PVT3Done");
-        testsDone.add(11, "PVT4Done");
-        testsDone.add(12, "JournalDone");
-        testsDone.add(13, "SleepLogDone");
-        testsDone.add(14, "PANASDone");
-        testsDone.add(15, "LEEDSDone");
-
-        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        StartFragment fragment = new StartFragment();
-
+    public void onResume()
+    {
+        super.onResume();
 
         Date d = Calendar.getInstance().getTime();
+
         String[] dateString = d.toString().split(" ");
         String pattern = "HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 
         SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = buttonPrefs.edit();
-        editor.putString("noon", "12:00:00");
-        editor.putString("evening", "16:00:00" );
-        editor.putString("bedtime","20:00:00");
+        editor.putString("noon", "22:31:00");
+        editor.putString("evening", "22:32:00" );
+        editor.putString("bedtime","22:33:00");
         editor.commit();
         try {
             int count = 0;
@@ -127,6 +75,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
             }
 
             if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
+                Log.e(TAG, "[Waketime Mode]");
                 if (!buttonPrefs.getBoolean("WakeTimeDone",false)){
                     editor.putBoolean("bSleepLog", true) ;
                     editor.putBoolean("bLEEDS", true);
@@ -139,7 +88,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
                         editor.putBoolean(testsDone.get(i),false);
                     }
                     editor.commit();
-                    }
+                }
                 editor.putBoolean("b2PAM", false);
                 editor.putBoolean("b3PAM", false);
                 editor.putBoolean("b4PAM", false);
@@ -158,6 +107,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
             }
             else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon", null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening", null)))) {
+                Log.e(TAG, "[Noon Mode]");
                 if (!buttonPrefs.getBoolean("DayTime1Done",false)){
                     editor.putBoolean("b2PAM", true);
                     editor.putBoolean("b2PVT", true);
@@ -217,6 +167,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
             }
             else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime", null)))) {
+                Log.e(TAG, "[Sleeptime Mode]");
                 if (!buttonPrefs.getBoolean("SleepTimeDone",false)) {
                     editor.putBoolean("b4PAM", true);
                     editor.putBoolean("b4SSS", true);
@@ -249,16 +200,78 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
             }
 
         }catch (Exception e) {
-            e.printStackTrace();        }
+            e.printStackTrace();
+        }
 
-            fragmentTransaction.add(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            myToolbar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Toast.makeText(getApplicationContext(), "Toolbar title clicked", Toast.LENGTH_SHORT).show();
-                }
-            });
+        Log.e(TAG, "**************onResume called***************");
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user);
+
+//        Intent notifyIntent = new Intent(this,MyReceiver.class);
+//        Intent notifyIntent = new Intent(this,MyNewIntentService.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast
+//                (context, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast
+//                (this, 1, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        try {
+//             Perform the operation associated with our pendingIntent
+//            pendingIntent.send();
+//            System.out.println("Pending Intent set");
+//        } catch (PendingIntent.CanceledException e) {
+//            e.printStackTrace();
+//        }
+//        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  System.currentTimeMillis(),
+//                1000 * 60 * 60 * 24, pendingIntent);
+
+
+        if (checkPermission()) {
+        //If your app has access to the device’s storage, then print the following message to Android Studio’s Logcat//
+            Log.e("permission", "Permission already granted.");
+        } else {
+        //If your app doesn’t have permission to access external storage, then call requestPermission//
+            requestPermission();
+        }
+
+        testsDone = new ArrayList<>();
+        testsDone.add(0, "PAMDone");
+        testsDone.add(1, "PAM2Done");
+        testsDone.add(2, "PAM3Done");
+        testsDone.add(3, "PAM4Done");
+        testsDone.add(4, "SSSDone");
+        testsDone.add(5, "SSS2Done");
+        testsDone.add(6, "SSS3Done");
+        testsDone.add(7, "SSS4Done");
+        testsDone.add(8, "PVTDone");
+        testsDone.add(9, "PVT2Done");
+        testsDone.add(10, "PVT3Done");
+        testsDone.add(11, "PVT4Done");
+        testsDone.add(12, "JournalDone");
+        testsDone.add(13, "SleepLogDone");
+        testsDone.add(14, "PANASDone");
+        testsDone.add(15, "LEEDSDone");
+
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        StartFragment fragment = new StartFragment();
+
+        fragmentTransaction.add(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+        myToolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getApplicationContext(), "Toolbar title clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private boolean checkPermission() {

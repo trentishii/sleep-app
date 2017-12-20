@@ -48,6 +48,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static final String BUTTONPREFNAME = "btnPrefs";
 
     @Override
+    public void onPause()
+    {
+        super.onPause();
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -84,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Log.d(TAG, "TOKEN: " + FirebaseInstanceId.getInstance().getToken());
                     Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);
                     registerIntent.putExtra("isEnabled", true);
+                    finish();
                     LoginActivity.this.startActivity(registerIntent);
                 } else {
                     // User is signed out
@@ -313,6 +321,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             editor.putStringSet("journals", journals);
                             editor.commit();
                             Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);
+                            finish();
                             LoginActivity.this.startActivity(registerIntent);
                         }
 

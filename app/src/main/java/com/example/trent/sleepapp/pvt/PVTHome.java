@@ -67,6 +67,13 @@ public class PVTHome extends Activity {
     private PVTConfigGetter configGetter;
 
     @Override
+    public void onPause()
+    {
+        super.onPause();
+        finish();
+    }
+
+    @Override
     public void onCreate(Bundle b) {
         super.onCreate(b);
         requestWindowFeature(Window.FEATURE_NO_TITLE);

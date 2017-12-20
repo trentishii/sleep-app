@@ -282,6 +282,8 @@ public class PAMActivity extends AppCompatActivity {
             Intent timeSubmitted = new Intent(PAMActivity.this, UserActivity.class);
 //            timeSubmitted.putExtra("isEnabled", false);
 
+            finish();
+
             PAMActivity.this.startActivity(timeSubmitted);
 //            // clear selection
 //            pam_photo_id = null;

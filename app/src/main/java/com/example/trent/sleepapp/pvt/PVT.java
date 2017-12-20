@@ -145,6 +145,7 @@ public class PVT extends Activity {
 			}
 
 			Intent in = new Intent(this, UserActivity.class);
+			finish();
 			startActivity(in);
 
 		}

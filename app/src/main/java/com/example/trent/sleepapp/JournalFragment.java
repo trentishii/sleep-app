@@ -78,6 +78,13 @@ public class JournalFragment extends Fragment  {
     }
 
     @Override
+    public void onPause()
+    {
+        super.onPause();
+        getActivity().finish();
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         buttonPrefs = getActivity().getSharedPreferences(BUTTONPREFNAME, Context.MODE_PRIVATE);
 //        SharedPreferences.Editor editor = buttonPrefs.edit();
@@ -130,6 +137,7 @@ public class JournalFragment extends Fragment  {
                         Log.d("JournalFragment", "tobacco Clicked");
                         JournalFragment.this.setPreferences(sharedPrefs, 0);
                         Intent intent = new Intent (getActivity().getApplicationContext(), EventLog.class);
+                        getActivity().finish();
                         startActivity(intent);
                         editor.putBoolean("bSmoke", false);
                         editor.commit();
@@ -157,6 +165,7 @@ public class JournalFragment extends Fragment  {
                         Log.d("JournalFragment", "pill Clicked");
                         setPreferences(sharedPrefs, 5);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        getActivity().finish();
                         startActivity(intent);
                         editor.putBoolean("bMedicine", false);
                         editor.commit();
@@ -186,6 +195,7 @@ public class JournalFragment extends Fragment  {
                         editor.putBoolean("bMeal", false);
                         editor.commit();
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        getActivity().finish();
                         startActivity(intent);
 
                     }
@@ -212,6 +222,7 @@ public class JournalFragment extends Fragment  {
                         Log.d("JournalFragment", "alcohol Clicked");
                         setPreferences(sharedPrefs, 4);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        getActivity().finish();
                         startActivity(intent);
                         editor.putBoolean("bAlcohol", false);
                         editor.commit();
@@ -239,6 +250,7 @@ public class JournalFragment extends Fragment  {
                         Log.d("JournalFragment", "exercise Clicked");
                         setPreferences(sharedPrefs, 2);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        getActivity().finish();
                         startActivity(intent);
                         editor.putBoolean("bExercise", false);
                         editor.commit();
@@ -266,6 +278,7 @@ public class JournalFragment extends Fragment  {
                         Log.d("JournalFragment", "coffee Clicked");
                         setPreferences(sharedPrefs, 1);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        getActivity().finish();
                         startActivity(intent);
                         editor.putBoolean("bCoffee", false);
                         editor.commit();
@@ -294,6 +307,7 @@ public class JournalFragment extends Fragment  {
                         Log.d("JournalFragment", "naps Clicked");
                         setPreferences(sharedPrefs, 6);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        getActivity().finish();
                         startActivity(intent);
                         editor.putBoolean("bNaps", false);
                         editor.commit();
@@ -322,6 +336,7 @@ public class JournalFragment extends Fragment  {
                         Log.d("JournalFragment", "electronics Clicked");
                         setPreferences(sharedPrefs, 7);
                         Intent intent = new Intent (JournalFragment.this.getActivity(), EventLog.class);
+                        getActivity().finish();
                         startActivity(intent);
                         editor.putBoolean("bElectronics", false);
                         editor.commit();
@@ -357,6 +372,7 @@ public class JournalFragment extends Fragment  {
                     e.printStackTrace();        }
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), UserActivity.class);
+                getActivity().finish();
                 startActivity(intent);
             }
         });

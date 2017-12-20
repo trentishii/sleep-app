@@ -119,6 +119,7 @@ public class SleepLogActivity extends AppCompatActivity {
                     e.printStackTrace();        }
 
                 Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+                finish();
                 startActivity(intent);
             }
         });

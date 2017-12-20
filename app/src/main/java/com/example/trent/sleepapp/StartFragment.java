@@ -101,8 +101,8 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             randSeq = new ArrayList<>();
             randSeq.add(1);
             randSeq.add(1);
-            randSeq.add(0);
-            randSeq.add(0);
+            randSeq.add(1);
+            randSeq.add(1);
             Collections.shuffle(randSeq);
             for (int i=0; i<=3; i++) {
                 editor.putInt("list"+i,randSeq.get(i));
@@ -124,6 +124,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.b4PAM:
                 Log.e("Start", "PAM Clicked");
                 Intent intent = new Intent(getActivity(), PAMActivity.class);
+                getActivity().finish();
                 startActivity(intent);
                 break;
             case R.id.bSSS:
@@ -132,66 +133,80 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             case R.id.b4SSS:
                 Log.e("Start", "SSS Clicked");
                 Intent intent1 = new Intent(getActivity(), SSSActivity.class);
+                getActivity().finish();
                 startActivity(intent1);
                 break;
             case R.id.bPVT:
                 Log.e("Start", "PVT Clicked");
                 if (buttonPrefs.getInt("list0",0) == 0){
 //                if (randSeq.get(0) == 0){
-                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+//                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    getActivity().finish();
                     startActivity(intent2);}
                 else {
                     Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    getActivity().finish();
                     startActivity(intent2);}
                 break;
             case R.id.b2PVT:
                 Log.e("Start", "PVT Clicked");
                 if (buttonPrefs.getInt("list1",0) == 0){
 //                if (randSeq.get(1) == 0){
-                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    getActivity().finish();
                     startActivity(intent2);}
                 else {
                     Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    getActivity().finish();
                     startActivity(intent2);}
                 break;
             case R.id.b3PVT:
                 Log.e("Start", "PVT Clicked");
                 if (buttonPrefs.getInt("list2",0) == 0){
 //                if (randSeq.get(2) == 0){
-                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    getActivity().finish();
                     startActivity(intent2);}
                 else {
                     Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    getActivity().finish();
                     startActivity(intent2);}
                 break;
             case R.id.b4PVT:
                 Log.e("Start", "PVT Clicked");
                 if (buttonPrefs.getInt("list3",0) == 0){
 //                if (randSeq.get(3) == 0){
-                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
+                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    getActivity().finish();
                     startActivity(intent2);}
                 else{
                     Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    getActivity().finish();
                     startActivity(intent2);}
                 break;
             case R.id.bSleepLog:
                 Log.e("Start", "Sleep Log Clicked");
                 Intent intent3 = new Intent(getActivity(), SleepLogActivity.class);
+                getActivity().finish();
                 startActivity(intent3);
                 break;
             case R.id.bLEEDS:
                 Log.e("Start", "Leeds Clicked");
                 Intent intent4 = new Intent(getActivity(), LeedsActivity.class);
+                getActivity().finish();
                 startActivity(intent4);
                 break;
             case R.id.bPANAS:
                 Log.e("Start", "Panas Clicked");
                 Intent intent5 = new Intent(getActivity(), PanasActivity.class);
+                getActivity().finish();
                 startActivity(intent5);
                 break;
             case R.id.bJournal:
                 Log.e("Start", "Journal Clicked");
                 Intent intent6 = new Intent(getActivity(), JournalActivity.class);
+                getActivity().finish();
                 startActivity(intent6);
                 break;
         }
@@ -344,6 +359,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
