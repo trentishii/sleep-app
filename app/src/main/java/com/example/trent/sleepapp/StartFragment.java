@@ -99,8 +99,8 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         SharedPreferences.Editor editor = buttonPrefs.edit();
         if (buttonPrefs.getBoolean("StartOfDay",false)) {
             randSeq = new ArrayList<>();
-            randSeq.add(1);
-            randSeq.add(1);
+            randSeq.add(0);
+            randSeq.add(0);
             randSeq.add(1);
             randSeq.add(1);
             Collections.shuffle(randSeq);
@@ -140,8 +140,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 Log.e("Start", "PVT Clicked");
                 if (buttonPrefs.getInt("list0",0) == 0){
 //                if (randSeq.get(0) == 0){
-//                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
-                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
                     getActivity().finish();
                     startActivity(intent2);}
                 else {
@@ -153,7 +152,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 Log.e("Start", "PVT Clicked");
                 if (buttonPrefs.getInt("list1",0) == 0){
 //                if (randSeq.get(1) == 0){
-                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
                     getActivity().finish();
                     startActivity(intent2);}
                 else {
@@ -165,7 +164,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 Log.e("Start", "PVT Clicked");
                 if (buttonPrefs.getInt("list2",0) == 0){
 //                if (randSeq.get(2) == 0){
-                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
                     getActivity().finish();
                     startActivity(intent2);}
                 else {
@@ -177,7 +176,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 Log.e("Start", "PVT Clicked");
                 if (buttonPrefs.getInt("list3",0) == 0){
 //                if (randSeq.get(3) == 0){
-                    Intent intent2 = new Intent(getActivity(), NBackStart.class);
+                    Intent intent2 = new Intent(getActivity(), PVTHome.class);
                     getActivity().finish();
                     startActivity(intent2);}
                 else{

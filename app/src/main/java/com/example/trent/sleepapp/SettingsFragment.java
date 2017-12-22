@@ -98,6 +98,13 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onPause()
+    {
+        super.onPause();
+        getActivity().finish();
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {

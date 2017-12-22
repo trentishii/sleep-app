@@ -60,9 +60,9 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
         SharedPreferences buttonPrefs = getSharedPreferences("btnPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = buttonPrefs.edit();
-        editor.putString("noon", "22:31:00");
-        editor.putString("evening", "22:32:00" );
-        editor.putString("bedtime","22:33:00");
+        editor.putString("noon", "12:00:00");
+        editor.putString("evening", "16:00:00" );
+        editor.putString("bedtime","20:00:00");
         editor.commit();
         try {
             int count = 0;
@@ -232,10 +232,10 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
 
         if (checkPermission()) {
-        //If your app has access to the device’s storage, then print the following message to Android Studio’s Logcat//
+            //If your app has access to the device’s storage, then print the following message to Android Studio’s Logcat//
             Log.e("permission", "Permission already granted.");
         } else {
-        //If your app doesn’t have permission to access external storage, then call requestPermission//
+            //If your app doesn’t have permission to access external storage, then call requestPermission//
             requestPermission();
         }
 
@@ -276,21 +276,21 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
 
     private boolean checkPermission() {
 
-    //Check for READ_EXTERNAL_STORAGE access, using ContextCompat.checkSelfPermission()//
+        //Check for READ_EXTERNAL_STORAGE access, using ContextCompat.checkSelfPermission()//
 
         int result = ContextCompat.checkSelfPermission(UserActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
 
-    //If the app does have this permission, then return true//
+        //If the app does have this permission, then return true//
 
         if (result == PackageManager.PERMISSION_GRANTED) {
-        return true;
+            return true;
         } else {
 
-    //If the app doesn’t have this permission, then return false//
+            //If the app doesn’t have this permission, then return false//
 
-        return false;
+            return false;
         }
-        }
+    }
 
     private void requestPermission() {
 

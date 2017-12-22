@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Log.d(TAG, "TOKEN: " + FirebaseInstanceId.getInstance().getToken());
                     Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);
                     registerIntent.putExtra("isEnabled", true);
-                    finish();
+//                    finish();
                     LoginActivity.this.startActivity(registerIntent);
                 } else {
                     // User is signed out
@@ -321,7 +321,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             editor.putStringSet("journals", journals);
                             editor.commit();
                             Intent registerIntent = new Intent(LoginActivity.this, UserActivity.class);
-                            finish();
+//                            finish();
                             LoginActivity.this.startActivity(registerIntent);
                         }
 

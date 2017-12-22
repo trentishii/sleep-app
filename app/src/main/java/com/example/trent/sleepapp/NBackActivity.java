@@ -69,7 +69,7 @@ public class NBackActivity extends AppCompatActivity {
         private BufferedWriter out = null;
         private long ts = 0;
 //        private int test_duration = 10*1000;
-        private int test_duration = 15*1000;
+        private int test_duration = 2*60*1000;
          private int shape_number = 0;
         private FirebaseUser user;
         private String android_id;

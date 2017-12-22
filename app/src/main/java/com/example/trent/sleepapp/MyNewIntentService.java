@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 
@@ -34,6 +35,8 @@ public class MyNewIntentService extends IntentService {
         builder.setContentText("Please take available tests within the next 4 hour window");
         builder.setSmallIcon(R.drawable.sleep);
         builder.setPriority(Notification.PRIORITY_MAX);
+        builder.setVibrate(new long[] { 1000, 1000});
+        builder.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
         System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Pending Intent set");
         Intent notifyIntent = new Intent(this, UserActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
