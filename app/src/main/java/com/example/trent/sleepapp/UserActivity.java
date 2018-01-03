@@ -62,7 +62,7 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
         SharedPreferences.Editor editor = buttonPrefs.edit();
         editor.putString("noon", "12:00:00");
         editor.putString("evening", "16:00:00" );
-        editor.putString("bedtime","20:00:00");
+        editor.putString("bedtime","20:10:00");
         editor.commit();
         try {
             int count = 0;
@@ -204,6 +204,25 @@ public class UserActivity extends AppCompatActivity implements StartFragment.OnF
         }
 
         Log.e(TAG, "**************onResume called***************");
+
+        setContentView(R.layout.activity_user);
+
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        StartFragment fragment = new StartFragment();
+
+        fragmentTransaction.add(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+        myToolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getApplicationContext(), "Toolbar title clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 

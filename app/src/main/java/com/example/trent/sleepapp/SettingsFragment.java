@@ -101,7 +101,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public void onPause()
     {
         super.onPause();
-        getActivity().finish();
+//        getActivity().finish();
     }
 
     @Override
