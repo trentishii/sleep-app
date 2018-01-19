@@ -99,8 +99,8 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         SharedPreferences.Editor editor = buttonPrefs.edit();
         if (buttonPrefs.getBoolean("StartOfDay",false)) {
             randSeq = new ArrayList<>();
-            randSeq.add(0);
-            randSeq.add(0);
+            randSeq.add(1);
+            randSeq.add(1);
             randSeq.add(1);
             randSeq.add(1);
             Collections.shuffle(randSeq);

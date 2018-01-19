@@ -272,8 +272,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 Calendar evening = Calendar.getInstance();
                 Calendar night  =  Calendar.getInstance();
 
-                morning.set(Calendar.HOUR_OF_DAY, 04);
-                morning.set(Calendar.MINUTE, 00);
+                morning.set(Calendar.HOUR_OF_DAY, 06);
+                morning.set(Calendar.MINUTE, 30);
                 morning.set(Calendar.SECOND, 00);
 
                 noon.set(Calendar.HOUR_OF_DAY, 12);
