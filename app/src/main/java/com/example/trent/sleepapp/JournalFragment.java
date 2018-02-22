@@ -119,7 +119,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Tobacco")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.tobacco);
-                ib.setEnabled(buttonPrefs.getBoolean("bSmoke", true));
+//                ib.setEnabled(buttonPrefs.getBoolean("bSmoke", true));
                 if (! buttonPrefs.getBoolean("bSmoke", true)){
                     ib.setImageResource(R.drawable.tobacco_done);}
                 ib.setLayoutParams(params);
@@ -147,7 +147,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Medicine")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.pill);
-                ib.setEnabled(buttonPrefs.getBoolean("bMedicine", true));
+//                ib.setEnabled(buttonPrefs.getBoolean("bMedicine", true));
                 if (! buttonPrefs.getBoolean("bMedicine", true)){
                     ib.setImageResource(R.drawable.pill_done);}
                 ib.setLayoutParams(params);
@@ -175,7 +175,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Food")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.meal);
-                ib.setEnabled(buttonPrefs.getBoolean("bMeal", true));
+//                ib.setEnabled(buttonPrefs.getBoolean("bMeal", true));
                 if (! buttonPrefs.getBoolean("bMeal", true)){
                     ib.setImageResource(R.drawable.meal_done);}
                 ib.setLayoutParams(params);
@@ -204,7 +204,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Alcohol")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.alcohol);
-                ib.setEnabled(buttonPrefs.getBoolean("bAlcohol", true));
+//                ib.setEnabled(buttonPrefs.getBoolean("bAlcohol", true));
                 if (! buttonPrefs.getBoolean("bAlcohol", true)){
                     ib.setImageResource(R.drawable.alcohol_done);}
                 ib.setLayoutParams(params);
@@ -232,7 +232,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Exercise")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.exercise);
-                ib.setEnabled(buttonPrefs.getBoolean("bExercise", true));
+//                ib.setEnabled(buttonPrefs.getBoolean("bExercise", true));
                 if (! buttonPrefs.getBoolean("bExercise", true)){
                     ib.setImageResource(R.drawable.exercise_done);}
                 ib.setLayoutParams(params);
@@ -260,7 +260,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Coffee")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.coffee);
-                ib.setEnabled(buttonPrefs.getBoolean("bCoffee", true));
+//                ib.setEnabled(buttonPrefs.getBoolean("bCoffee", true));
                 if (! buttonPrefs.getBoolean("bCoffee", true)){
                     ib.setImageResource(R.drawable.coffee_done);}
                 ib.setLayoutParams(params);
@@ -289,7 +289,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Naps")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.nap);
-                ib.setEnabled(buttonPrefs.getBoolean("bNaps", true));
+//                ib.setEnabled(buttonPrefs.getBoolean("bNaps", true));
                 if (! buttonPrefs.getBoolean("bNaps", true)){
                     ib.setImageResource(R.drawable.nap_done);}
                 ib.setLayoutParams(params);
@@ -318,7 +318,7 @@ public class JournalFragment extends Fragment  {
             if (act.equals("Electronics")) {
                 final ImageButton ib = new ImageButton(this.getActivity());
                 ib.setImageResource(R.drawable.electronics);
-                ib.setEnabled(buttonPrefs.getBoolean("bElectronics", true));
+//                ib.setEnabled(buttonPrefs.getBoolean("bElectronics", true));
                 if (! buttonPrefs.getBoolean("bElectronics", true)){
                     ib.setImageResource(R.drawable.electronics_done);}
                 ib.setLayoutParams(params);
@@ -355,7 +355,7 @@ public class JournalFragment extends Fragment  {
                 SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                 try {
                     if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
-                        editor.putBoolean("bJournal", false);
+//                        editor.putBoolean("bJournal", false);
                         editor.putBoolean("JournalDone" , true);
 //                        editor.putBoolean("SleepTimeDone", true);
                         editor.putBoolean("bMedicine", true);
