@@ -85,22 +85,22 @@ public class SSSActivity extends AppCompatActivity {
                     SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                     try {
                         if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
-                            editor.putBoolean("bSSS", false);
+//                            editor.putBoolean("bSSS", false);
                             editor.putBoolean("SSSDone", true);
 //                            editor.putBoolean("WakeTimeDone", true);
                             editor.commit();
                         } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening",null)))) {
-                            editor.putBoolean("b2SSS", false);
+//                            editor.putBoolean("b2SSS", false);
                             editor.putBoolean("SSS2Done", true);
 //                            editor.putBoolean("DayTime1Done", true);
                             editor.commit();
                         } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
-                            editor.putBoolean("b3SSS", false);
+//                            editor.putBoolean("b3SSS", false);
                             editor.putBoolean("SSS3Done", true);
 //                            editor.putBoolean("DayTime2Done", true);
                             editor.commit();
                         } else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
-                            editor.putBoolean("b4SSS", false);
+//                            editor.putBoolean("b4SSS", false);
                             editor.putBoolean("SSS4Done", true);
 //                            editor.putBoolean("SleepTimeDone", true);
                             editor.commit();

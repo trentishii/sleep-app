@@ -118,22 +118,22 @@ public class PVT extends Activity {
 		  SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 			try {
 				if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
-					editor.putBoolean("bPVT", false);
+//					editor.putBoolean("bPVT", false);
 					editor.putBoolean("PVTDone", true);
 //					editor.putBoolean("WakeTimeDone", true);
 					editor.commit();
 				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("noon",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("evening",null)))) {
-					editor.putBoolean("b2PVT", false);
+//					editor.putBoolean("b2PVT", false);
 					editor.putBoolean("PVT2Done", true);
 //					editor.putBoolean("DayTime1Done", true);
 					editor.commit();
 				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("evening",null))) && dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
-					editor.putBoolean("b3PVT", false);
+//					editor.putBoolean("b3PVT", false);
 					editor.putBoolean("PVT3Done", true);
 //					editor.putBoolean("DayTime2Done", true);
 					editor.commit();
 				} else if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
-					editor.putBoolean("b4PVT", false);
+//					editor.putBoolean("b4PVT", false);
 					editor.putBoolean("PVT4Done", true);
 //					editor.putBoolean("SleepTimeDone", true);
 					editor.commit();

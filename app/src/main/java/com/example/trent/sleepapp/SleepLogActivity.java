@@ -46,7 +46,7 @@ public class SleepLogActivity extends AppCompatActivity {
         final SharedPreferences.Editor editor = buttonPrefs.edit();
 
         final ImageButton goToSleepLog = (ImageButton)findViewById(R.id.imageButtonSleep);
-        goToSleepLog.setEnabled(buttonPrefs.getBoolean("bSleep", true));
+//        goToSleepLog.setEnabled(buttonPrefs.getBoolean("bSleep", true));
         if (! buttonPrefs.getBoolean("bSleep", true)){
             goToSleepLog.setImageResource(R.drawable.sleep_done);}
         goToSleepLog.setOnClickListener(new View.OnClickListener(){
@@ -62,7 +62,7 @@ public class SleepLogActivity extends AppCompatActivity {
         });
 
         final ImageButton goToWakeLog = (ImageButton)findViewById(R.id.imageButtonWake);
-        goToWakeLog.setEnabled(buttonPrefs.getBoolean("bWake", true));
+//        goToWakeLog.setEnabled(buttonPrefs.getBoolean("bWake", true));
         if (! buttonPrefs.getBoolean("bWake", true)){
             goToWakeLog.setImageResource(R.drawable.wake_done);}
         goToWakeLog.setOnClickListener(new View.OnClickListener(){
@@ -108,7 +108,7 @@ public class SleepLogActivity extends AppCompatActivity {
                 SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                 try {
                     if (dateFormat.parse(dateString[3]).before(dateFormat.parse(buttonPrefs.getString("noon",null)))) {
-                        editor.putBoolean("bSleepLog", false);
+//                        editor.putBoolean("bSleepLog", false);
                         editor.putBoolean("SleepLogDone" , true);
 //                        editor.putBoolean("WakeTimeDone", true);
                         editor.putBoolean("bSleep", true);

@@ -112,7 +112,7 @@ public class PanasActivity extends AppCompatActivity {
                 SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
                 try {
                     if (dateFormat.parse(dateString[3]).after(dateFormat.parse(buttonPrefs.getString("bedtime",null)))) {
-                        editor.putBoolean("bPANAS", false);
+//                        editor.putBoolean("bPANAS", false);
                         editor.putBoolean("PANASDone" , true);
 //                        editor.putBoolean("SleepTimeDone", true);
                         editor.commit();
